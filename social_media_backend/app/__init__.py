@@ -4,7 +4,6 @@ from .extensions import db, jwt, migrate, mail, cors
 
 def create_app():
     app = Flask(__name__)
-
     app.config.from_object(Config)
 
 

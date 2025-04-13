@@ -16,11 +16,12 @@ def create_app():
     mail.init_app(app)
     cors.init_app(app)
 
-    create_db(app)
 
     #create database
     with app.app_context():
         db.create_all()
+        create_db(app)
+
 
     return app
 

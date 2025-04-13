@@ -1,4 +1,5 @@
 from flask import Flask
+
 from .config import Config
 from .extensions import db, jwt, migrate, mail, cors
 from os import path,environ
@@ -21,3 +22,7 @@ def create_app():
         db.create_all()
 
     return app
+
+def create_db(app):
+
+    is_existDB = null

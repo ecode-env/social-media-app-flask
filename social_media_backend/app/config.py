@@ -3,6 +3,7 @@ from os import environ
 
 load_dotenv()
 
+
 class Config:
     SECRET_KEY = environ.get("SECRET_KEY","eyob-mulugeta")
     SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI","sqlite:///social_media.db")

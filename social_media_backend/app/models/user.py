@@ -36,3 +36,20 @@ class User(db.Model):
         nullable=False
     )
 
+    def to_json(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "f_name": self.f_name,
+            "l_name": self.l_name,
+            "bio": self.bio,
+            "profile_picture_url": self.profile_picture_url,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat(),
+            "last_seen": self.last_seen.isoformat(),
+            "role": self.role.name
+        }
+
+    def __repr__(self):
+        return f"<User {self.username}>"

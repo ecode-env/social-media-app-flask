@@ -16,6 +16,7 @@ def create_app():
     mail.init_app(app)
     cors.init_app(app)
 
+    create_db(app)
 
     #create database
     with app.app_context():
@@ -26,3 +27,4 @@ def create_app():
 def create_db(app):
 
     is_exist_db = environ['SQLALCHEMY_DATABASE_URI']
+    print()

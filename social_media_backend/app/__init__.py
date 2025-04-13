@@ -27,4 +27,4 @@ def create_app():
 def create_db(app):
 
     is_exist_db = environ['SQLALCHEMY_DATABASE_URI']
-    print()
+    print(path.exists(is_exist_db.split('sqlite:///')[-1]))

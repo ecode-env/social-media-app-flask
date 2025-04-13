@@ -25,4 +25,4 @@ def create_app():
 
 def create_db(app):
 
-    is_existDB = null
+    is_exist_db = environ['SQLALCHEMY_DATABASE_URI']

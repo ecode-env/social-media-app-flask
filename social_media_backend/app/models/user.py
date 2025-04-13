@@ -37,6 +37,30 @@ class User(db.Model):
         nullable=False
     )
 
+    # USERS THIS USER IS FOLLOWING (I follow them)
+    following = db.relationship(
+        "Follow",
+        foreign_keys="Follow.follower_id",
+        backref="follower",                 # Follow.follower gives this user
+        lazy=True
+    )
+
+    # USERS WHO FOLLOW THIS USER (they follow me)
+    followers = db.relationship(
+        "Follow",
+        foreign_keys="Follow.following_id",
+        backref="following",
+        lazy=True
+    )
+
+    def get_following_users(self):
+        # Returns list of User objects this user follows
+        return [f.following for f in self.following]
+
+    def get_follower_users(self):
+        # Returns list of User objects who follow this user
+        return [f.follower for f in self.followers]
+
     def to_json(self):
         return {
             "id": self.id,

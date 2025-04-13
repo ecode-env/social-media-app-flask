@@ -8,4 +8,5 @@ class Config:
     SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI","sqlite:///social_media.db")
     JWT_SECRET_KEY = environ.get("JWT_SECRET_KEY","your-jwt-secret")
 
+    SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI", "sqlite:///social_media.db")
     JWT_SECRET_KEY = environ.get("JWT_SECRET_KEY", "fallback-jwt-secret")

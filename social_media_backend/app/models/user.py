@@ -2,6 +2,7 @@ from enum import Enum
 from datetime import datetime, timezone
 from ..extensions import db
 
+# User roles - just for permissions
 class UserRoleEnum(Enum):
     admin = "admin"
     moderator = "moderator"

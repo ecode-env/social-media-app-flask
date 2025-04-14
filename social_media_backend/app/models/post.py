@@ -1,4 +1,4 @@
-from datetime import timezone, datetime
+from datetime import datetime, timezone
 from ..extensions import db
 
 class Post(db.Model):
@@ -7,36 +7,43 @@ class Post(db.Model):
     # Primary key for the Post model
     id: db.Mapped[int] = db.mapped_column(primary_key=True)
 
-    # Foreign key linking to the User model (typo in 'ForeignKey')
+    # Foreign key linking to the User model
     user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'))
 
-    # Text content of the post (cannot be empty)
+    # Optional title field for articles
+    title: db.Mapped[str] = db.mapped_column(db.String(255), nullable=True)
+
+    # Required text content of the post
     content: db.Mapped[str] = db.mapped_column(db.Text, nullable=False)
 
-    # Type of media, e.g., image, video (typo in 'nullable')
-    media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=False)
-
-    # URL where the media is stored
-    media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=False)
+    # Optional media fields: if provided, can be used to store image/video information
+    media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
+    media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
 
     # Timestamp when the post is created
-    created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))
-
-    # Timestamp for the last update
-    updated_at = db.Column(
-        db.DateTime,
-        default=datetime.now(timezone.utc),
-        onupdate=datetime.now(timezone.utc)
+    created_at: db.Mapped[datetime] = db.mapped_column(
+        db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )
 
+    # Timestamp for the last update
+    updated_at: db.Mapped[datetime] = db.mapped_column(
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc)
+    )
+
+    # Relationship: each post has one author (User)
     author = db.relationship('User', back_populates='posts')
 
     def to_json(self):
         return {
-            'id': self.id,
-            'content': self.content,
-            'timestamp': self.timestamp.isoformat(),
-            'user_id': self.user_id,
-            'author': self.author.username,
-            'comment_count': self.comments.count()
+            "id": self.id,
+            "user_id": self.user_id,
+            "title": self.title,
+            "content": self.content,
+            "media_type": self.media_type,
+            "media_url": self.media_url,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
+            "author": self.author.username if self.author else None
         }

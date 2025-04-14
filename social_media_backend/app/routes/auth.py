@@ -71,3 +71,21 @@ def register():
 
     # Hash the password
     hashed_password=hash_password(password)
+
+    # Create the user
+    new_user = User(
+        username=username,
+        email=email,
+        password=hashed_password,
+        f_name=f_name,
+        l_name=l_name,
+        bio=bio,
+        profile_picture_url=profile_picture_url,
+        created_at=datetime.now(timezone.utc),
+        updated_at=datetime.now(timezone.utc),
+        last_seen=datetime.now(timezone.utc),
+        role=UserRoleEnum.user
+    )
+
+    db.session.add(new_user)
+    db.session.commit()

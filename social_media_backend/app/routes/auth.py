@@ -55,3 +55,11 @@ def register():
         validate_email(email, check_deliverability=False)
     except EmailNotValidError as e:
         return jsonify({"message": f"Invalid email address: {str(e)}"}), 400
+
+
+        # Password validation
+    if not is_valid_password(password):
+        return jsonify({
+            'error': 'Password must be at least 8 characters long, with uppercase, '
+                     'lowercase, number, and special character'
+        }), 400

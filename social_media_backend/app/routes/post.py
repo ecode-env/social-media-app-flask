@@ -22,6 +22,7 @@ def get_posts():
 
 
 @posts_bp.route('/create-post', methods=['POST'])
+@jwt_required()
 def create_post():
     data = request.get_json()
     if not data:

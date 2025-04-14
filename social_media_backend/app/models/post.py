@@ -29,5 +29,6 @@ class Post(db.Model):
         onupdate=datetime.now(timezone.utc)
     )
 
+
     user = db.relationship('User', back_populates='posts')
 

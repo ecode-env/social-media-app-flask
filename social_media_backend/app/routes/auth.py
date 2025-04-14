@@ -27,6 +27,8 @@ def is_valid_password(password) -> bool:
     return True
 
 
+
+
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()

@@ -36,7 +36,7 @@ class Post(db.Model):
         onupdate=lambda: datetime.now(timezone.utc)
     )
 
-    # Relationship: each post has one author (User)
+    # Relationships
     author = db.relationship('User', back_populates='posts')
 
     def to_json(self):

@@ -6,8 +6,8 @@ class Post(db.Model):
 
     id: db.Mapped[int] = db.mapped_column(primary_key=True)
 
-    # Foreign key linking to the User model
-    user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'))
+    # User who created the post
+    user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'), nullable=False)
 
     # Optional title field for articles
     title: db.Mapped[str] = db.mapped_column(db.String(255), nullable=True)

@@ -98,3 +98,55 @@ def register():
         "access_token": access_token,
         "user": new_user.to_json()
     }), 201
+
+
+
+#Login
+@auth_bp.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"message": "Missing JSON data"}), 400
+
+    # Extract and normalize input
+    email = data.get('email', '').strip().lower()
+    password = data.get('password')
+
+    # Basic validation
+    if not email or not password:
+        return jsonify({"message": "Missing email or password"}), 400
+
+    # Email format validation
+    try:
+        validate_email(email, check_deliverability=False)
+    except EmailNotValidError as e:
+        return jsonify({"message": f"Invalid email address: {str(e)}"}), 400
+
+    # Find user
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"message": "Email not found"}), 401
+
+    # Verify password
+    if not verify_password(password, user.password):
+        return jsonify({"message": "Incorrect password"}), 401
+
+    # Update last_seen timestamp
+    user.last_seen = datetime.now(timezone.utc)
+    db.session.commit()
+
+    # Generate token
+    try:
+        token = generate_token(user.id)
+        return jsonify({
+            "message": "Login successful",
+            "access_token": token,
+            "expires_in": 86400,
+            "user": user.to_json()
+        }), 200
+    except Exception as e:
+        return jsonify({
+            "message": "Failed to generate token",
+            "error": str(e)
+        }), 500

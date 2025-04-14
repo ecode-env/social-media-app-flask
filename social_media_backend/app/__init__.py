@@ -2,6 +2,10 @@ from flask import Flask
 from .config import Config
 from .extensions import db, jwt, migrate, mail, cors
 from .routes.auth import auth_bp
+from .routes.user import users_bp
+from .routes.message import messages_db
+from .routes.post import posts_bp
+from .routes.comment import comments_bp
 
 def create_app():
     app = Flask(__name__)

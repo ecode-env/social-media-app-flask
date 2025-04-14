@@ -9,7 +9,7 @@ class Post(db.Model):
     # User who created the post
     user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'), nullable=False)
 
-    # Optional title field for articles
+    # Optional article title
     title: db.Mapped[str] = db.mapped_column(db.String(255), nullable=True)
 
     # Required text content of the post

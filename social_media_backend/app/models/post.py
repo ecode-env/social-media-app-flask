@@ -12,8 +12,8 @@ class Post(db.Model):
     # Optional article title
     title: db.Mapped[str] = db.mapped_column(db.String(255), nullable=True)
 
-    # Required text content of the post
-    content: db.Mapped[str] = db.mapped_column(db.Text, nullable=False)
+    # Optional article content
+    content: db.Mapped[str] = db.mapped_column(db.Text, nullable=True)
 
     # Optional media fields: if provided, can be used to store image/video information
     media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)

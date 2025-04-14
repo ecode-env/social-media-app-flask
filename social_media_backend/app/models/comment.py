@@ -12,4 +12,4 @@ class Comment(db.Model):
 
     user = db.relationship('User', backref='comments')
     post = db.relationship('Post', backref='comments')
-    likes = db.relationship('CommentLike', backref='comment', lazy='dynamic')
+    likes = db.relationship('CommentLike', back_populates='comment', lazy='dynamic')

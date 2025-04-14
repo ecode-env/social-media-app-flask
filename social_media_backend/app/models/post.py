@@ -29,6 +29,7 @@ class Post(db.Model):
         onupdate=datetime.now(timezone.utc)
     )
 
+    author = db.relationship('User', back_populates='posts')
 
     user = db.relationship('User', back_populates='posts')
 

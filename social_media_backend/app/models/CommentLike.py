@@ -8,5 +8,5 @@ class CommentLike(db.Model):
     comment_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('comment.id'), primary_key=True)
     created_at: db.Mapped[datetime] = db.mapped_column(db.DateTime, default=datetime.now(timezone.utc))
 
-    user = db.relationship('User', backref='comment_likes')
-    comment = db.relationship('Comment', backref='likes')
+    user = db.relationship('User', back_populates='comment_likes')
+    comment = db.relationship('Comment', back_populates='likes')

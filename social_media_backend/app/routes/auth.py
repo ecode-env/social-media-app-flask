@@ -89,3 +89,12 @@ def register():
 
     db.session.add(new_user)
     db.session.commit()
+
+    # Generate JWT token that expires in 2 days
+    access_token = generate_token(new_user.id)
+
+    return jsonify({
+        "message": "User registered successfully.",
+        "access_token": access_token,
+        "user": new_user.to_json()
+    }), 201

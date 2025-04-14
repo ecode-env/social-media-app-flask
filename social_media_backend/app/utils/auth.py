@@ -10,4 +10,5 @@ def verify_password(password: str, hashed: str) -> bool:
 
 def generate_token(user_id: str) -> str:
     expires = timedelta(hours=24)
+
     return create_access_token(identity=user_id, expires_delta=expires)

@@ -53,5 +53,7 @@ class Post(db.Model):
             "is_flagged": self.is_flagged,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "updated_at": self.updated_at.isoformat() if self.updated_at else None,
-            "author": self.author.username if self.author else None
+            "author": self.author.username if self.author else None,
+            "comment_count": len(self.comments) if self.comments else 0,
+            "like_count": len(self.likes) if self.likes else 0
         }

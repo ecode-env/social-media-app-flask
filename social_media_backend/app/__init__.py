@@ -35,5 +35,6 @@ def create_app():
     with app.app_context():
         db.create_all()
 
+    register_auth_error_handlers(app)
 
     return app

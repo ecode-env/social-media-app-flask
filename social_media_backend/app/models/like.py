@@ -9,4 +9,4 @@ class Like(db.Model):
     created_at: db.Mapped[datetime] = db.mapped_column(db.DateTime, default=datetime.now(timezone.utc))
 
     user = db.relationship('User', back_populates='likes')
-    post = db.relationship('Post', backref='likes')
+    post = db.relationship('Post', back_populates='likes')

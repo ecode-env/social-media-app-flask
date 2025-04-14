@@ -27,7 +27,8 @@ class Post(db.Model):
 
     # Timestamps
     created_at: db.Mapped[datetime] = db.mapped_column(
-        db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
+        db.DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc)
     )
 
     # Timestamp for the last update

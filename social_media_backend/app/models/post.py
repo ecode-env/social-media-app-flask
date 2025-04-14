@@ -15,7 +15,7 @@ class Post(db.Model):
     # Optional article content
     content: db.Mapped[str] = db.mapped_column(db.Text, nullable=True)
 
-    # Optional media fields: if provided, can be used to store image/video information
+    # Optional media (image/video)
     media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
 

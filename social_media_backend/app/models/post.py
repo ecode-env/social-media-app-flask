@@ -19,7 +19,13 @@ class Post(db.Model):
     media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
 
-    # Timestamp when the post is created
+    # Optional post type: "text", "image", "mixed"
+    post_type: db.Mapped[str] = db.mapped_column(db.String(20), nullable=True)
+
+    # Moderation or audit flags
+    is_flagged: db.Mapped[bool] = db.mapped_column(default=False)
+
+    # Timestamps
     created_at: db.Mapped[datetime] = db.mapped_column(
         db.DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )

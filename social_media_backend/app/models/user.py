@@ -53,6 +53,8 @@ class User(db.Model):
         lazy=True
     )
 
+    posts = db.relationship('Post', back_populates='user')
+
     def get_following_users(self):
         # Returns list of User objects this user follows
         return [f.following for f in self.following]

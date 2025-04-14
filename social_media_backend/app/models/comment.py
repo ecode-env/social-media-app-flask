@@ -10,6 +10,6 @@ class Comment(db.Model):
     post_id: db.Mapped[int] = db.mapped_column(db.Integer, db.ForeignKey('post.id'), nullable=False)
     created_at: db.Mapped[datetime] = db.mapped_column(db.DateTime, default=datetime.now(timezone.utc))
 
-    user = db.relationship('User', backref='comments')
-    post = db.relationship('Post', backref='comments')
+    user = db.relationship('User', back_populates='comments')
+    post = db.relationship('Post', back_populates='comments')
     likes = db.relationship('CommentLike', back_populates='comment', lazy='dynamic')

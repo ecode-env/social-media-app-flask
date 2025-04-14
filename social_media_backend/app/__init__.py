@@ -2,12 +2,6 @@ from flask import Flask
 from .config import Config
 from .extensions import db, jwt, migrate, mail, cors
 from .routes.auth import auth_bp
-from .models.user import User
-from .models.post import Post
-from .models.comment import Comment
-from .models.CommentLike import CommentLike
-from .models.like import Like
-from .models.follow import Follow
 
 def create_app():
     app = Flask(__name__)

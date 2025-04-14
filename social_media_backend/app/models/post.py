@@ -31,5 +31,12 @@ class Post(db.Model):
 
     author = db.relationship('User', back_populates='posts')
 
-    user = db.relationship('User', back_populates='posts')
-
+    def to_json(self):
+        return {
+            'id': self.id,
+            'content': self.content,
+            'timestamp': self.timestamp.isoformat(),
+            'user_id': self.user_id,
+            'author': self.author.username,
+            'comment_count': self.comments.count()
+        }

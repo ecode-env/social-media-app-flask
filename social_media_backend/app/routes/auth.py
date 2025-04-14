@@ -49,6 +49,7 @@ def register():
     # Check if username or email already exists
     if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
         return jsonify({"message": "Username or email already exists"}), 409
+
     # Email validation
     try:
         validate_email(email, check_deliverability=False)

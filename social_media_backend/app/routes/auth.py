@@ -63,3 +63,7 @@ def register():
             'error': 'Password must be at least 8 characters long, with uppercase, '
                      'lowercase, number, and special character'
         }), 400
+
+    if profile_picture_url:
+        if not validate_url(profile_picture_url):
+            return jsonify({"message": "Invalid Profile Picture URL"}), 400

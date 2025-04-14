@@ -16,6 +16,11 @@ def create_app():
     mail.init_app(app)
     cors.init_app(app)
 
+    # Register blueprints
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+
+
+
 
     #create database
     with app.app_context():

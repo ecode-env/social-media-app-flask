@@ -19,8 +19,8 @@ class User(db.Model):
     f_name: db.Mapped[str] = db.mapped_column(db.String(100), nullable=False)
     l_name: db.Mapped[str] = db.mapped_column(db.String(100), nullable=False)
 
-    bio: db.Mapped[str] = db.mapped_column(db.String(160))
-    profile_picture_url: db.Mapped[str] = db.mapped_column(db.Text)
+    bio: db.Mapped[str] = db.mapped_column(db.String(500), nullable=True)
+    profile_picture_url: db.Mapped[str] = db.mapped_column(db.Text, nullable=True)
 
     created_at: db.Mapped[datetime] = db.mapped_column(
         db.DateTime, default=datetime.now(timezone.utc)
@@ -55,7 +55,6 @@ class User(db.Model):
         backref="following",
         lazy=True
     )
-
 
     posts = db.relationship('Post', back_populates='author', cascade='all, delete')
 

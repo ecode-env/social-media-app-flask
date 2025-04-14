@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from ..extensions import db
 
 # User roles - just for permissions
-class UserRoleEnum(Enum):
+class UserRoleEnum(str, Enum):  # Inheriting str for easier JSON serialization
     admin = "admin"
     moderator = "moderator"
     user = "user"
@@ -22,14 +22,17 @@ class User(db.Model):
     bio: db.Mapped[str] = db.mapped_column(db.String(160))
     profile_picture_url: db.Mapped[str] = db.mapped_column(db.Text)
 
-    created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))
-    updated_at = db.Column(
+    created_at: db.Mapped[datetime] = db.mapped_column(
+        db.DateTime, default=datetime.now(timezone.utc)
+    )
+    updated_at: db.Mapped[datetime] = db.mapped_column(
         db.DateTime,
         default=datetime.now(timezone.utc),
         onupdate=datetime.now(timezone.utc)
     )
-
-    last_seen = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    last_seen: db.Mapped[datetime] = db.mapped_column(
+        db.DateTime, default=datetime.now(timezone.utc)
+    )
 
     role: db.Mapped[UserRoleEnum] = db.mapped_column(
         db.Enum(UserRoleEnum),
@@ -41,7 +44,7 @@ class User(db.Model):
     following = db.relationship(
         "Follow",
         foreign_keys="Follow.follower_id",
-        backref="follower",                 # Follow.follower gives this user
+        backref="follower",
         lazy=True
     )
 
@@ -53,7 +56,14 @@ class User(db.Model):
         lazy=True
     )
 
-    posts = db.relationship('Post', back_populates='user')
+    # Posts created by this user
+    posts = db.relationship('Post', back_populates='user', lazy=True)
+
+    # Likes on posts made by this user
+    likes = db.relationship('Like', back_populates='user', lazy=True)
+
+    # Likes on comments made by this user
+    comment_likes = db.relationship('CommentLike', back_populates='user', lazy=True)
 
     def get_following_users(self):
         # Returns list of User objects this user follows
@@ -75,7 +85,7 @@ class User(db.Model):
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
             "last_seen": self.last_seen.isoformat(),
-            "role": self.role.name
+            "role": self.role
         }
 
     def __repr__(self):

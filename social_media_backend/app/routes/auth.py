@@ -41,3 +41,7 @@ def register():
     l_name = data.get('l_name')
     bio = data.get('bio')
     profile_picture_url = data.get('profile_picture_url')
+
+    # Basic validation
+    if not all([username, email, password, f_name, l_name]):
+        return jsonify({"message": "Missing required fields"}), 400

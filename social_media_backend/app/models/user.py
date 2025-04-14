@@ -64,6 +64,8 @@ class User(db.Model):
     # Likes on comments made by this user
     comment_likes = db.relationship('CommentLike', back_populates='user', lazy=True)
 
+    comments = db.relationship('Comment', back_populates='user', lazy=True)
+
     def get_following_users(self):
         # Returns list of User objects this user follows
         return [f.following for f in self.following]

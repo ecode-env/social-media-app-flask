@@ -38,10 +38,7 @@ def create_post():
     title = data.get('title')
     post_type = data.get('post_type')
 
-    if not all([user_id, content, media_type, media_url]):
-        return jsonify({"message": "Missing required fields"}), 400
-
-    # Optionally, check that the user exists.
+    # Validate user exists
     user = User.query.get(user_id)
     if not user:
         return jsonify({"message": "User not found"}), 404

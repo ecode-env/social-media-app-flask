@@ -79,15 +79,15 @@ class User(db.Model):
             "email": self.email,
             "f_name": self.f_name,
             "l_name": self.l_name,
-            "bio": self.bio if self.bio else '',
-            "profile_picture_url": self.profile_picture_url,
-            "created_at": self.created_at.isoformat(),
-            "updated_at": self.updated_at.isoformat(),
-            "last_seen": self.last_seen.isoformat(),
+            "bio": self.bio or '',
+            "profile_picture_url": self.profile_picture_url or '',
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
+            "last_seen": self.last_seen.isoformat() if self.last_seen else None,
             "role": self.role,
-            "post_count": len(self.posts),
-            "following_count": len(self.following),
-            "followers_count": len(self.followers)
+            "post_count": len(self.posts) if self.posts else 0,
+            "following_count": len(self.following) if self.following else 0,
+            "followers_count": len(self.followers) if self.followers else 0
         }
 
     def __repr__(self):

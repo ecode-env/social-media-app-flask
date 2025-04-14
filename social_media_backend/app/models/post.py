@@ -4,7 +4,6 @@ from ..extensions import db
 class Post(db.Model):
     __tablename__ = 'post'
 
-    # Primary key for the Post model
     id: db.Mapped[int] = db.mapped_column(primary_key=True)
 
     # Foreign key linking to the User model

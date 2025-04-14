@@ -32,7 +32,6 @@ def create_app():
     #create database
     with app.app_context():
         db.create_all()
-        create_db(app)
 
 
     return app

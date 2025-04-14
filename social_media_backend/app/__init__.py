@@ -1,8 +1,6 @@
 from flask import Flask
 from .config import Config
 from .extensions import db, jwt, migrate, mail, cors
-from os import path,environ
-from .routes.auth import auth_bp
 from .routes.auth import auth_bp
 from .models.user import User
 from .models.post import Post

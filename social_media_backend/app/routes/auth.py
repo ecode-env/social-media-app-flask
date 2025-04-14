@@ -45,3 +45,7 @@ def register():
     # Basic validation
     if not all([username, email, password, f_name, l_name]):
         return jsonify({"message": "Missing required fields"}), 400
+
+    # Check if username or email already exists
+    if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
+        return jsonify({"message": "Username or email already exists"}), 409

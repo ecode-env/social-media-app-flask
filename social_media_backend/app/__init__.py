@@ -21,6 +21,9 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(users_bp, url_prefix='/users')
+    app.register_blueprint(posts_bp, url_prefix='/posts')
+    app.register_blueprint(comments_bp, url_prefix='/comments')
 
 
 

@@ -68,3 +68,6 @@ def register():
     if profile_picture_url:
         if not validate_url(profile_picture_url):
             return jsonify({"message": "Invalid Profile Picture URL"}), 400
+
+    # Hash the password
+    hashed_password=hash_password(password)

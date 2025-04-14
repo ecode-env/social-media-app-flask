@@ -28,7 +28,10 @@ def create_post():
     if not data:
         return jsonify({"message": "Missing JSON data"}), 400
 
-    user_id = data.get('user_id')
+    # Get user_id from JWT
+    user_id = get_jwt_identity()
+
+    # Optional fields based on model
     content = data.get('content')
     media_type = data.get('media_type')
     media_url = data.get('media_url')

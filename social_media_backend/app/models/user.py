@@ -56,7 +56,7 @@ class User(db.Model):
         lazy=True
     )
 
-    posts = db.relationship('Post', back_populates='author', cascade='all, delete')
+    posts = db.relationship('Post', back_populates='author', cascade='all, delete', lazy=True)
 
     # Likes on posts made by this user
     likes = db.relationship('Like', back_populates='user', lazy=True)

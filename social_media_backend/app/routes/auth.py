@@ -64,6 +64,7 @@ def register():
                      'lowercase, number, and special character'
         }), 400
 
+    # Validate the profile picture URL if provided
     if profile_picture_url:
         if not validate_url(profile_picture_url):
             return jsonify({"message": "Invalid Profile Picture URL"}), 400

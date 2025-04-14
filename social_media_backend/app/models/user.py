@@ -56,8 +56,8 @@ class User(db.Model):
         lazy=True
     )
 
-    # Posts created by this user
-    posts = db.relationship('Post', back_populates='user', lazy=True)
+
+    posts = db.relationship('Post', back_populates='author', cascade='all, delete')
 
     # Likes on posts made by this user
     likes = db.relationship('Like', back_populates='user', lazy=True)
@@ -80,12 +80,15 @@ class User(db.Model):
             "email": self.email,
             "f_name": self.f_name,
             "l_name": self.l_name,
-            "bio": self.bio,
+            "bio": self.bio if self.bio else '',
             "profile_picture_url": self.profile_picture_url,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
             "last_seen": self.last_seen.isoformat(),
-            "role": self.role
+            "role": self.role,
+            "post_count": len(self.posts),
+            "following_count": len(self.following),
+            "followers_count": len(self.followers)
         }
 
     def __repr__(self):

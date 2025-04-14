@@ -138,7 +138,7 @@ def login():
 
     # Generate token
     try:
-        token = generate_token(user.id)
+        token = generate_token(str(user.id))
         return jsonify({
             "message": "Login successful",
             "access_token": token,

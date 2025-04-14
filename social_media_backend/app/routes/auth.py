@@ -33,6 +33,7 @@ def is_valid_password(password) -> bool:
 def register():
     data = request.get_json()
 
+    # Extract input
     username = data.get('username')
     email = data.get('email')
     password = data.get('password')

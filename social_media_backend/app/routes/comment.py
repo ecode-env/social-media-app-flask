@@ -71,3 +71,18 @@ def like_comment(comment_id):
         'is_liked': is_liked
     }), 200
 
+@comments_bp.route('/<int:comment_id>/delete', methods=['DELETE'])
+@jwt_required()
+def delete_comment(comment_id):
+    current_user_id = get_jwt_identity()
+    comment = Comment.query.get_or_404(comment_id)
+
+
+    if comment.user_id != int(current_user_id):
+        return jsonify({'error': 'Unauthorized'}), 403
+
+    db.session.delete(comment)
+    db.session.commit()
+
+    return jsonify({'message': 'Comment deleted successfully', 'success': True}), 200
+

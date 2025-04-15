@@ -18,7 +18,7 @@ def create_comment(post_id):
     if not content:
         return jsonify({'error': 'Comment content is required'}), 400
 
-    comment = Comment(content=content, user_id=current_user.id, post_id=post_id)
+    comment = Comment(content=content, user_id=current_id, post_id=post_id)
     db.session.add(comment)
     db.session.commit()
 

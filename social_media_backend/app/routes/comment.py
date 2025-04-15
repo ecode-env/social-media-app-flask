@@ -22,7 +22,7 @@ def create_comment(post_id):
     db.session.add(comment)
     db.session.commit()
 
-    return jsonify(comment.serialize(current_user.id)), 201
+    return jsonify(comment.serialize(current_id)), 201
 
 
 # Get all comments of a post with pagination

@@ -52,7 +52,9 @@ def get_comments(post_id):
 @comments_bp.route('/<int:comment_id>/like', methods=['POST'])
 @jwt_required()
 def like_comment(comment_id):
-    existing_like = CommentLike.query.filter_by(comment_id=comment_id, user_id=current_user.id).first()
+    current_id=get_jwt_identity()
+
+    existing_like = CommentLike.query.filter_by(comment_id=comment_id, user_id=current_id).first()
 
     if existing_like:
         db.session.delete(existing_like)

@@ -12,8 +12,12 @@ class Comment(db.Model):
 
     user = db.relationship('User', back_populates='comments')
     post = db.relationship('Post', back_populates='comments')
-    likes = db.relationship('CommentLike', back_populates='comment', lazy='dynamic')
-
+    likes = db.relationship(
+        'CommentLike',
+        back_populates='comment',
+        lazy='dynamic',
+        cascade='all, delete-orphan'
+    )
 
     def serialize(self, current_user_id=None):
         return {

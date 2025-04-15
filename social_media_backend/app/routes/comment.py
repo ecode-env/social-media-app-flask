@@ -43,3 +43,25 @@ def get_comments(post_id):
         'pages': pagination.pages,
         'current_page': pagination.page
     }), 200
+
+
+# Like or Unlike a comment
+@comments_bp.route('/comments/<int:comment_id>/like', methods=['POST'])
+@jwt_required()
+def like_comment(comment_id):
+    existing_like = CommentLike.query.filter_by(comment_id=comment_id, user_id=current_user.id).first()
+
+    if existing_like:
+        db.session.delete(existing_like)
+        is_liked = False
+    else:
+        new_like = CommentLike(user_id=current_user.id, comment_id=comment_id)
+        db.session.add(new_like)
+        is_liked = True
+
+    db.session.commit()
+
+    return jsonify({
+        'message': 'Comment liked' if is_liked else 'Comment unliked',
+        'is_liked': is_liked
+    }), 200

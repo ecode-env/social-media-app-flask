@@ -13,3 +13,16 @@ class Comment(db.Model):
     user = db.relationship('User', back_populates='comments')
     post = db.relationship('Post', back_populates='comments')
     likes = db.relationship('CommentLike', back_populates='comment', lazy='dynamic')
+
+
+    def serialize(self, current_user_id=None):
+        return {
+            'id': self.id,
+            'content': self.content,
+            'user_id': self.user_id,
+            'post_id': self.post_id,
+            'created_at': self.created_at.isoformat(),
+            'likes_count': self.likes.count(),
+            'is_liked_by_user': self.likes.filter_by(user_id=current_user_id).first() is not None if current_user_id else False
+        }
+

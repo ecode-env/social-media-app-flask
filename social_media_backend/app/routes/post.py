@@ -17,13 +17,11 @@ logging.basicConfig(level=logging.ERROR)
 
 posts_bp = Blueprint('posts', __name__)
 
-
 @posts_bp.route('/', methods=['GET'])
 def get_posts():
-    # Get latest posts; you might add pagination in a real application
+    # Retrieve the latest posts; consider adding pagination for more scalability.
     posts = Post.query.order_by(Post.created_at.desc()).all()
-    # Convert posts to JSON including media_url information
-    return jsonify([p.to_json() for p in posts] if posts else {'msg':'No Post Yet'}), 200
+    return jsonify([p.to_json() for p in posts] if posts else {'msg': 'No Post Yet'}), 200
 
 
 @posts_bp.route('/create-post', methods=['POST'])

@@ -13,6 +13,7 @@ comments_bp = Blueprint('comments', __name__)
 def create_comment(post_id):
     data = request.get_json()
     content = data.get('content')
+    current_id=get_jwt_identity()
 
     if not content:
         return jsonify({'error': 'Comment content is required'}), 400

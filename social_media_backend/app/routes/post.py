@@ -27,51 +27,54 @@ def get_posts():
 @posts_bp.route('/create-post', methods=['POST'])
 @jwt_required()
 def create_post():
-    data = request.get_json()
-    if not data:
-        return jsonify({"message": "Missing JSON data"}), 400
-
-    # Get user_id from JWT
+    # Get the ID of the current user from the JWT.
     user_id = get_jwt_identity()
 
-    # Optional fields based on model
-    content = data.get('content')
-    media_type = data.get('media_type')
-    media_url = data.get('media_url')
-    title = data.get('title')
-    post_type = data.get('post_type')
-
-    # Validate user exists
+    # Validate that the user exists.
     user = User.query.get(user_id)
     if not user:
-        return jsonify({"message": "User not found"}), 404
+        return jsonify({'message': 'User not found'}), 404
 
-    # Ensure at least content or title is provided (for article-only posts)
-    if not content and not title:
-        return jsonify({"message": "At least title or content is required"}), 400
+    # Get form data.
+    content = request.form.get('content')
+    title = request.form.get('title')
+    media_file = request.files.get('media')
 
-    # Validate media_type if provided
-    if media_type:
-        if media_type not in ['image', 'video']:
-            return jsonify({"message": "Invalid media_type. Must be 'image' or 'video'"}), 400
-        # Ensure media_url is provided if media_type is set
-        if not media_url:
-            return jsonify({"message": "media_url is required when media_type is provided"}), 400
-    # If media_url is provided without media_type, reject
-    elif media_url:
-        return jsonify({"message": "media_type is required when media_url is provided"}), 400
+    media_url = None
+    media_type = None
 
-    # Infer post_type if not provided
-    if not post_type:
-        if content and not media_url:
-            post_type = 'text'
-        elif media_url and not content:
-            post_type = media_type
-        elif content and media_url:
-            post_type = 'mixed'
+    # Handle media file upload if provided.
+    if media_file:
+        if allowed_file(media_file.filename):
+            original_filename = secure_filename(media_file.filename)
+            unique_filename = f"{uuid.uuid4().hex}_{original_filename}"
+            upload_folder = current_app.config.get('UPLOAD_FOLDER', 'static/uploads')
+            file_path = os.path.join(upload_folder, unique_filename)
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            media_file.save(file_path)
+            media_url = f"static/uploads/{unique_filename}"
+            media_type = get_media_type(unique_filename)
+            if not media_type:
+                return jsonify({"message": "Unsupported media file type"}), 400
         else:
-            post_type = 'text'
+            return jsonify({"message": "Invalid file type"}), 400
 
+    # Validate the provided data and determine the type of post.
+    if content and not title:
+        return jsonify({"message": "Title is required for article posts"}), 400
+
+    if title and not content and not media_url:
+        post_type = 'text'  # Title only.
+    elif title and content and media_url:
+        post_type = 'mixed'  # Title, content, and media.
+    elif title and not content and media_url:
+        post_type = 'mixed'  # Title and media.
+    elif not title and not content and media_url:
+        post_type = 'media'  # Media only.
+    else:
+        post_type = 'text'  # Title with or without content and no media.
+
+    # Create the post record in the database.
     try:
         new_post = Post(
             user_id=user_id,
@@ -85,6 +88,14 @@ def create_post():
         db.session.add(new_post)
         db.session.commit()
         return jsonify(new_post.to_json()), 201
+
+    # Catch database-related errors.
+    except SQLAlchemyError as db_err:
+        logging.error(f"Database error when creating post for user {user_id}: {db_err}")
+        db.session.rollback()
+        return jsonify({"message": "Database error occurred"}), 500
+
+    # Catch any other unexpected errors.
     except Exception as e:
         db.session.rollback()
         return jsonify({"message": f"Failed to create post: {str(e)}"}), 500

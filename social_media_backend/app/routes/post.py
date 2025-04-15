@@ -99,7 +99,7 @@ def create_post():
     except Exception as e:
         logging.error(f"Unexpected error when creating post for user {user_id}: {e}")
         db.session.rollback()
-        return jsonify({"message": f"Failed to create post: {str(e)}"}), 500
+        return jsonify({"message": "Failed to create post"}), 500
 
 
 @posts_bp.route("/<int:post_id>/like", methods=["POST"])

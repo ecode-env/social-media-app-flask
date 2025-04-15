@@ -60,7 +60,7 @@ def like_comment(comment_id):
         db.session.delete(existing_like)
         is_liked = False
     else:
-        new_like = CommentLike(user_id=current_user.id, comment_id=comment_id)
+        new_like = CommentLike(user_id=current_id, comment_id=comment_id)
         db.session.add(new_like)
         is_liked = True
 

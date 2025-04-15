@@ -13,3 +13,8 @@ class Config:
 
     # JWT secret key for token signing
     JWT_SECRET_KEY = environ.get("JWT_SECRET_KEY", "fallback-jwt-secret-key")
+
+    # Uploads
+    UPLOAD_FOLDER = environ.get("UPLOAD_FOLDER", "social_media_backend/static/uploads")
+
+    STORAGE_BACKEND = environ.get('STORAGE_BACKEND', 'local')

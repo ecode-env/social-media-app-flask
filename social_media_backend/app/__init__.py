@@ -6,6 +6,7 @@ from .routes.user import users_bp
 from .routes.message import messages_db
 from .routes.post import posts_bp
 from .routes.comment import comments_bp
+from .routes.admin import admin_bp
 from .error_handlers.auth_errors import register_auth_error_handlers
 
 

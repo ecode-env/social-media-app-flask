@@ -1,0 +1,47 @@
+# Python-related ignores
+*.py[cod]
+*$py.class
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environment folders (adjust as needed)
+.venv/
+venv/
+ENV/
+env/
+
+# Flask specific (if using instance folders for configuration)
+instance/
+
+# Environment files (optional, if you have sensitive info)
+.env
+*.env
+
+# Gitignore for Node/Vite/React frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+dist/
+.cache/
+*.local
+
+# Optional: if you use Vite preview or build artifacts
+.vite/
+.vitepress/
+
+# JetBrains IDEs (e.g., PyCharm)
+.idea/
+*.iml
+
+# OS-specific files
+.DS_Store
+Thumbs.db

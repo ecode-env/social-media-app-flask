@@ -5,7 +5,7 @@ load_dotenv()
 
 class Config:
     # Database configuration
-    SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI", f"sqlite:///m/social_media.db")
+    SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI", f"sqlite:///social_media.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Flask secret key for securely signing cookies

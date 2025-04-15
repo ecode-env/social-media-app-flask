@@ -12,7 +12,8 @@ from ..models.post import Post
 from ..models.user import User
 from ..extensions import db
 
-
+# Configure logging to print ERROR-level messages (or higher) to the console.
+logging.basicConfig(level=logging.ERROR)
 
 posts_bp = Blueprint('posts', __name__)
 

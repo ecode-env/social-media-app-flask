@@ -22,3 +22,24 @@ def create_comment(post_id):
     db.session.commit()
 
     return jsonify(comment.serialize(current_user.id)), 201
+
+
+# Get all comments of a post with pagination
+@comments_bp.route('/<int:post_id>/comments', methods=['GET'])
+@jwt_required(optional=True)
+def get_comments(post_id):
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('limit', 10, type=int)
+
+    pagination = Comment.query.filter_by(post_id=post_id)\
+        .order_by(Comment.created_at.desc())\
+        .paginate(page=page, per_page=per_page, error_out=False)
+
+    comments = [comment.serialize(current_user.id if current_user else None) for comment in pagination.items]
+
+    return jsonify({
+        'comments': comments,
+        'total': pagination.total,
+        'pages': pagination.pages,
+        'current_page': pagination.page
+    }), 200

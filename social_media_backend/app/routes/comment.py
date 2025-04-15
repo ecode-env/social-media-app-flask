@@ -49,7 +49,7 @@ def get_comments(post_id):
 
 
 # Like or Unlike a comment
-@comments_bp.route('/comments/<int:comment_id>/like', methods=['POST'])
+@comments_bp.route('/<int:comment_id>/like', methods=['POST'])
 @jwt_required()
 def like_comment(comment_id):
     existing_like = CommentLike.query.filter_by(comment_id=comment_id, user_id=current_user.id).first()

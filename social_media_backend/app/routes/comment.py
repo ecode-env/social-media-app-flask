@@ -8,7 +8,7 @@ comments_bp = Blueprint('comments', __name__)
 
 
 # Create a comment on a post
-@comments_bp.route('/<int:post_id>/comments', methods=['POST'])
+@comments_bp.route('/<int:post_id>/create-comment', methods=['POST'])
 @jwt_required()
 def create_comment(post_id):
     data = request.get_json()

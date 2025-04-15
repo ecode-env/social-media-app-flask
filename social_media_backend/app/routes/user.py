@@ -10,7 +10,7 @@ users_bp = Blueprint('users',__name__)
 
 
 @users_bp.route('/<username>/profile', methods=['GET'])
-@jwt_required(optional=True)
+@jwt_required()
 def get_user_profile(username):
     user = User.query.filter_by(username=username).first_or_404()
     current_user_id = get_jwt_identity()

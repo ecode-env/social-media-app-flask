@@ -95,7 +95,6 @@ def like_post(post_id):
     # Check if the user already liked this post
     already_liked = Like.query.filter_by(user_id=user_id, post_id=post_id).first()
 
-
     if already_liked:
         # Unlike the post
         db.session.delete(already_liked)

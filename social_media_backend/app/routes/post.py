@@ -4,6 +4,7 @@ import logging
 from datetime import datetime, timezone
 from flask import Blueprint, jsonify, request, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from ..utils.helpers import allowed_file,get_media_type
 from sqlalchemy.exc import SQLAlchemyError
 from ..models.like import Like
 from ..models.post import Post

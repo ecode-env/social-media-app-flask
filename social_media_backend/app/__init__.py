@@ -26,10 +26,7 @@ def create_app():
     app.register_blueprint(users_bp, url_prefix='/users')
     app.register_blueprint(posts_bp, url_prefix='/posts')
     app.register_blueprint(comments_bp, url_prefix='/comments')
-
-
-
-
+    app.register_blueprint(messages_db, url_prefix='/messages')
 
     #create database
     with app.app_context():

@@ -65,3 +65,4 @@ def like_comment(comment_id):
         'message': 'Comment liked' if is_liked else 'Comment unliked',
         'is_liked': is_liked
     }), 200
+

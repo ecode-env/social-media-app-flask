@@ -97,6 +97,7 @@ def create_post():
 
     # Catch any other unexpected errors.
     except Exception as e:
+        logging.error(f"Unexpected error when creating post for user {user_id}: {e}")
         db.session.rollback()
         return jsonify({"message": f"Failed to create post: {str(e)}"}), 500
 

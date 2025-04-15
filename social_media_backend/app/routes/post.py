@@ -132,3 +132,22 @@ def like_post(post_id):
             db.session.rollback()
             return jsonify({"error": "Failed to like post"}), 500
 
+# Delete post
+
+@posts_bp.route('/<int:post_id>/delete-post', methods=['DELETE'])
+@jwt_required()
+def delete_post(post_id):
+    current_user_id = get_jwt_identity()
+    current_user = User.query.get(current_user_id)
+    print(current_user.username)
+
+    post = Post.query.get_or_404(post_id)
+
+    # Check if the current user is admin or the owner of the post
+    if current_user.role != 'admin' and post.author.id != current_user.id:
+        return jsonify({"error": "You are not authorized to delete this post"}), 403
+
+    db.session.delete(post)
+    db.session.commit()
+    return jsonify({"msg": "Post deleted successfully"}), 200
+

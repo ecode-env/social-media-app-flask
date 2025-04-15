@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_jwt_extended import jwt_required
-from ..utils.decorators import admin_required
+from ..utils.permissions import admin_required
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
 

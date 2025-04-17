@@ -8,6 +8,7 @@
   color: var(--text-color);
 }
 
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -39,10 +40,8 @@
   font-size: 1.2rem;
   background: transparent;
   border: none;
-  padding: 0 0.5rem;
+  padding: 0.3em 0.5em;
   outline: none !important;
-
-
     border: 0 !important;
 
 }

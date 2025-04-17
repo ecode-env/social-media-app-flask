@@ -1,0 +1,51 @@
+/* header-specific styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links .welcome {
+  margin: 0 0.5rem;
+  font-weight: 500;
+}
+
+.btn {
+  border: none;
+  background: var(--button-bg);
+  color: var(--text-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 1px var(--button-border-hover);
+
+}
+
+.theme-toggle {
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  padding: 0 0.5rem;
+  outline: none !important;
+
+
+    border: 0 !important;
+
+}
+.btn {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}

@@ -1,11 +1,12 @@
 /* index.css */
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #EDEADE;
   --text-color: #213547;
   --link-color: #646cff;
   --link-hover: #747bff;
   --button-bg: #f9f9f9;
   --button-border-hover: #646cff;
+  --same: black;
 }
 
 .dark-theme {
@@ -15,6 +16,7 @@
   --link-hover: #535bf2;
   --button-bg: #1a1a1a;
   --button-border-hover: #646cff;
+    --same: white;
 }
 
 html {

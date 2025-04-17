@@ -35,6 +35,7 @@ a {
   color: var(--link-color);
   text-decoration: inherit;
 }
+
 a:hover {
   color: var(--link-hover);
 }

@@ -50,9 +50,16 @@ export default function Header() {
                 <Link to="/notification">
                     <NotificationsOutlinedIcon fontSize="large" />
                 </Link>
-                <Link to="/search">
-                    <SearchOutlinedIcon fontSize="large" />
-                </Link>
+                <div className="search-bar">
+      <input
+        type="text"
+        placeholder="Search..."
+        className="search-input"
+      />
+      <Link to="/search" className="search-icon">
+        <SearchOutlinedIcon fontSize="medium" />
+      </Link>
+    </div>
                 <button
                     onClick={toggleTheme}
                     className="btn theme-toggle"

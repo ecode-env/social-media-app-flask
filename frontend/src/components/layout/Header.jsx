@@ -12,59 +12,59 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import '../../styles/header.css';
 
 export default function Header() {
-  const { user, logout } = useAuth();
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { user, logout } = useAuth();
+    const { theme, toggleTheme } = useContext(ThemeContext);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  return (
-    <header className="header">
-        <Link to='/' >
-      <h1> <img className='logo' src='../../../public/images/logo.png'  alt='logo '/> </h1>
-        </Link>
-      {/* Mobile Menu Toggle */}
-      <button
-        className="mobile-menu-toggle"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle navigation menu"
-      >
-        {isMobileMenuOpen ? '✕' : '☰'}
-      </button>
-
-      {/* Navigation Links */}
-      <nav className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-        <Link to="/"><HomeOutlinedIcon fontSize="large" /></Link>
-        <Link to="/chat"><ChatBubbleOutlineOutlinedIcon fontSize="large" /></Link>
-        <Link to="/groups"><GroupOutlinedIcon fontSize="large" /></Link>
-
-        {user ? (
-          <>
-            <span className="welcome">Welcome, {user.username}</span>
-            <button onClick={logout} className="btn logout">
-              <PersonRemoveOutlinedIcon fontSize="large" />
+    return (
+        <header className="header">
+            <Link to='/' >
+                <h1> <img className='logo' src='../../../public/images/logo.png'  alt='logo '/> </h1>
+            </Link>
+            {/* Mobile Menu Toggle */}
+            <button
+                className="mobile-menu-toggle"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+            >
+                {isMobileMenuOpen ? '✕' : '☰'}
             </button>
-          </>
-        ) : (
-          <Link to="/login" className="login">
-            <PersonAddOutlinedIcon fontSize="large" />
-          </Link>
-        )}
 
-        <Link to="/notification">
-          <NotificationsOutlinedIcon fontSize="large" />
-        </Link>
+            {/* Navigation Links */}
+            <nav className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+                <Link to="/"><HomeOutlinedIcon fontSize="large" /></Link>
+                <Link to="/chat"><ChatBubbleOutlineOutlinedIcon fontSize="large" /></Link>
+                <Link to="/groups"><GroupOutlinedIcon fontSize="large" /></Link>
 
-        <Link to="/search">
-          <SearchOutlinedIcon fontSize="large" />
-        </Link>
+                {user ? (
+                    <>
+                        <span className="welcome">Welcome, {user.username}</span>
+                        <button onClick={logout} className="btn logout">
+                            <PersonRemoveOutlinedIcon fontSize="large" />
+                        </button>
+                    </>
+                ) : (
+                    <Link to="/login" className="login">
+                        <PersonAddOutlinedIcon fontSize="large" />
+                    </Link>
+                )}
 
-        <button
-          onClick={toggleTheme}
-          className="btn theme-toggle"
-          aria-label="Toggle dark/light mode"
-        >
-          {theme === 'light' ? '🌙' : '☀️'}
-        </button>
-      </nav>
-    </header>
-  );
+                <Link to="/notification">
+                    <NotificationsOutlinedIcon fontSize="large" />
+                </Link>
+
+                <Link to="/search">
+                    <SearchOutlinedIcon fontSize="large" />
+                </Link>
+
+                <button
+                    onClick={toggleTheme}
+                    className="btn theme-toggle"
+                    aria-label="Toggle dark/light mode"
+                >
+                    {theme === 'light' ? '🌙' : '☀️'}
+                </button>
+            </nav>
+        </header>
+    );
 }

@@ -98,6 +98,7 @@ const LoginForm = () => {
         </button>
       </div>
     </div>
+      </div>
   );
 };
 

@@ -48,7 +48,6 @@ export default function Header() {
                         <PersonAddOutlinedIcon fontSize="large" />
                     </Link>
                 )}
-
                 <Link to="/notification">
                     <NotificationsOutlinedIcon fontSize="large" />
                 </Link>

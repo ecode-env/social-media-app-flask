@@ -12,7 +12,6 @@ const LoginForm = () => {
   };
 
 
-
   return (
       <div className='login-flex-form'>
         <div className="form-container">

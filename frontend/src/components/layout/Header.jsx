@@ -20,7 +20,6 @@ export default function Header() {
     <header className="header">
         <Link to='/' >
       <h1> <img className='logo' src='../../../public/images/logo.png'  alt='logo '/> </h1>
-
         </Link>
       {/* Mobile Menu Toggle */}
       <button

@@ -29,7 +29,6 @@ export default function Header() {
             >
                 {isMobileMenuOpen ? '✕' : '☰'}
             </button>
-
             {/* Navigation Links */}
             <nav className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
                 <Link to="/"><HomeOutlinedIcon fontSize="large" /></Link>

@@ -41,6 +41,7 @@ const LoginForm = () => {
           Log in
         </button>
       </form>
+
       <p className="sign-up-label">
         Don't have an account?{" "}
         <a href="/signup" className="sign-up-link">

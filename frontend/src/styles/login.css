@@ -10,8 +10,8 @@
 }
 .login-flex-form {
   display: flex;
-  background-color: black;
-  width:calc( 100vw - 60px);
+  margin: 0 auto;
+  height: 80vh;
   justify-content: center;
   align-items: center;
 }

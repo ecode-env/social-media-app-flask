@@ -112,6 +112,10 @@ h1 .logo {
     display: none;
   }
 }
+/*Search bar*/
+.search-bar {
+  display: flex;
+  align-items: center;
 
 @media (max-width: 480px) {
   .header h1 {

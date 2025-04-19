@@ -12,7 +12,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="form-container">
+      <div className='login-flex-form'>
+        <div className="form-container">
       <p className="title">Welcome back</p>
       <form className="form" onSubmit={handleSubmit}>
         <input

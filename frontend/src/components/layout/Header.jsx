@@ -53,7 +53,6 @@ export default function Header() {
                 <Link to="/search">
                     <SearchOutlinedIcon fontSize="large" />
                 </Link>
-
                 <button
                     onClick={toggleTheme}
                     className="btn theme-toggle"

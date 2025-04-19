@@ -35,7 +35,6 @@ export default function Header() {
                 <Link to="/"><HomeOutlinedIcon fontSize="large" /></Link>
                 <Link to="/chat"><ChatBubbleOutlineOutlinedIcon fontSize="large" /></Link>
                 <Link to="/groups"><GroupOutlinedIcon fontSize="large" /></Link>
-
                 {user ? (
                     <>
                         <span className="welcome">Welcome, {user.username}</span>

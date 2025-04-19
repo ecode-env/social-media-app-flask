@@ -47,6 +47,7 @@ const LoginForm = () => {
           Sign up
         </a>
       </p>
+          
       <div className="buttons-container">
         <button className="apple-login-button">
           <svg

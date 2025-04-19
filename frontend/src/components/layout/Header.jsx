@@ -49,7 +49,6 @@ export default function Header() {
                 <Link to="/notification">
                     <NotificationsOutlinedIcon fontSize="large" />
                 </Link>
-
                 <Link to="/search">
                     <SearchOutlinedIcon fontSize="large" />
                 </Link>

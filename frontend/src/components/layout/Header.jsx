@@ -4,6 +4,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { ThemeContext } from '../../context/ThemeContext';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
+import PersonIcon from '@mui/icons-material/Person';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import PersonRemoveOutlinedIcon from '@mui/icons-material/PersonRemoveOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';

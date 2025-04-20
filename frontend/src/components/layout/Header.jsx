@@ -13,6 +13,7 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import '../../styles/header.css';
 
 
+
 export default function Header() {
     const { user, logout } = useAuth();
     const { theme, toggleTheme } = useContext(ThemeContext);

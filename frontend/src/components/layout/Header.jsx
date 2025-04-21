@@ -16,7 +16,6 @@ export default function Header() {
     const { user, logout } = useAuth();
     const { theme, toggleTheme } = useContext(ThemeContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
     return (
         <header className="header">
             <Link to='/' >

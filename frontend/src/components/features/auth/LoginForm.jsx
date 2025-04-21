@@ -12,7 +12,6 @@ const LoginForm = () => {
     console.log('Email:', email, 'Password:', password);
   };
 
-
   return (
       <div className='login-flex-form'>
         <div className="form-container">

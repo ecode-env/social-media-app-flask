@@ -12,7 +12,6 @@ import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import '../../styles/header.css';
 
-
 export default function Header() {
     const { user, logout } = useAuth();
     const { theme, toggleTheme } = useContext(ThemeContext);

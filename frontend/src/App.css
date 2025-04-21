@@ -17,6 +17,7 @@
 .logo:hover {
   filter: drop-shadow(0 0 2em var(--link-hover)aa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }

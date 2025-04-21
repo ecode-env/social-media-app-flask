@@ -10,6 +10,7 @@ export function useAuth() {
 
   const { user, setUser } = context;
 
+
   const login = async (email, password) => {
     try {
       const response = await api.post('/auth/login', { email, password });

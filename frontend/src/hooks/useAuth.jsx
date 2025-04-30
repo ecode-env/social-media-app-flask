@@ -19,7 +19,21 @@ export function useAuth() {
       setUser(user);
       return user;
     } catch (error) {
+      console.log(error.response?.data?.message)
       throw new Error(error.response?.data?.message || 'Login failed');
+    }
+  };
+
+  const register = async (name, email, password) => {
+    try {
+      const response = await api.post('/auth/register', { name, email, password });
+      const { access_token, user } = response.data;
+      localStorage.setItem('token', access_token);
+      setUser(user);
+      return user;
+    } catch (error) {
+      console.log(error);
+      throw new Error(error.response?.data?.message || 'Registration failed');
     }
   };
 
@@ -28,5 +42,5 @@ export function useAuth() {
     setUser(null);
   };
 
-  return { user, login, logout };
+  return { user, login, register ,logout };
 }

@@ -9,6 +9,16 @@
   padding: 20px 30px;
 }
 
+.form-container-r {
+  width: 350px;
+  height: 600px;
+  background-color:var(--bg-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px 30px;
+}
+
 .login-flex-form {
   display: flex;
   margin: 0 auto;

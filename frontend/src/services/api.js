@@ -19,13 +19,18 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Add response interceptor for error handling
+// Add response interceptor for error handling and token refresh
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    const newToken = response.headers['x-access-token'] || response.data?.access_token;
+    if (newToken) {
+      localStorage.setItem('token', newToken);
+    }
+    return response;
+  },
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
-      window.location.href = '/login';
     }
     return Promise.reject(error);
   }

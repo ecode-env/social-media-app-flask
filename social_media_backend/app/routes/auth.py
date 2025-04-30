@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from email_validator import validate_email, EmailNotValidError
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from ..utils.auth import hash_password,generate_token, verify_password
 from validators import url as validate_url
 from flask import Blueprint,jsonify,request
@@ -26,6 +27,22 @@ def is_valid_password(password) -> bool:
         return False
     return True
 
+@auth_bp.route('/auth/me', methods=['GET'])
+@jwt_required()
+def me():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+
+    if not user:
+        return jsonify({"message": "User not found"}), 404
+
+    return jsonify({
+        "user": {
+            "id": user.id,
+            "username": user.username,
+            "email": user.email
+        }
+    }), 200
 
 
 

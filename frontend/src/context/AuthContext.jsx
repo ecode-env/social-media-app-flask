@@ -7,13 +7,29 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      api
-        .get('/auth/me', { headers: { Authorization: `Bearer ${token}` } })
-        .then((response) => setUser(response.data.user))
-        .catch(() => localStorage.removeItem('token'));
-    }
+    // define an async function inside useEffect
+    const loadUser = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      try {
+        const response = await api.get(
+          '/auth/me',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        );
+        setUser(response.data.user);
+      } catch (error) {
+        // token invalid or request failed
+        localStorage.removeItem('token');
+      }
+    };
+
+    // call it immediately
+    loadUser();
   }, []);
 
 

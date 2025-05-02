@@ -8,7 +8,6 @@ export function ThemeProvider({ children }) {
     return localStorage.getItem("theme") || "light";
   });
 
-  // apply and persist
   useEffect(() => {
     document.documentElement.classList.remove("light-theme", "dark-theme");
     document.documentElement.classList.add(`${theme}-theme`);

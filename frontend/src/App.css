@@ -1,6 +1,6 @@
 /* app.css */
 #root {
-  /*max-width: 1280px;*/
+  max-width: 1280px;            /* constrain on large screens */
   margin: 0 auto;
   width: 100vw;
   padding: 2rem;

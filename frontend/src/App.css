@@ -30,6 +30,10 @@
 /* simple card wrapper */
 .card {
   padding: 2em;
+  background-color: var(--button-bg);    /* cards pull from button bg */
+  border-radius: 0.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
 }
 
 .read-the-docs {

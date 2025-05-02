@@ -1,5 +1,5 @@
 import { AuthProvider }    from './context/AuthContext';
-import { ThemeProvider }   from './context/ThemeContext';
+import { ThemeProvider }   from './context/ThemeContext.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header              from './components/layout/Header';
 import HomePage            from './pages/HomePage.jsx';

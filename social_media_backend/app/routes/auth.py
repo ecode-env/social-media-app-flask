@@ -15,7 +15,7 @@ auth_bp = Blueprint('auth', __name__)
 
 # Password Validation
 def is_valid_password(password) -> bool:
-    if len(password) < 8:
+    if len(password) < 6:
         return False
     if not re.search(r"[A-Z]", password):
         return False

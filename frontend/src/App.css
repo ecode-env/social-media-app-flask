@@ -18,7 +18,8 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em var(--link-hover)aa);
+  /* drop-shadow using your theme’s hover link color (with 66 alpha) */
+  filter: drop-shadow(0 0 2em var(--link-hover)66);
 }
 
 .logo.react:hover {

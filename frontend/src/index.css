@@ -48,7 +48,6 @@ button:hover {
   box-shadow: 0 0 0 2px var(--button-border-hover);
 }
 
-button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }

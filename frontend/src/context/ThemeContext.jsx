@@ -9,8 +9,10 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
-    document.documentElement.classList.remove("light-theme", "dark-theme");
-    document.documentElement.classList.add(`${theme}-theme`);
+    // Apply class to <body>
+    document.body.classList.toggle("dark-theme", theme === "dark");
+
+    // Save to localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
 

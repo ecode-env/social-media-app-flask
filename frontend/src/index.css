@@ -1,12 +1,12 @@
 /* index.css */
 :root {
-  --bg-color: #EDEADE;
-  --text-color: #213547;
-  --link-color: #646cff;
-  --link-hover: #747bff;
-  --button-bg: #f9f9f9;
-  --button-border-hover: #646cff;
-  --same: black;
+  /* Light Theme */
+  --bg-color: #FFFFFF;         /* pure white */
+  --text-color: #2D3748;       /* dark slate */
+  --link-color: #3B82F6;       /* blue-500 */
+  --link-hover: #2563EB;       /* blue-600 */
+  --button-bg: #3B82F6;        /* blue-500 */
+  --button-border-hover: #2563EB;
 }
 
 .dark-theme {

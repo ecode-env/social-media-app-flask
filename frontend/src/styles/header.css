@@ -103,10 +103,16 @@
 .dark-theme .header {
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding-left: 8px;
-  font-size: 14px;
-  height: 100%;
-  outline: none;
+}
+
+.dark-theme .search-icon {
+  color: var(--link-hover);
+}
+
+.dark-theme .search-input {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border-color: #555;
 }
 
 .search-icon {

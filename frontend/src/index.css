@@ -49,5 +49,5 @@ button:hover {
 }
 
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 3px solid var(--button-border-hover);
 }

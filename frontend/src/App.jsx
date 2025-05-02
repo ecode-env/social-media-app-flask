@@ -1,7 +1,8 @@
 import { AuthProvider }    from './context/AuthContext';
 import { ThemeProvider }   from './context/ThemeContext.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header              from './components/layout/Header';
+import Header              from './components/layout/Header.jsx';
+import Footer from './components/layout/Footer.jsx'
 import HomePage            from './pages/HomePage.jsx';
 import LoginPage           from './pages/LoginPage';
 import RegisterPage        from "./pages/RegisterPage.jsx";

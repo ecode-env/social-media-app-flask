@@ -36,6 +36,7 @@
   transition: background-color 0.3s;
 }
 
+/* “Read the docs” link */
 .read-the-docs {
   color: var(--link-color);
   font-size: 0.9rem;

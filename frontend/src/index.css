@@ -9,13 +9,13 @@
 }
 
 .dark-theme {
-  --bg-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
-  --link-color: #646cff;
-  --link-hover: #535bf2;
-  --button-bg: #1a1a1a;
-  --button-border-hover: #646cff;
-    --same: white;
+  /* Dark Theme */
+  --bg-color: #1E293B;         /* slate-800 */
+  --text-color: #E2E8F0;       /* gray-200 */
+  --link-color: #60A5FA;       /* blue-400 */
+  --link-hover: #BFDBFE;       /* blue-200 */
+  --button-bg: #334155;        /* slate-700 */
+  --button-border-hover: #60A5FA;
 }
 
 html {

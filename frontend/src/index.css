@@ -27,7 +27,7 @@ html {
 
 a {
   color: var(--link-color);
-  text-decoration: inherit;
+  transition: color 0.2s;
 }
 
 a:hover {

@@ -1,72 +1,74 @@
-import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { useAuth } from '../../hooks/useAuth';
-import { ThemeContext } from '../../context/ThemeContext';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
-import PersonIcon from '@mui/icons-material/Person';
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import PersonRemoveOutlinedIcon from '@mui/icons-material/PersonRemoveOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
-import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+// src/components/layout/Header.jsx
+import React, { useContext } from 'react';
 import '../../styles/header.css';
+import { Home, Search, Bell, MessageCircleMore, User, SunMoon } from 'lucide-react';
+import logo from '../../../images/logo.png';
+import { ThemeContext } from '../../context/ThemeContext.jsx';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
-    const { user, logout } = useAuth();
-    const { theme, toggleTheme } = useContext(ThemeContext);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    return (
-        <header className="header">
-            <Link to='/' >
-                <h1> <img className='logo' src='../../../public/images/logo.png'  alt='logo '/> </h1>
+  const { toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <header className="header">
+      <div className="container">
+        <nav className="nav">
+          {/* Logo / Brand */}
+          <div className="logo-wrapper">
+            <Link to="/">
+              <img src={logo} alt="SocialApp Logo" className="logo-img" />
             </Link>
-            {/* Mobile Menu Toggle */}
-            <button
-                className="mobile-menu-toggle"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle navigation menu"
-            >
-                {isMobileMenuOpen ? '✕' : '☰'}
-            </button>
-            {/* Navigation Links */}
-            <nav className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-                <Link to="/"><HomeOutlinedIcon fontSize="large" /></Link>
-                <Link to="/chat"><ChatBubbleOutlineOutlinedIcon fontSize="large" /></Link>
-                <Link to="/groups"><GroupOutlinedIcon fontSize="large" /></Link>
-                {user ? (
-                    <>
-                        <span className="welcome">Welcome, {user.username}</span>
-                        <button onClick={logout} className="btn logout">
-                            <PersonRemoveOutlinedIcon fontSize="large" />
-                        </button>
-                    </>
-                ) : (
-                    <Link to="/login" className="login">
-                        <PersonAddOutlinedIcon fontSize="large" />
-                    </Link>
-                )}
-                <Link to="/notification">
-                    <NotificationsOutlinedIcon fontSize="large" />
-                </Link>
-                <div className="search-bar">
-      <input
-        type="text"
-        placeholder="Search..."
-        className="search-input"
-      />
-      <Link to="/search" className="search-icon">
-        <SearchOutlinedIcon fontSize="medium" />
-      </Link>
-    </div>
-                <button
-                    onClick={toggleTheme}
-                    className="btn theme-toggle"
-                    aria-label="Toggle dark/light mode"
-                >
-                    {theme === 'light' ? '🌙' : '☀️'}
-                </button>
-            </nav>
-        </header>
-    );
+          </div>
+
+          {/* Search input */}
+          <div className="search-wrapper">
+            <Search className="search-icon" size={18} />
+            <input
+              type="text"
+              placeholder="Search"
+              className="search-input"
+            />
+          </div>
+
+          {/* Icon actions with tooltips */}
+          <div className="actions">
+            <Link to="/" className="tooltip-wrapper">
+              <button className="icon-btn" aria-label="Home">
+                <Home size={20} />
+              </button>
+              <span className="tooltip">Home</span>
+            </Link>
+
+            <Link to="/messages" className="tooltip-wrapper">
+              <button className="icon-btn" aria-label="Messages">
+                <MessageCircleMore size={20} />
+              </button>
+              <span className="tooltip">Messages</span>
+            </Link>
+
+            <Link to="/notifications" className="tooltip-wrapper">
+              <button className="icon-btn" aria-label="Notifications">
+                <Bell size={20} />
+              </button>
+              <span className="tooltip">Notifications</span>
+            </Link>
+
+            <Link to="/profile" className="tooltip-wrapper">
+              <button className="icon-btn" aria-label="Profile">
+                <User size={20} />
+              </button>
+              <span className="tooltip">Profile</span>
+            </Link>
+
+            <div className="tooltip-wrapper">
+              <button className="icon-btn" onClick={toggleTheme} aria-label="Toggle Theme">
+                <SunMoon size={20} />
+              </button>
+              <span className="tooltip">Toggle Theme</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
 }

@@ -24,7 +24,7 @@ export function useAuth() {
     }
   };
 
-  const register = async (name, email, password) => {
+  const register = async (name, email, password, f_name, l_name, username) => {
     try {
       const response = await api.post('/auth/register', { name, email, password });
       const { access_token, user } = response.data;

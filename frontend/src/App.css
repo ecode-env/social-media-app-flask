@@ -23,7 +23,8 @@
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  /* if you want React-logo to pop in its official tint, use the same pattern: */
+  filter: drop-shadow(0 0 2em var(--link-color)66);
 }
 /* … leave keyframes & reduced-motion rules as-is … */
 

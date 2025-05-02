@@ -51,3 +51,8 @@ button:hover {
 button:focus-visible {
   outline: 3px solid var(--button-border-hover);
 }
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}

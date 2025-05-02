@@ -61,40 +61,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
+  transition: background-color 0.2s;
 }
-
-.nav-links a:hover,
-.nav-links button:hover {
-  color: var(--primary-color);
-  /*background-color: var(--header-icon-hover-bg);*/
-  transform: translateY(-2px);
-}
-
-.welcome {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-right: 0.5rem;
-  /*color: var(--header-text);*/
-}
-
-/* Logo */
-h1 .logo {
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .header {
-    padding: 1rem;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
-    order: 1;
-  }
 
   .nav-links {
     position: fixed;

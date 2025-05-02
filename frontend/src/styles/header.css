@@ -21,13 +21,8 @@
   height: 4rem;
 }
 
-/* Mobile Menu Toggle (Hidden on Desktop) */
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  /*color: var(--header-icon);*/
-  font-size: 1.8rem;
+.logo-wrapper .logo-img {
+  height: 2rem;
   cursor: pointer;
   padding: 0.5rem;
 }

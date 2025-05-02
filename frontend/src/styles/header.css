@@ -68,28 +68,9 @@
   background-color: rgba(0,0,0,0.05);
 }
 
-  .nav-links.active {
-    margin-top: 2rem;
-    left: 0;
-  }
-
-  .nav-links a,
-  .nav-links button {
-    width: 80%;
-    justify-content: center;
-    padding: 1rem;
-    border-radius: 8px;
-    /*background-color: var(--header-icon-hover-bg);*/
-  }
-
-  .welcome {
-    display: none;
-  }
-}
-
-/*Search bar*/
-.search-bar {
-  display: flex;
+.tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   background-color: var(--bg-color);
   border: 1px solid #353535;

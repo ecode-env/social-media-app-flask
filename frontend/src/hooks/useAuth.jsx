@@ -26,7 +26,8 @@ export function useAuth() {
 
   const register = async (name, email, password, f_name, l_name, username) => {
     try {
-      const response = await api.post('/auth/register', { name, email, password });
+      const response = await api.post('/auth/register',
+          { name, email, password,f_name,l_name, username });
       const { access_token, user } = response.data;
       localStorage.setItem('token', access_token);
       setUser(user);

@@ -57,16 +57,7 @@
 
 .actions .icon-btn {
   padding: 0.5rem;
-}
-
-/* Navigation Items */
-.nav-links a,
-.nav-links button {
-  /*color: var(--header-icon);*/
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s ease;
+  border-radius: 9999px;
   background: none;
   border: none;
   cursor: pointer;

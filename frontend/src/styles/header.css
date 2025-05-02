@@ -24,6 +24,38 @@
 .logo-wrapper .logo-img {
   height: 2rem;
   cursor: pointer;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: var(--link-color);
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid #ccc;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--link-hover);
+}
+
+.actions .icon-btn {
   padding: 0.5rem;
 }
 

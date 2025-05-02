@@ -26,7 +26,6 @@ html {
 }
 
 a {
-  font-weight: 500;
   color: var(--link-color);
   text-decoration: inherit;
 }

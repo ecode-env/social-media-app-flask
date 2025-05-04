@@ -29,6 +29,7 @@ def get_posts():
 def create_post():
     # Get the ID of the current user from the JWT.
     user_id = get_jwt_identity()
+    data = request.get_json()
 
     # Validate that the user exists.
     user = User.query.get(user_id)

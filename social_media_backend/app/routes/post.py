@@ -42,8 +42,10 @@ def create_post():
     media_file = data.get('media')
     media_url = data.get('media_url')
 
-    media_url = None
-    media_type = None
+    media_type = get_media_type(media_url)
+
+    if media_url and not media_type:
+        return jsonify({"message": "Unsupported media file type"}), 400
 
     # Handle media file upload if provided.
     if media_file:

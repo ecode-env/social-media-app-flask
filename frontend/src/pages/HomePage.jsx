@@ -12,7 +12,10 @@ function HomePage() {
           <PostList />
         </>
       ) : (
-        <p>Please log in to see your personalized feed.</p>
+        <>
+          <p>Please log in to see your personalized feed.</p>
+          <PostList />
+        </>
       )}
     </div>
   );

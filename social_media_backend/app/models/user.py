@@ -82,7 +82,7 @@ class User(db.Model):
             "f_name": self.f_name,
             "l_name": self.l_name,
             "bio": self.bio or '',
-            "profile_picture_url": self.profile_picture_url or '',
+            "profile_picture_url": self.profile_picture_url,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "updated_at": self.updated_at.isoformat() if self.updated_at else None,
             "last_seen": self.last_seen.isoformat() if self.last_seen else None,

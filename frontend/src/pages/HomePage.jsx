@@ -7,7 +7,10 @@ function HomePage() {
     <div className="home-page">
       <h2>Welcome to the Social Media App</h2>
       {user ? (
-        <p>Hello, {user.username}! Check out your feed.</p>
+        <>
+          <p>Hello, {user.username}!</p>
+          <PostList />
+        </>
       ) : (
         <p>Please log in to see your personalized feed.</p>
       )}

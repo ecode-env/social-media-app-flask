@@ -37,9 +37,10 @@ def create_post():
         return jsonify({'message': 'User not found'}), 404
 
     # Get form data.
-    content = request.form.get('content')
-    title = request.form.get('title')
-    media_file = request.files.get('media')
+    content = data.get('content')
+    title = data.get('title')
+    media_file = data.get('media')
+    media_url = data.get('media_url')
 
     media_url = None
     media_type = None

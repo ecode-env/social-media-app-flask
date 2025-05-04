@@ -1,4 +1,5 @@
 import { useAuth } from '../hooks/useAuth';
+import PostList from "../components/features/posts/PostList.jsx";
 
 function HomePage() {
   const { user } = useAuth();

@@ -24,7 +24,7 @@ def get_posts():
     return jsonify([p.to_json() for p in posts] if posts else {'msg': 'No Post Yet'}), 200
 
 
-@posts_bp.route('/', methods=['GET'])
+@posts_bp.route('/<int:post_id>', methods=['GET'])
 def get_post_for_comment_page(post_id):
     post = Post.query.get_or_404(post_id)
     return jsonify(post.to_json())

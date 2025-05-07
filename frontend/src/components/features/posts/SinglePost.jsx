@@ -36,12 +36,7 @@ export default function SinglePost() {
     const text = newComment.trim();
     if (!text) return;
     try {
-      const res = await fetch(`/api/posts/${id}/comments`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: text }),
-      });
-      const saved = await res.json();
+      const saved = await addComment(postId=id, content=text)
       setComments(prev => [...prev, saved]);
       setNewComment('');
     } catch {

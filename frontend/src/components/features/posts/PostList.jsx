@@ -70,6 +70,7 @@ export default function PostList() {
     }
   };
 
+
   return (
     <div className="post-page">
       <div className="post-side-left">Left Sidebar</div>

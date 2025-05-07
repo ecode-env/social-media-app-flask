@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { formatDate } from '../../../utils/helpers';
 import '../../../styles/postList.css';
 import {getPostById} from "../../../services/postService.js";
+import {addComment, getComments} from "../../../services/commentService.js";
 
 
 export default function SinglePost() {

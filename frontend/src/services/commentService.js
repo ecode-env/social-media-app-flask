@@ -10,3 +10,5 @@ export const getComments = async (PostId) => {
         throw e;
     }
 }
+
+export const deleteComment = async  (commentId) => {}

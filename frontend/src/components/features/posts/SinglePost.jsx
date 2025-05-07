@@ -20,8 +20,7 @@ export default function SinglePost() {
         const postData =await getPostById(id);
         setPost(postData);
 
-        const commentsRes = await fetch(`/api/posts/${id}/comments`);
-        const commentsData = await commentsRes.json();
+        const commentsData =await  getComments(id);
         setComments(commentsData);
       } catch (err) {
         setError(err.message);

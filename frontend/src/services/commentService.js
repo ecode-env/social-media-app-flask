@@ -11,4 +11,5 @@ export const getComments = async (PostId) => {
     }
 }
 
+export const addComment = async (postId, content) => {}
 export const deleteComment = async  (commentId) => {}

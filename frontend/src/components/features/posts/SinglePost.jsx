@@ -17,8 +17,7 @@ export default function SinglePost() {
   useEffect(() => {
     async function fetchPostData() {
       try {
-        const postRes = getPostById(id);
-        const postData = await postRes.data;
+        const postData =await getPostById(id);
         setPost(postData);
 
         const commentsRes = await fetch(`/api/posts/${id}/comments`);

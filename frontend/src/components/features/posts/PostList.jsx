@@ -27,7 +27,6 @@ const PostList = () => {
       navigate('/login');
       return;
     }
-
     const idx = localPosts.findIndex((p) => p.id === postId);
     if (idx < 0) return;
 

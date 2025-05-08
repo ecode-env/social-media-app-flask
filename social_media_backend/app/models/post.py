@@ -46,15 +46,17 @@ class Post(db.Model):
             "id": self.id,
             "user_id": self.user_id,
             "profile_picture": self.author.profile_picture_url,
-            "title": self.title,
-            "content": self.content,
-            "media_type": self.media_type,
-            "media_url": self.media_url,
-            "post_type": self.post_type,
-            "is_flagged": self.is_flagged,
-            "created_at": self.created_at.isoformat() if self.created_at else None,
-            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
-            "author": self.author.username if self.author else None,
-            "comment_count": len(self.comments) if self.comments else 0,
-            "like_count": len(self.likes) if self.likes else 0
+            "title":          self.title,
+            "content":        self.content,
+            "media_type":     self.media_type,
+            "media_url":      self.media_url,
+            "post_type":      self.post_type,
+            "fullName":       f"{self.author.f_name.title()} {self.author.l_name.title()}",
+            "is_flagged":     self.is_flagged,
+            "created_at":     self.created_at.isoformat() if self.created_at else None,
+            "updated_at":     self.updated_at.isoformat() if self.updated_at else None,
+            "author":         self.author.username if self.author else None,
+            "comment_count":  len(self.comments) or 0,
+            "like_count":     len(self.likes) or 0
+
         }

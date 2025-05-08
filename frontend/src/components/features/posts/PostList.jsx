@@ -4,11 +4,8 @@ import { usePosts } from '../../../hooks/usePosts';
 import { formatDate } from '../../../utils/helpers';
 import { Heart, MessageCircle } from 'lucide-react';
 import '../../../styles/postList.css';
-import api from "../../../services/api.js";
-import { AuthContext } from '../../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-
+import PostSideRight from "../../layout/PostSideRight.jsx";
+import PostSideLeft  from "../../layout/PostSideLeft.jsx";
 
 
 

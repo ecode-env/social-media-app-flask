@@ -144,7 +144,4 @@ const PostList = () => {
   );
 };
 
-      <div className="post-side-right">Right Sidebar</div>
-    </div>
-  );
-}
+export default PostList;

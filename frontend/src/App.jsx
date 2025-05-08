@@ -6,7 +6,7 @@ import Footer from './components/layout/Footer.jsx'
 import HomePage            from './pages/HomePage.jsx';
 import LoginPage           from './pages/LoginPage';
 import RegisterPage        from "./pages/RegisterPage.jsx";
-import SinglePost from './components/features/posts/SinglePost.jsx'
+import PostDetail from './components/features/posts/PostDetail.jsx'
 import './index.css';
 import './App.css';
 
@@ -21,7 +21,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route path="/posts/:id" element={<SinglePost />} />
+              <Route path="/posts/:postId" element={<PostDetail />} />
             </Routes>
           </main>
           <Footer />

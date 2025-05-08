@@ -70,27 +70,26 @@ const PostList = () => {
   if (error)   return <div>Error: {error}</div>;
 
   return (
-    <div className="post-page">
-      <div className="post-side-left">Left Sidebar</div>
+      <div className="post-list-container">
+        <PostSideLeft />
+        <div className="post-list-main">
+          {localPosts.map(post => (
+              <div key={post.id} className="post-card">
+                <div className="post-header">
+                  <img
 
-      <div className="post-list">
-        <h2>Latest Posts</h2>
-        {posts.map(post => (
-          <div
-            key={post.id}
-            className={`post-card${showComments[post.id] ? ' expanded' : ''}`}
-          >
-            <div className="post-header">
-              <div className="author-info">
-                <img
-                  src={post.profile_picture || DEFAULT_AVATAR}
-                  alt={post.author}
-                  className="profile-pic"
-                />
-                <span className="author">@{post.author}</span>
-              </div>
-              <small className="date">{formatDate(post.created_at)}</small>
-            </div>
+                      src={post.profile_picture || DEFAULT_AVATAR}
+                      alt="Profile"
+                      className="avatar"
+                  />
+                  <div className="post-meta">
+                    <Link to={`/profile/${post.author}`} className="username">
+                      {post.author}
+                    </Link>
+                    <span className="fullName">{post.fullName}</span>
+                    <span className="date">{formatDate(post.created_at)}</span>
+                  </div>
+                </div>
 
             {post.title && <h3 className="post-title">{post.title}</h3>}
             <Link to={`/posts/${post.id}`} className='non-link' >

@@ -1,32 +1,48 @@
 :root {
   /* Light Theme */
-  --bg-color: #FFFFFF;         /* pure white */
-  --text-color: #2D3748;       /* dark slate */
-  --link-color: #3B82F6;       /* blue-500 */
-  --link-hover: #2563EB;       /* blue-600 */
-  --button-bg: #fffff1;        /* blue-500 */
+  --bg-color: #FFFFFF;
+  --text-color: #2D3748;
+  --link-color: #3B82F6;
+  --link-hover: #2563EB;
+  --button-bg: #fffff1;
   --button-border-hover: #2563EB;
+  --primary-color: #3B82F6;
+  --base-color: #212121;
 }
 
 .dark-theme {
   /* Dark Theme */
-  --bg-color: #1E293B;         /* slate-800 */
-  --text-color: #E2E8F0;       /* gray-200 */
-  --link-color: #60A5FA;       /* blue-400 */
-  --link-hover: #BFDBFE;       /* blue-200 */
-  --button-bg: #334155;        /* slate-700 */
+  --bg-color: #1E293B;
+  --text-color: #E2E8F0;
+  --link-color: #60A5FA;
+  --link-hover: #BFDBFE;
+  --button-bg: #334155;
   --button-border-hover: #60A5FA;
+  --primary-color: #60A5FA;
+  --base-color: #E2E8F0;
 }
 
-html {
-  color-scheme: light dark;
+html, body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: system-ui, sans-serif;
+}
+
+/* ======================
+   Link Styling
+   ====================== */
+
 a {
   color: var(--link-color);
+  text-decoration: none;
   transition: color 0.2s;
 }
 
@@ -34,12 +50,18 @@ a:hover {
   color: var(--link-hover);
 }
 
+/* ======================
+   Button Styling
+   ====================== */
+
 button {
   background-color: var(--button-bg);
   color: var(--text-color);
   border-radius: 8px;
   padding: 0.6em 1.2em;
   border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
   transition: background-color 0.3s, border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -50,9 +72,4 @@ button:hover {
 
 button:focus-visible {
   outline: 3px solid var(--button-border-hover);
-}
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
 }

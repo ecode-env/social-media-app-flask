@@ -91,13 +91,17 @@ const PostList = () => {
                   </div>
                 </div>
 
-            {post.title && <h3 className="post-title">{post.title}</h3>}
-            <Link to={`/posts/${post.id}`} className='non-link' >
-                <p className="post-content">
-              {truncateContent(post.content)}
-              <p className="read-more"> Read More</p>
-            </p>
-            </Link>
+                <div className="post-content">
+                  {post.title && <h3>{post.title}</h3>}
+                  <Link to="" className="none-link">
+                    <p>
+                      {post.content
+                          ? post.content.split(' ').length > 100
+                              ? post.content.split(' ').slice(0, 100).join(' ') + '... See More'
+                              : post.content
+                          : ''}
+                    </p>
+                  </Link>
 
             {post.media_type === 'image' && (
               <img src={post.media_url} alt="Post media" className="post-media" />

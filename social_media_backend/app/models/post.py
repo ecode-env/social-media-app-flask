@@ -43,8 +43,8 @@ class Post(db.Model):
 
     def to_json(self):
         return {
-            "id": self.id,
-            "user_id": self.user_id,
+            "id":             self.id,
+            "user_id":        self.user_id,
             "profile_picture": self.author.profile_picture_url,
             "title":          self.title,
             "content":        self.content,

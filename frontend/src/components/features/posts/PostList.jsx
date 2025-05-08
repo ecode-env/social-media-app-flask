@@ -102,15 +102,26 @@ const PostList = () => {
                           : ''}
                     </p>
                   </Link>
+                  {post.media_url && (
+                      <>
+                        {post.media_type === 'image' && (
+                            <img
+                                src={post.media_url}
+                                alt="Post Media"
+                                className="post-image"
+                            />
+                        )}
+                        {post.media_type === 'video' && (
+                            <video className="post-video" controls>
+                              <source src={post.media_url} type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </video>
+                        )}
+                      </>
+                  )}
 
-            {post.media_type === 'image' && (
-              <img src={post.media_url} alt="Post media" className="post-media" />
-            )}
-            {post.media_type === 'video' && (
-              <video controls className="post-media">
-                <source src={post.media_url} type="video/mp4" />
-              </video>
-            )}
+                  {post.is_flagged && <span className="flagged">Flagged Content</span>}
+                </div>
 
             <div className="post-actions">
               <button className="action-btn" onClick={() => toggleComments(post.id)}>

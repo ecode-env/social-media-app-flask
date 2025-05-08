@@ -12,8 +12,8 @@ export const getPosts = async () => {
 
 export const getPostById = async (postId) => {
   try {
-    const response = await api.get(`/post/${postId}`)
-    return response.data
+    const response = await api.get(`/posts/${postId}`)
+    return response.data;
   } catch (e) {
     console.error('Error fetching posts:', e);
     throw e

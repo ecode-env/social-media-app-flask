@@ -28,8 +28,23 @@ const PostList = () => {
       return;
     }
 
-    const text = newComment[postId]?.trim();
-    if (!text) return;
+    const idx = localPosts.findIndex((p) => p.id === postId);
+    if (idx < 0) return;
+
+    // Optimistically update the UI
+    const originalPosts = [...localPosts];
+    setLocalPosts((prevPosts) =>
+        prevPosts.map((post, index) =>
+            index === idx
+                ? {
+                  ...post,
+                  liked: !post.liked,
+                  like_count: post.liked ? post.like_count - 1 : post.like_count + 1,
+                }
+                : post
+        )
+    );
+
     try {
       const res = await api.post(`/posts/${postId}/create-comment`, { content: text });
       setCommentsData(prev => ({

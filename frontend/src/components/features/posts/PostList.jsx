@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { usePosts } from '../../../hooks/usePosts';
-import { formatDate } from '../../../utils/helpers';
-import { Heart, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate }      from 'react-router-dom';
+import { usePosts }                from '../../../hooks/usePosts';
+import { useAuth }                 from '../../../hooks/useAuth.jsx';
+import { likePost }                from '../../../services/likeService.js';
+import { formatDate }              from '../../../utils/helpers';
+import { Heart, MessageCircle }    from 'lucide-react';
 import '../../../styles/postList.css';
 import PostSideRight from "../../layout/PostSideRight.jsx";
 import PostSideLeft  from "../../layout/PostSideLeft.jsx";

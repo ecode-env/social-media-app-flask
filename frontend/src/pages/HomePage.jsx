@@ -6,7 +6,6 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <h2>Welcome to the Social Media App</h2>
       {user ? (
         <>
           <p>Hello, {user.username}!</p>

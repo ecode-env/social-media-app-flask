@@ -13,6 +13,7 @@ const PostList = () => {
   const navigate                  = useNavigate();
   const DEFAULT_AVATAR            = '/images/default-avatar.jpeg';
 
+  const [localPosts, setLocalPosts] = useState([]);
 
   const toggleComments = async (postId) => {
     const isOpen = showComments[postId];

@@ -7,16 +7,7 @@ import '../../../styles/postList.css';
 import PostSideRight from "../../layout/PostSideRight.jsx";
 import PostSideLeft  from "../../layout/PostSideLeft.jsx";
 
-
-
-const DEFAULT_AVATAR = '/images/default-avatar.jpeg';
-
-const truncateContent = (content, limit = 250) => {
-  if (content.length <= limit) return content;
-  return content.slice(0, limit) + '...';
-};
-
-export default function PostList() {
+const PostList = () => {
   const { posts, loading, error } = usePosts();
   const [showComments, setShowComments] = useState({});
   const [commentsData, setCommentsData] = useState({});

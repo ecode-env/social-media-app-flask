@@ -8,6 +8,7 @@ import { Heart, MessageCircle }    from 'lucide-react';
 import '../../../styles/postList.css';
 import PostSideRight from "../../layout/PostSideRight.jsx";
 import PostSideLeft  from "../../layout/PostSideLeft.jsx";
+import Loader from '../../../components/common/Loader.jsx';
 
 const PostList = () => {
   const { posts, loading, error } = usePosts();
@@ -64,7 +65,7 @@ const PostList = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div><Loader /></div>;
   if (error)   return <div>Error: {error}</div>;
 
   return (
@@ -91,7 +92,7 @@ const PostList = () => {
 
                 <div className="post-content">
                   {post.title && <h3>{post.title}</h3>}
-                  <Link to="" className="none-link">
+                  <Link to={`/posts/${post.id}`} className="none-link">
                     <p>
                       {post.content
                           ? post.content.split(' ').length > 100

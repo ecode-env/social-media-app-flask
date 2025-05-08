@@ -9,17 +9,9 @@ import PostSideLeft  from "../../layout/PostSideLeft.jsx";
 
 const PostList = () => {
   const { posts, loading, error } = usePosts();
-  const [showComments, setShowComments] = useState({});
-  const [commentsData, setCommentsData] = useState({});
-  const [newComment, setNewComment] = useState({});
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  if (loading) return <p>Loading posts...</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (posts.length === 0) return <p>No posts yet.</p>;
-
-
+  const { user }                 = useAuth();
+  const navigate                  = useNavigate();
+  const DEFAULT_AVATAR            = '/images/default-avatar.jpeg';
 
 
   const toggleComments = async (postId) => {

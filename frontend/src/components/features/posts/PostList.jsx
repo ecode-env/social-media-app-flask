@@ -123,37 +123,23 @@ const PostList = () => {
                   {post.is_flagged && <span className="flagged">Flagged Content</span>}
                 </div>
 
-            <div className="post-actions">
-              <button className="action-btn" onClick={() => toggleComments(post.id)}>
-                <MessageCircle size={16} /> <span>{post.comment_count}</span>
-              </button>
-              <button className="action-btn">
-                <Heart size={16} /> <span>{post.like_count}</span>
-              </button>
-            </div>
-
-            <div className="comment-section">
-              <form onSubmit={e => submitComment(e, post.id)} className="comment-form">
-                <input
-                  type="text"
-                  value={newComment[post.id] || ''}
-                  onChange={e => setNewComment(prev => ({ ...prev, [post.id]: e.target.value }))}
-                  placeholder="Write a comment..."
-                  className="comment-input"
-                />
-                <button type="submit" className="comment-submit-btn">Post</button>
-              </form>
-              <ul className="comment-list">
-                {(commentsData[post.id] || []).map((c, idx) => (
-                  <li key={idx} className="comment-item">
-                    <span className="comment-text">{c.content || c.text}</span>
-                    <small className="comment-date">{formatDate(c.created_at)}</small>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+                <div className="post-actions">
+                  <button
+                      onClick={() => handleLike(post.id)}
+                      className={`action-btn ${(post.liked) ? 'liked' : ''}`}
+                  >
+                    <Heart size={20} />
+                    <span>{post.like_count}</span>
+                  </button>
+                  <button className="action-btn">
+                    <MessageCircle size={20} />
+                    <span>{post.comment_count}</span>
+                  </button>
+                </div>
+              </div>
+          ))}
+        </div>
+        <PostSideRight />
       </div>
 
       <div className="post-side-right">Right Sidebar</div>

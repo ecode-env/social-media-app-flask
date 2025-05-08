@@ -30,7 +30,6 @@ const PostList = () => {
     const idx = localPosts.findIndex((p) => p.id === postId);
     if (idx < 0) return;
 
-    // Optimistically update the UI
     const originalPosts = [...localPosts];
     setLocalPosts((prevPosts) =>
         prevPosts.map((post, index) =>

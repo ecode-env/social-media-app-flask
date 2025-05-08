@@ -22,13 +22,11 @@ const PostList = () => {
     setLocalPosts(posts);
   }, [posts]);
 
-  const submitComment = async (e, postId) => {
-    e.preventDefault();
-
-     if (!user) {
-    navigate('/login');
-    return;
-  }
+  const handleLike = async (postId) => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
 
     const text = newComment[postId]?.trim();
     if (!text) return;

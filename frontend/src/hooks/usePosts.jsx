@@ -25,6 +25,5 @@ export function usePosts() {
 
     fetchPosts();
   }, []);
-  console.log(posts)
   return { posts, loading, error };
 }

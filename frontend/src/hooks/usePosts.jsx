@@ -1,6 +1,10 @@
-import {useState, useEffect} from "react";
-import { getPosts, getPostById } from '../services/postService';
+// src/hooks/usePosts.jsx
+import { useState, useEffect } from "react";
+import { getPosts, getPostById } from "../services/postService";
 
+/**
+ * Fetches all posts.
+ */
 export function usePosts() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,13 +15,9 @@ export function usePosts() {
       setLoading(true);
       try {
         const data = await getPosts();
-        if (Array.isArray(data)) {
-          setPosts(data);
-        } else {
-          setPosts([]);
-        }
+        setPosts(Array.isArray(data) ? data : []);
       } catch (err) {
-        setError(err.message || 'Something went wrong');
+        setError(err?.message || "Something went wrong");
       } finally {
         setLoading(false);
       }
@@ -25,26 +25,35 @@ export function usePosts() {
 
     fetchPosts();
   }, []);
+
   return { posts, loading, error };
 }
 
+/**
+ * Fetches a single post by its ID.
+ */
 export function useGetPosts(postId) {
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [posts, setPosts] = useState([]);
-
-
   useEffect(() => {
+    if (!postId) return;
+
     const fetchPosts = async () => {
       setLoading(true);
       try {
         const data = await getPostById(postId);
-        console.log(data)
-      }catch (e) {
-        console.log(e)
-        throw new  Error('Could not fetch posts', e);
+        setPosts(data);
+      } catch (err) {
+        console.error(err);
+        setError(err?.message || "Could not fetch post");
+      } finally {
+        setLoading(false);
       }
-    }
-  }, [])
-  return { loading, error };
+    };
+
+    fetchPosts();
+  }, [postId]);
+
+  return { posts, loading, error };
 }

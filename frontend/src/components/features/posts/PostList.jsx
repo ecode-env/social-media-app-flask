@@ -141,6 +141,8 @@ const PostList = () => {
         </div>
         <PostSideRight />
       </div>
+  );
+};
 
       <div className="post-side-right">Right Sidebar</div>
     </div>

@@ -46,15 +46,23 @@ const PostList = () => {
     );
 
     try {
-      const res = await api.post(`/posts/${postId}/create-comment`, { content: text });
-      setCommentsData(prev => ({
-        ...prev,
-        [postId]: [...(prev[postId] || []), res.data]
-      }));
-      setNewComment(prev => ({ ...prev, [postId]: '' }));
-      setShowComments(prev => ({ ...prev, [postId]: true }));
-    } catch {
-      console.error('Comment submit failed');
+      const data = await likePost(postId);
+      // Confirm the update with backend data
+      setLocalPosts((prevPosts) =>
+          prevPosts.map((post, index) =>
+              index === idx
+                  ? {
+                    ...post,
+                    liked: data.message,
+                    like_count: data.like_count,
+                  }
+                  : post
+          )
+      );
+    } catch (err) {
+      console.error('Error toggling like:', err);
+      // Revert to original state on error
+      setLocalPosts(originalPosts);
     }
   };
 

@@ -15,18 +15,10 @@ const PostList = () => {
 
   const [localPosts, setLocalPosts] = useState([]);
 
-  const toggleComments = async (postId) => {
-    const isOpen = showComments[postId];
-    setShowComments(prev => ({ ...prev, [postId]: !isOpen }));
-    if (!isOpen && !commentsData[postId]) {
-      try {
-        const res = await api.get(`/posts/${postId}/comments`);
-        setCommentsData(prev => ({ ...prev, [postId]: res.data }));
-      } catch {
-        console.error('Failed to load comments');
-      }
-    }
-  };
+  useEffect(() => {
+    if (!posts) return;
+    setLocalPosts(posts);
+  }, [posts]);
 
   const submitComment = async (e, postId) => {
     e.preventDefault();

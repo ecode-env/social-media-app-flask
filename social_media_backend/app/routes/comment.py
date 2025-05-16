@@ -86,3 +86,25 @@ def delete_comment(comment_id):
 
     return jsonify({'message': 'Comment deleted successfully', 'success': True}), 200
 
+# Edit a comment
+@comments_bp.route('/<int:comment_id>/edit', methods=['PUT'])
+@jwt_required()
+def edit_comment(comment_id):
+    current_user_id = get_jwt_identity()
+    data = request.get_json()
+    new_content = data.get('content')
+
+    if not new_content:
+        return jsonify({'error': 'Updated comment content is required'}), 400
+
+    comment = Comment.query.get_or_404(comment_id)
+
+    if comment.user_id != int(current_user_id):
+        return jsonify({'error': 'Unauthorized'}), 403
+
+    comment.content = new_content
+    db.session.commit()
+
+    return jsonify({'message': 'Comment updated successfully', 'comment': comment.serialize(current_user_id)}), 200
+
+

@@ -1,0 +1,13 @@
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.register-page-content {
+  width: 100%;
+  max-width: 600px;
+  padding: var(--spacing-2);
+}

@@ -1,0 +1,57 @@
+.messages-page {
+  padding: var(--spacing-3);
+}
+
+.messages-page h1 {
+  margin-bottom: var(--spacing-4);
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.message-item {
+  padding: var(--spacing-3);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.message-item:hover {
+  background-color: var(--color-background-alt);
+}
+
+.message-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-1);
+}
+
+.message-time {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.message-text {
+  color: var(--color-text-muted);
+  margin: 0;
+}

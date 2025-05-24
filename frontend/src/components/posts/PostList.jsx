@@ -11,7 +11,7 @@ const PostList = () => {
     const [commentText, setCommentText] = useState('');
     const navigate = useNavigate();
     const {user} = useAuth()
-
+    const {posts, setPosts,loading, error} = usePosts()
 
     useEffect(() => {
         const loadPosts = async () => {

@@ -21,7 +21,7 @@ const usePosts = () => {
         loadPosts();
     }, []);
 
-    return { loading, posts, error };
+    return { loading, posts,setPosts ,error };
 };
 
 export default usePosts;

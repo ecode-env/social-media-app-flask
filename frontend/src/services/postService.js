@@ -17,7 +17,8 @@ const mockPosts = [
     updated_at: "2023-01-15T10:30:00Z",
     author: "johndoe",
     comment_count: 5,
-    like_count: 12
+    like_count: 12,
+    is_liked: true,
   },
   {
     id: 2,

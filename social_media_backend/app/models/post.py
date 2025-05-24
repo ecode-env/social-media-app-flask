@@ -58,6 +58,5 @@ class Post(db.Model):
             "author":         self.author.username if self.author else None,
             "comment_count":  len(self.comments) or 0,
             "like_count":     len(self.likes) or 0
-
         }
 

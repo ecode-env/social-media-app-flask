@@ -96,13 +96,29 @@ const PostList = () => {
                             </p>
                         </div>
 
-                        {post.media_url && (
+                        {post.media_url && post.media_type === 'image' && (
                             <div className="post-image-container">
                                 <img
                                     src={post.media_url}
                                     alt={post.title}
                                     className="post-image"
                                 />
+                            </div>
+                        )}
+
+                        {post.media_url && post.media_type === 'video' && (
+                            <div className="post-video-container">
+                                <video
+                                    src={post.media_url}
+                                    controls
+                                    className="post-video"
+                                />
+                            </div>
+                        )}
+
+                        {post.media_url && post.media_type === 'text' && (
+                            <div className="post-text-container">
+                                <pre className="post-text">{post.content}</pre>
                             </div>
                         )}
 

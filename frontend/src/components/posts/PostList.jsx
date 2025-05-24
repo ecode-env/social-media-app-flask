@@ -13,20 +13,6 @@ const PostList = () => {
     const {user} = useAuth()
     const {posts, setPosts,loading, error} = usePosts()
 
-    useEffect(() => {
-        const loadPosts = async () => {
-            try {
-                const data = await fetchPosts();
-                setPosts(data);
-                setLoading(false);
-            } catch (err) {
-                setError(err.message);
-                setLoading(false);
-            }
-        };
-
-        loadPosts();
-    }, []);
 
     const handleLike = async (postId, e) => {
         e.preventDefault();

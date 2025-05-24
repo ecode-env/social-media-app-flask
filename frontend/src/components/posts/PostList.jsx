@@ -4,6 +4,7 @@ import {Heart, MessageSquare,SendHorizontal,Bookmark} from 'lucide-react';
 import './PostList.css';
 import {fetchPosts, likePost} from '../../services/postService.js';
 import { useAuth } from '../../context/AuthContext.jsx';
+import usePosts from "../../hooks/usePosts.jsx";
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);

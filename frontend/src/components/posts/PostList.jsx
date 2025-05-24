@@ -7,9 +7,6 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import usePosts from "../../hooks/usePosts.jsx";
 
 const PostList = () => {
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [activeCommentPostId, setActiveCommentPostId] = useState(null);
     const [commentText, setCommentText] = useState('');
     const navigate = useNavigate();

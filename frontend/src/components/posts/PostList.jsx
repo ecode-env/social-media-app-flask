@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {Heart, MessageSquare,SendHorizontal,Bookmark} from 'lucide-react';
 import './PostList.css';
 import {fetchPosts, likePost} from '../../services/postService.js';
-
+import { useAuth } from '../../context/AuthContext.jsx';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -11,6 +11,9 @@ const PostList = () => {
     const [error, setError] = useState(null);
     const [activeCommentPostId, setActiveCommentPostId] = useState(null);
     const [commentText, setCommentText] = useState('');
+    const navigate = useNavigate();
+    const {user} = useAuth()
+
 
     useEffect(() => {
         const loadPosts = async () => {
@@ -28,11 +31,16 @@ const PostList = () => {
     }, []);
 
     const handleLike = async (postId, e) => {
-        e.preventDefault(); // Prevent navigation when clicking the like button
+        e.preventDefault();
+
+        if (!user) {
+            navigate('/login');
+            return;
+        }
         try {
             const updatedPost = await likePost(postId);
             setPosts(posts.map(post =>
-                post.id === postId ? {...post, like_count: updatedPost.like_count} : post
+                post.id === postId ? { ...post, like_count: updatedPost.like_count } : post
             ));
         } catch (err) {
             console.error("Error liking post:", err);

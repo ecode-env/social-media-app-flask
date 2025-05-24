@@ -4,7 +4,8 @@ import { Heart } from 'lucide-react';
 import Button from '../components/common/Button.jsx';
 import './PostDetailPage.css';
 import { fetchPostById, addComment, likePost } from '../services/postService.js';
-import { isAuthenticated, getCurrentUser } from '../services/authService.js';
+import { getCurrentUser } from '../services/authService.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const PostDetailPage = () => {
   const { id } = useParams();

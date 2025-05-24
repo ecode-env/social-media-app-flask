@@ -16,7 +16,12 @@ const App = () => {
 
     return (
         <div className={`app ${theme}`}>
-            <Router>
+            <Router
+                future={{
+                    v7_startTransition: true,
+                    v7_relativeSplatPath: true,
+                }}
+            >
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
                         <Route index element={<HomePage />} />

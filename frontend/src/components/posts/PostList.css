@@ -195,3 +195,16 @@
 .comment-send-button:hover {
   background-color: #0056b3;
 }
+.post-video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.post-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}

@@ -38,8 +38,10 @@ const PostList = () => {
     };
 
     const handleSend = (postId) => {
-        console.log(`Send comment for post ${postId}:`, commentText);
-        // TODO: handle sending comment to backend
+        if (!user) {
+            navigate('/login');
+            return;
+        }
         setCommentText('');
         setActiveCommentPostId(null);
     };

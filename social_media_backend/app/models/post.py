@@ -1,4 +1,6 @@
 from datetime import datetime, timezone
+from flask_jwt_extended import current_user
+
 from ..extensions import db
 
 class Post(db.Model):
@@ -42,6 +44,7 @@ class Post(db.Model):
     likes = db.relationship('Like', back_populates='post', cascade='all, delete-orphan')
 
     def to_json(self):
+        liked_user_ids = [like.user_id for like in self.likes]
         return {
             "id":             self.id,
             "user_id":        self.user_id,
@@ -57,6 +60,8 @@ class Post(db.Model):
             "updated_at":     self.updated_at.isoformat() if self.updated_at else None,
             "author":         self.author.username if self.author else None,
             "comment_count":  len(self.comments) or 0,
-            "like_count":     len(self.likes) or 0
+            "like_count":     len(self.likes) or 0,
+            "is_liked":       current_user.is_authenticated and current_user.id in liked_user_ids
+
         }
 

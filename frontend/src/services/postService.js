@@ -35,7 +35,8 @@ const mockPosts = [
     updated_at: "2023-01-21T09:15:00Z",
     author: "janedoe",
     comment_count: 8,
-    like_count: 24
+    like_count: 24,
+    is_liked: true,
   },
   {
     id: 3,
@@ -52,7 +53,8 @@ const mockPosts = [
     updated_at: "2023-02-05T16:20:00Z",
     author: "johndoe",
     comment_count: 3,
-    like_count: 9
+    like_count: 9,
+    is_liked: false,
   },
   {
     id: 4,
@@ -69,7 +71,8 @@ const mockPosts = [
     updated_at: "2023-02-13T09:25:00Z",
     author: "janedoe",
     comment_count: 6,
-    like_count: 18
+    like_count: 18,
+    is_liked: false,
   }
 ];
 

@@ -119,11 +119,11 @@ const PostList = () => {
                         <div className="post-footer">
                             <div className="post-stats">
                                 <button
-                                    className="like-button"
+                                    className={`like-button ${post.is_liked ? 'liked' : ''}`}
                                     onClick={(e) => handleLike(post.id, e)}
                                     aria-label="Like post"
                                 >
-                                    <Heart size={18}/>
+                                    <Heart size={18} />
                                     <span>{post.like_count}</span>
                                 </button>
                                 <button

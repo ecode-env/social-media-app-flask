@@ -1,128 +1,154 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Heart, MessageSquare } from 'lucide-react';
+import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import {Heart, MessageSquare,SendHorizontal,Bookmark} from 'lucide-react';
 import './PostList.css';
-import { fetchPosts, likePost } from '../../services/postService.js';
-import Button from "../common/Button.jsx";
-
+import {fetchPosts, likePost} from '../../services/postService.js';
 
 
 const PostList = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [activeCommentPostId, setActiveCommentPostId] = useState(null);
+    const [commentText, setCommentText] = useState('');
 
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const data = await fetchPosts();
-        setPosts(data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
+    useEffect(() => {
+        const loadPosts = async () => {
+            try {
+                const data = await fetchPosts();
+                setPosts(data);
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+
+        loadPosts();
+    }, []);
+
+    const handleLike = async (postId, e) => {
+        e.preventDefault(); // Prevent navigation when clicking the like button
+        try {
+            const updatedPost = await likePost(postId);
+            setPosts(posts.map(post =>
+                post.id === postId ? {...post, like_count: updatedPost.like_count} : post
+            ));
+        } catch (err) {
+            console.error("Error liking post:", err);
+        }
     };
 
-    loadPosts();
-  }, []);
+    const handleComment = (postId, e) => {
+        e.preventDefault();
+        setActiveCommentPostId(postId === activeCommentPostId ? null : postId);
+        setCommentText('');
+    };
 
-  const handleLike = async (postId, e) => {
-    e.preventDefault(); // Prevent navigation when clicking the like button
-    try {
-      const updatedPost = await likePost(postId);
-      setPosts(posts.map(post => 
-        post.id === postId ? { ...post, like_count: updatedPost.like_count } : post
-      ));
-    } catch (err) {
-      console.error("Error liking post:", err);
+    const handleSend = (postId) => {
+        console.log(`Send comment for post ${postId}:`, commentText);
+        // TODO: handle sending comment to backend
+        setCommentText('');
+        setActiveCommentPostId(null);
+    };
+
+
+    if (loading) {
+        return <div className="loading">Loading posts...</div>;
     }
-  };
 
-  const handleComment = async (postId, e) =>  {
-    e.preventDefault();
-  }
+    if (error) {
+        return <div className="error">Error: {error}</div>;
+    }
 
-  if (loading) {
-    return <div className="loading">Loading posts...</div>;
-  }
+    return (
+        <div className="post-list">
+            {posts.length === 0 ? (
+                <div className="no-posts">No posts available</div>
+            ) : (
+                posts.map(post => (
+                    <article key={post.id} className="post-card">
+                        <div className="post-header">
+                            <img
+                                src={post.profile_picture}
+                                alt={post.fullName}
+                                className="author-avatar"
+                            />
+                            <div className="post-meta">
+                                <h4 className="author-name">{post.fullName}</h4>
+                                <time className="post-date">
+                                    {new Date(post.created_at).toLocaleDateString()}
+                                </time>
+                            </div>
+                        </div>
+                        <div className="post-content">
+                            <Link to={`/posts/${post.id}`} className="post-title-link">
+                                <h3 className="post-title">{post.title}</h3>
+                            </Link>
+                            <p className="post-excerpt">
+                                {post.content.length > 150
+                                    ? `${post.content.substring(0, 150)}... `
+                                    : post.content
+                                }
+                                <Link to={`/posts/${post.id}`} className="read-more">
+                                    Read more
+                                </Link>
+                            </p>
+                        </div>
 
-  if (error) {
-    return <div className="error">Error: {error}</div>;
-  }
+                        {post.media_url && (
+                            <div className="post-image-container">
+                                <img
+                                    src={post.media_url}
+                                    alt={post.title}
+                                    className="post-image"
+                                />
+                            </div>
+                        )}
 
-  return (
-    <div className="post-list">
-      {posts.length === 0 ? (
-        <div className="no-posts">No posts available</div>
-      ) : (
-        posts.map(post => (
-          <article key={post.id} className="post-card">
-            <div className="post-header">
-              <img 
-                src={post.profile_picture} 
-                alt={post.fullName}
-                className="author-avatar"
-              />
-              <div className="post-meta">
-                <h4 className="author-name">{post.fullName}</h4>
-                <time className="post-date">
-                  {new Date(post.created_at).toLocaleDateString()}
-                </time>
-              </div>
-            </div>
-            <div className="post-content">
-              <Link to={`/posts/${post.id}`} className="post-title-link">
-                <h3 className="post-title">{post.title}</h3>
-              </Link>
-              <p className="post-excerpt">
-                {post.content.length > 150
-                    ? `${post.content.substring(0, 150)}...`
-                    : post.content
-                }
-              </p>
-            </div>
+                        <div className="post-footer">
+                            <div className="post-stats">
+                                <button
+                                    className="like-button"
+                                    onClick={(e) => handleLike(post.id, e)}
+                                    aria-label="Like post"
+                                >
+                                    <Heart size={18}/>
+                                    <span>{post.like_count}</span>
+                                </button>
+                                <button
+                                    className="comment-button"
+                                    onClick={(e) => handleComment(post.id, e)}
+                                    aria-label="Comment post"
+                                >
+                                    <MessageSquare size={18}/>
+                                    <span>{post.comment_count}</span>
+                                </button>
+                            </div>
 
-            {post.media_url && (
-              <div className="post-image-container">
-                <img 
-                  src={post.media_url} 
-                  alt={post.title}
-                  className="post-image"
-                />
-              </div>
+                        </div>
+                        {activeCommentPostId === post.id && (
+                            <div className="comment-box">
+                              <input
+                                  value={commentText}
+                                  onChange={(e) => setCommentText(e.target.value)}
+                                  className="comment-textarea"
+                                  placeholder="Write a comment..."
+                              />
+                                <button
+                                    onClick={() => handleSend(post.id)}
+                                    className="comment-send-button"
+                                >
+                                    <SendHorizontal size={18}/>
+                                </button>
+                            </div>
+                        )}
+
+                    </article>
+                ))
             )}
-
-            <div className="post-footer">
-              <div className="post-stats">
-                <button 
-                  className="like-button"
-                  onClick={(e) => handleLike(post.id, e)}
-                  aria-label="Like post"
-                >
-                  <Heart size={18} />
-                  <span>{post.like_count}</span>
-                </button>
-                <Button
-                    className="comment-button"
-                    onClick={(e) => handleComment(post.id, e)}
-                    aria-label="Comment post"
-                >
-                  <div className="comment-count">
-                    <MessageSquare size={18} />
-                    <span>{post.comment_count}</span>
-                  </div>
-                </Button>
-              </div>
-              <Link to={`/posts/${post.id}`} className="read-more">
-                Read more
-              </Link>
-            </div>
-          </article>
-        ))
-      )}
-    </div>
-  );
+        </div>
+    );
 };
 
 export default PostList;

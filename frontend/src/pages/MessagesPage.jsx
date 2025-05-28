@@ -62,23 +62,71 @@ const MessagesPage = () => {
   };
 
   return (
-    <div className="messages-page">
-      <h1>Messages</h1>
-      <div className="messages-list">
-        {messages.map(message => (
-          <div key={message.id} className="message-item">
-            <img src={message.avatar} alt={message.user} className="message-avatar" />
-            <div className="message-content">
-              <div className="message-header">
-                <strong>{message.user}</strong>
-                <span className="message-time">{message.time}</span>
-              </div>
-              <p className="message-text">{message.lastMessage}</p>
-            </div>
+      <div className="messages-page">
+        <div className="messages-list-container">
+          <h2>Messages</h2>
+          <div className="messages-list">
+            {messages.map(message => (
+                <div
+                    key={message.id}
+                    className={`message-item ${selectedUser?.id === message.id ? 'active' : ''}`}
+                    onClick={() => setSelectedUser(message)}
+                >
+                  <img src={message.avatar} alt={message.user} className="message-avatar" />
+                  <div className="message-content">
+                    <div className="message-header">
+                      <strong>{message.user}</strong>
+                      <span className="message-time">{message.time}</span>
+                    </div>
+                    <p className="message-text">{message.lastMessage}</p>
+                  </div>
+                </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {selectedUser ? (
+            <div className="conversation">
+              <div className="conversation-header">
+                <img src={selectedUser.avatar} alt={selectedUser.user} className="conversation-avatar" />
+                <h3 className="conversation-name">{selectedUser.user}</h3>
+              </div>
+
+              <div className="conversation-messages">
+                {selectedUser.conversation.map(message => (
+                    <div
+                        key={message.id}
+                        className={`chat-message ${message.sent ? 'sent' : 'received'}`}
+                    >
+                      <p>{message.text}</p>
+                      <small className="message-time">{message.time}</small>
+                    </div>
+                ))}
+              </div>
+
+              <form className="message-input" onSubmit={handleSendMessage}>
+            <textarea
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Type a message..."
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSendMessage(e);
+                  }
+                }}
+            />
+                <button type="submit" className="send-button" disabled={!newMessage.trim()}>
+                  <Send size={20} />
+                </button>
+              </form>
+            </div>
+        ) : (
+            <div className="no-conversation">
+              <p>Select a conversation to start messaging</p>
+            </div>
+        )}
       </div>
-    </div>
   );
 };
 

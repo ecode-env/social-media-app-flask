@@ -3,6 +3,8 @@ import {NavLink, Link, useNavigate} from 'react-router-dom';
 import { Moon, Sun, Bell, MessageSquare, UserCircle, PlusSquare,Home } from 'lucide-react';
 import './Header.css';
 import { useTheme } from '../../hooks/useTheme.jsx';
+import {useAuth} from "../../context/AuthContext.jsx";
+import Button from "./Button.jsx";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();

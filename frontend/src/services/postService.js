@@ -113,12 +113,9 @@ const mockComments = [
 // Fetch all posts
 export const fetchPosts = async () => {
   try {
-    // In a real app, this would be an API call
-    // const response = await api.get('/posts');
-    // return response.data;
-    
-    // Mock implementation
-    return Promise.resolve([...mockPosts]);
+    const response = await api.get('/posts');
+    return response.data;
+
   } catch (error) {
     throw error;
   }

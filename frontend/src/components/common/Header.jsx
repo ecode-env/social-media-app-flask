@@ -55,10 +55,21 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-        </button>
+        <div className='right-header'>
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+          <div className='flex-btn'>
+            {user ? (
+                <Button variant="danger" onClick={handleLogout}>Logout</Button>
+            ) : (
+                <>
+                  <Button variant="primary-light" onClick={handleLogin}>Login</Button>
+                  <Button variant="primary" onClick={handleRegister}>Register</Button>
+                </>
+            )}
+          </div>
+        </div>
       </div>
     </header>
   );

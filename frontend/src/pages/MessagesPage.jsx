@@ -34,6 +34,33 @@ const MessagesPage = () => {
     }
   ];
 
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!newMessage.trim()) return;
+
+    const updatedMessages = messages.map(msg => {
+      if (msg.id === selectedUser.id) {
+        return {
+          ...msg,
+          conversation: [
+            ...msg.conversation,
+            {
+              id: msg.conversation.length + 1,
+              text: newMessage,
+              sent: true,
+              time: 'Just now'
+            }
+          ]
+        };
+      }
+      return msg;
+    });
+
+    // Update the messages array
+    messages.splice(0, messages.length, ...updatedMessages);
+    setNewMessage('');
+  };
+
   return (
     <div className="messages-page">
       <h1>Messages</h1>

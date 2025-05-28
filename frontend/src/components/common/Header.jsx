@@ -8,6 +8,16 @@ import Button from "./Button.jsx";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
+  const { user,setUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleRegister = () => navigate('/register');
+  const handleLogin = () => navigate('/login');
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setUser(null)
+  };
 
   return (
     <header className="header">

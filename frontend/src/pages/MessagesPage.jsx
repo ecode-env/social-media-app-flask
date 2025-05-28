@@ -25,7 +25,12 @@ const MessagesPage = () => {
       user: 'Jane Smith',
       avatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg',
       lastMessage: 'The project looks great!',
-      time: '5 hours ago'
+      time: '5 hours ago',
+      conversation: [
+        { id: 1, text: 'Hi, I reviewed your latest changes', sent: false, time: '5 hours ago' },
+        { id: 2, text: 'The project looks great!', sent: false, time: '5 hours ago' },
+        { id: 3, text: 'Thank you! I spent a lot of time on it', sent: true, time: '4 hours ago' }
+      ]
     }
   ];
 

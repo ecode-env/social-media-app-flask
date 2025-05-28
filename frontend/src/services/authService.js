@@ -59,34 +59,10 @@ export const login = async (email, password) => {
 // Register function
 export const register = async (userData) => {
   try {
-    // In a real app, this would be an API call
-    // const response = await api.post('/auth/register', userData);
-    // return response.data;
-    
-    // Mock implementation for local development
-    const existingUser = mockUsers.find(user => 
-      user.email === userData.email || user.username === userData.username
-    );
-    
-    if (existingUser) {
-      throw new Error('User already exists');
-    }
-    
-    // Create a new user
-    const newUser = {
-      id: mockUsers.length + 1,
-      ...userData,
-      profile_picture_url: 'https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg'
-    };
-    
-    // Add to mock users (in a real app, this would be saved to a database)
-    mockUsers.push(newUser);
-    
-    const { password: _, ...userWithoutPassword } = newUser;
-    
-    // Create a mock token
-    const token = `mock-jwt-token-${newUser.id}`;
-    
+    const response = await api.post('/auth/register', userData);
+
+    const { user, access_token } = response.data;
+
     // Store user data and token in localStorage
     localStorage.setItem('user', JSON.stringify(userWithoutPassword));
     localStorage.setItem('token', token);

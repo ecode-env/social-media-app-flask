@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../components/common/Header.jsx';
+import { Bell, MessageSquare, UserCircle, PlusSquare,Home } from 'lucide-react';
 import './MainLayout.css';
 
 const MainLayout = () => {

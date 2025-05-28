@@ -18,4 +18,3 @@ class Config:
     UPLOAD_FOLDER = environ.get("UPLOAD_FOLDER", "social_media_backend/static/uploads")
 
     STORAGE_BACKEND = environ.get('STORAGE_BACKEND', 'local')
-    

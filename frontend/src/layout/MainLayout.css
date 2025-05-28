@@ -59,9 +59,11 @@
     margin-bottom: var(--spacing-3);
     justify-content: center;
   }
-  
-  .right-sidebar {
-    margin-top: var(--spacing-3);
+  .sidebar-nav .sidebar-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-3);
   }
   
   .main-content {

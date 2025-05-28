@@ -66,6 +66,12 @@
     gap: var(--spacing-3);
   }
   
+.sidebar-btn {
+  display: block;
+}
+  .sidebar-text {
+    display: none;
+  }
   .main-content {
     padding: 0;
   }

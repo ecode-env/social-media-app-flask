@@ -28,26 +28,6 @@
   position: sticky;
   top: calc(var(--spacing-6) + var(--spacing-3));
 }
-
-.sidebar-nav, .sidebar-list {
-  list-style: none;
-  padding: 0;
-  margin: var(--spacing-2) 0;
-}
-
-.sidebar-nav li, .sidebar-list li {
-  margin-bottom: var(--spacing-1);
-}
-
-.sidebar-nav a {
-  display: block;
-  padding: var(--spacing-1);
-  color: var(--color-text);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
 .sidebar-nav a:hover {
   background-color: var(--color-background-alt);
   color: var(--color-primary);

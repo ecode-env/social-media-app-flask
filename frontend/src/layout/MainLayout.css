@@ -21,7 +21,7 @@
 .main-content {
   flex: 1;
   padding: 0 var(--spacing-3);
-  min-width: 0; /* Prevent flex items from overflowing */
+  min-width: 0;
 }
 
 .sidebar-content {

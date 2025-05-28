@@ -64,13 +64,10 @@ export const register = async (userData) => {
     const { user, access_token } = response.data;
 
     // Store user data and token in localStorage
-    localStorage.setItem('user', JSON.stringify(userWithoutPassword));
-    localStorage.setItem('token', token);
-    
-    return {
-      user: userWithoutPassword,
-      token
-    };
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', access_token);
+
+    return { user, access_token };
   } catch (error) {
     throw error;
   }

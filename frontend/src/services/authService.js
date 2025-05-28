@@ -69,7 +69,9 @@ export const register = async (userData) => {
 
     return { user, access_token };
   } catch (error) {
-    throw error;
+    const message =
+        error.response?.data?.message || error.message || 'Registration failed';
+    throw new Error(message);
   }
 };
 

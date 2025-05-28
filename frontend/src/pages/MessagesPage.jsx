@@ -12,7 +12,13 @@ const MessagesPage = () => {
       user: 'John Doe',
       avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
       lastMessage: 'Hey, how are you?',
-      time: '2 hours ago'
+      time: '2 hours ago',
+      conversation: [
+        { id: 1, text: 'Hey, how are you?', sent: false, time: '2 hours ago' },
+        { id: 2, text: 'I\'m good, thanks! How about you?', sent: true, time: '2 hours ago' },
+        { id: 3, text: 'Great! Did you see the new project requirements?', sent: false, time: '1 hour ago' },
+        { id: 4, text: 'Yes, I\'m working on them now', sent: true, time: '1 hour ago' }
+      ]
     },
     {
       id: 2,

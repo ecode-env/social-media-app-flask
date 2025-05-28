@@ -73,6 +73,50 @@
   background-color: var(--color-background-alt);
 }
 
+
+.btn {
+  font-weight: 400;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  color: white !important;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.flex-btn {
+  display: flex;
+  gap: var(--spacing-3);
+}
+/* Register Button */
+.register {
+  background-color: var(--color-primary);
+}
+.register:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Login Button */
+.login {
+  background-color: var(--color-primary);
+}
+.login:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Logout Button */
+.logout {
+  background-color: #ef4444;
+}
+.logout:hover {
+  background-color: #dc2626;
+}
+
+
+.right-header {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
 /* Media queries */
 @media (max-width: 767px) {
   .header-container {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Send } from 'lucide-react';
 import './MessagesPage.css';
 
 const MessagesPage = () => {

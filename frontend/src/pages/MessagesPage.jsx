@@ -3,6 +3,9 @@ import { Send } from 'lucide-react';
 import './MessagesPage.css';
 
 const MessagesPage = () => {
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [newMessage, setNewMessage] = useState('');
+
   const messages = [
     {
       id: 1,

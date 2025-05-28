@@ -25,16 +25,6 @@ const MainLayout = () => {
           <Outlet />
         </main>
         
-        <aside className="sidebar right-sidebar">
-          <div className="sidebar-content">
-            <h3>Popular</h3>
-            <ul className="sidebar-list">
-              <li>Top Post 1</li>
-              <li>Top Post 2</li>
-              <li>Top Post 3</li>
-            </ul>
-          </div>
-        </aside>
       </div>
     </div>
   );

@@ -37,6 +37,12 @@
   padding: var(--spacing-1);
   color: var(--color-text-muted);
 }
+.sidebar.hidden {
+  display: none;
+}
+.sidebar-btn {
+  display: none;
+}
 
 /* Media query for responsive layout */
 @media (max-width: 767px) {

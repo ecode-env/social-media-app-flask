@@ -1,9 +1,14 @@
 .messages-page {
   padding: var(--spacing-3);
+  display: flex;
+  gap: var(--spacing-3);
+  height: calc(100vh - 80px);
 }
 
-.messages-page h1 {
-  margin-bottom: var(--spacing-4);
+.messages-list-container {
+  flex: 0 0 300px;
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
 }
 
 .messages-list {
@@ -26,6 +31,11 @@
 
 .message-item:hover {
   background-color: var(--color-background-alt);
+}
+
+.message-item.active {
+  background-color: var(--color-background-alt);
+  border-color: var(--color-primary);
 }
 
 .message-avatar {
@@ -54,4 +64,102 @@
 .message-text {
   color: var(--color-text-muted);
   margin: 0;
+}
+
+.conversation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.conversation-header {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.conversation-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.conversation-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.conversation-messages {
+  flex: 1;
+  padding: var(--spacing-3);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.chat-message {
+  max-width: 70%;
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+}
+
+.chat-message.sent {
+  align-self: flex-end;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.chat-message.received {
+  align-self: flex-start;
+  background-color: var(--color-background-alt);
+}
+
+.message-input {
+  padding: var(--spacing-3);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.message-input textarea {
+  flex: 1;
+  padding: var(--spacing-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  resize: none;
+  min-height: 44px;
+  background-color: var(--color-background);
+}
+
+.send-button {
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  transition: background-color var(--transition-fast);
+}
+
+.send-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.no-conversation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
 }

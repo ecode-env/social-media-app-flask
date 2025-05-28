@@ -6,6 +6,8 @@
 }
 
 .post-card {
+  width: 100%;
+  box-sizing: border-box;
   background-color: var(--color-background);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);

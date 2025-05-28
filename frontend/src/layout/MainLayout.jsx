@@ -14,7 +14,7 @@ const MainLayout = () => {
           <div className="sidebar-content">
             <h3>Navigation</h3>
             <ul className="sidebar-nav">
-              <li><a href="/">Home</a></li>
+              <li><a href="/"><Home size={18}/></a></li>
               <li><a href="/posts">Recent Posts</a></li>
               <li><a href="/users">Users</a></li>
             </ul>

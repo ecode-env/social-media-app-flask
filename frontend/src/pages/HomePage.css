@@ -16,6 +16,9 @@
 }
 
 @media (max-width: 767px) {
+  .posts-section h2 {
+    text-align: center;
+  }
   .hero {
     padding: var(--spacing-3) 0;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink, Link, useNavigate} from 'react-router-dom';
-import { Moon, Sun, Bell, MessageSquare, UserCircle, PlusSquare,Home } from 'lucide-react';
+import { Moon, Sun, Bell, MessageSquare, UserCircle, PlusSquare,Home, LogOut } from 'lucide-react';
 import './Header.css';
 import { useTheme } from '../../hooks/useTheme.jsx';
 import {useAuth} from "../../context/AuthContext.jsx";
@@ -59,9 +59,12 @@ const Header = () => {
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
+          <div className='logout-icn'>
+            {user && <LogOut size={20} />}
+          </div>
           <div className='flex-btn'>
             {user ? (
-                <Button variant="danger" onClick={handleLogout}>Logout</Button>
+                <Button className='logout-btn' variant="danger" onClick={handleLogout}>Logout</Button>
             ) : (
                 <>
                   <Button variant="primary-light" onClick={handleLogin}>Login</Button>

@@ -17,27 +17,51 @@ const MainLayout = () => {
   const currentUser = user;
 
   return (
-    <div className="layout">
-      <Header />
-      
-      <div className="layout-container">
-        <aside className="sidebar left-sidebar">
-          <div className="sidebar-content">
-            <h3>Navigation</h3>
-            <ul className="sidebar-nav">
-              <li><a href="/"><Home size={18}/></a></li>
-              <li><a href="/posts">Recent Posts</a></li>
-              <li><a href="/users">Users</a></li>
-            </ul>
-          </div>
-        </aside>
-        
-        <main className="main-content">
-          <Outlet />
-        </main>
-        
+      <div className="layout">
+        <Header />
+
+        <div className="layout-container">
+          <aside className={`sidebar ${hideSidebar ? 'hidden' : ''} left-sidebar`}>
+            <div className="sidebar-content">
+              <h3>Navigation</h3>
+              <div className="sidebar-nav">
+                {currentUser ? (
+                    <div className="user-sidebar-box">
+                      <img
+                          src={currentUser.profile_picture_url || 'https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg'}
+                          alt="User"
+                          className="user-avatar"
+                      />
+                      <div className="user-space"></div>
+                      <p className="username">@{currentUser.username}</p>
+                      <div className="user-follow">
+                        <a>
+                          <strong>{currentUser.following || 0}</strong> Following
+                        </a>
+                        <a><strong>{currentUser.followers || 0}</strong> Followers</a>
+                      </div>
+                    </div>
+                ) : (
+                    <>
+                      <div className='sidebar-btn'>
+                          <Button variant="primary-light" onClick={handleLogin}>Login</Button>
+                          <Button variant="primary" onClick={handleRegister}>Register</Button>
+                      </div>
+                      <div className='sidebar-text'>
+                        <h1 >Please logging</h1>
+                      </div>
+                    </>
+
+                )}
+              </div>
+            </div>
+          </aside>
+
+          <main className="main-content">
+            <Outlet />
+          </main>
+        </div>
       </div>
-    </div>
   );
 };
 

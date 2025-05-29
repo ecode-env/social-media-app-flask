@@ -8,8 +8,6 @@ class Post(db.Model):
     __tablename__ = 'post'
 
     id: db.Mapped[int] = db.mapped_column(primary_key=True)
-
-    # User who created the post
     user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'), nullable=False)
 
     # Optional article title

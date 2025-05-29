@@ -20,7 +20,6 @@ posts_bp = Blueprint('posts', __name__)
 @posts_bp.route('/', methods=['GET'], strict_slashes=False)
 @jwt_required(optional=True)
 def get_posts():
-    # Retrieve the latest posts; consider adding pagination for more scalability.
     posts = Post.query.order_by(Post.created_at.desc()).all()
     return jsonify([p.to_json() for p in posts] if posts else {'msg': 'No Post Yet'}), 200
 

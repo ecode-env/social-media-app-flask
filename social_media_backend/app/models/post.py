@@ -14,8 +14,6 @@ class Post(db.Model):
     media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     post_type: db.Mapped[str] = db.mapped_column(db.String(20), nullable=True)
-
-    # Moderation or audit flags
     is_flagged: db.Mapped[bool] = db.mapped_column(default=False)
 
     # Timestamps

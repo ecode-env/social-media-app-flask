@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/common/Header.jsx';
-import { Bell, MessageSquare, UserCircle, PlusSquare,Home } from 'lucide-react';
+import { Bell, MessageSquare, UserCircle, PlusSquare, Home, LogIn } from 'lucide-react';
 import './MainLayout.css';
 
 const MainLayout = () => {

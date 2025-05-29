@@ -116,5 +116,5 @@ This project is licensed under the MIT License.
 ## 🙋‍♂️ Author
 
 **Eyob Mulugeta**  
-[eyobbmulugeta@gmail.com](mailto:eyobbmulugeta@gmail.com)  
-Telegram: [@eyobScript](https://t.me/eyobScript)
+Email: [eyobbmulugeta@gmail.com](mailto:eyobbmulugeta@gmail.com)  
+Telegram: [@Ecode_env](https://t.me/Ecode_env)

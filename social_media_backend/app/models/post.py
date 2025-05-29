@@ -35,7 +35,7 @@ class Post(db.Model):
         return {
             "id":             self.id,
             "user_id":        self.user_id,
-            "profile_picture": self.author.profile_picture_url,
+            "profile_picture": self.author.profile_picture_url if self.author else None,
             "title":          self.title,
             "content":        self.content,
             "media_type":     self.media_type,

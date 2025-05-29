@@ -17,7 +17,8 @@ logging.basicConfig(level=logging.ERROR)
 
 posts_bp = Blueprint('posts', __name__)
 
-@posts_bp.route('/', methods=['GET'])
+@posts_bp.route('/', methods=['GET'], strict_slashes=False)
+@jwt_required(optional=True)
 def get_posts():
     # Retrieve the latest posts; consider adding pagination for more scalability.
     posts = Post.query.order_by(Post.created_at.desc()).all()

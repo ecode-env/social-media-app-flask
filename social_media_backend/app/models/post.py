@@ -15,8 +15,6 @@ class Post(db.Model):
     media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     post_type: db.Mapped[str] = db.mapped_column(db.String(20), nullable=True)
     is_flagged: db.Mapped[bool] = db.mapped_column(default=False)
-
-    # Timestamps
     created_at: db.Mapped[datetime] = db.mapped_column(
         db.DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc)

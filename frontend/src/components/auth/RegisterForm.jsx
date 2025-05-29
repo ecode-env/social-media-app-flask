@@ -78,7 +78,6 @@ const RegisterForm = () => {
       const result = await register(registrationData);
       console.log('Registration successful:', result);
       
-      // Redirect to home page after successful registration
       navigate('/');
     } catch (error) {
       console.error('Registration error:', error);

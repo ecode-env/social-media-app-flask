@@ -21,7 +21,8 @@ posts_bp = Blueprint('posts', __name__)
 @jwt_required(optional=True)
 def get_posts():
     posts = Post.query.order_by(Post.created_at.desc()).all()
-    return jsonify([p.to_json() for p in posts] if posts else {'msg': 'No Post Yet'}), 200
+    data = [p.to_json() for p in posts]
+    return jsonify(data), 200
 
 
 @posts_bp.route('/<int:post_id>', methods=['GET'])

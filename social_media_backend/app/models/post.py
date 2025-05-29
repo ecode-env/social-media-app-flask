@@ -41,7 +41,11 @@ class Post(db.Model):
             "media_type":     self.media_type,
             "media_url":      self.media_url,
             "post_type":      self.post_type,
-            "fullName":       f"{self.author.f_name.title()} {self.author.l_name.title()}",
+            "fullName":       (
+                f"{self.author.f_name.title()} {self.author.l_name.title()}"
+                if self.author and self.author.f_name and self.author.l_name
+                else None
+            ),
             "is_flagged":     self.is_flagged,
             "created_at":     self.created_at.isoformat() if self.created_at else None,
             "updated_at":     self.updated_at.isoformat() if self.updated_at else None,

@@ -48,7 +48,7 @@ const MainLayout = () => {
                           <Button variant="primary" onClick={handleRegister}>Register</Button>
                       </div>
                       <div className='sidebar-text'>
-                        <h1 >Please logging</h1>
+                        <h6 >Please logging</h6>
                       </div>
                     </>
 

@@ -10,8 +10,6 @@ class Post(db.Model):
     id: db.Mapped[int] = db.mapped_column(primary_key=True)
     user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'), nullable=False)
     title: db.Mapped[str] = db.mapped_column(db.String(255), nullable=True)
-
-    # Optional article content
     content: db.Mapped[str] = db.mapped_column(db.Text, nullable=True)
 
     # Optional media (image/video)

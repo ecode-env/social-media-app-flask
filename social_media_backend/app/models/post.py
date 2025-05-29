@@ -11,8 +11,6 @@ class Post(db.Model):
     user_id: db.Mapped[int] = db.mapped_column(db.ForeignKey('user.id'), nullable=False)
     title: db.Mapped[str] = db.mapped_column(db.String(255), nullable=True)
     content: db.Mapped[str] = db.mapped_column(db.Text, nullable=True)
-
-    # Optional media (image/video)
     media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
 

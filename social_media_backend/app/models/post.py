@@ -13,8 +13,6 @@ class Post(db.Model):
     content: db.Mapped[str] = db.mapped_column(db.Text, nullable=True)
     media_type: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
     media_url: db.Mapped[str] = db.mapped_column(db.String(200), nullable=True)
-
-    # Optional post type: "text", "image", "mixed"
     post_type: db.Mapped[str] = db.mapped_column(db.String(20), nullable=True)
 
     # Moderation or audit flags

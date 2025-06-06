@@ -73,7 +73,7 @@ const PostDetailPage = () => {
     if (!comment.trim() || !isLoggedIn) return;
 
     try {
-      const newComment = await addComment(id, { 
+      const newComment = await addComment(id, {
         user_id: currentUser.id,
         content: comment,
         author: currentUser.username,

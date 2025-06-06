@@ -34,6 +34,10 @@ def get_comments(post_id):
     per_page = request.args.get('limit', 10, type=int)
     current_id = get_jwt_identity()
 
+    # Check if post exists
+    post = Post.query.get(post_id)
+    if not post:
+        return jsonify({"message": "Post not found"}), 404
 
     pagination = Comment.query.filter_by(post_id=post_id)\
         .order_by(Comment.created_at.desc())\

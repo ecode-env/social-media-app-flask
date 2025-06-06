@@ -80,7 +80,7 @@ const PostDetailPage = () => {
         fullName: `${currentUser.f_name} ${currentUser.l_name}`,
         profile_picture: currentUser.profile_picture_url
       });
-      
+
       setComments([...comments, newComment]);
       setComment('');
       

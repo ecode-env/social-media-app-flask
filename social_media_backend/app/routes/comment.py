@@ -43,7 +43,7 @@ def get_comments(post_id):
         .order_by(Comment.created_at.desc()) \
         .paginate(page=page, per_page=per_page, error_out=False)
 
-    comments = [comment.serialize(current_id if current_id else None) for comment in pagination.items]
+    comments = [comment.serialize(current_id) for comment in pagination.items]
 
     return jsonify({
         'comments': comments,

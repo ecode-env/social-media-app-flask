@@ -53,5 +53,8 @@ class Post(db.Model):
             "comment_count":  len(self.comments) or 0,
             "like_count":     len(self.likes) or 0,
             "is_liked":       liked_user_ids,
+            "comments": [comment.serialize(current_user_id) for comment in self.comments[:5]]
+
+
         }
 

@@ -62,6 +62,7 @@ const PostDetailPage = () => {
       }));
     } catch (err) {
       console.error("Error liking post:", err);
+      // rollback optimistic update
     }
   };
 

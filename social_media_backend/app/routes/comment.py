@@ -49,7 +49,9 @@ def get_comments(post_id):
         'comments': comments,
         'total': pagination.total,
         'pages': pagination.pages,
-        'current_page': pagination.page
+        'current_page': pagination.page,
+        'has_next': pagination.has_next,
+        'has_prev': pagination.has_prev
     }), 200
 
 

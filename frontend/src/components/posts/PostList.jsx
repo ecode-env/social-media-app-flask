@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {Heart, MessageSquare,SendHorizontal,Bookmark} from 'lucide-react';
 import './PostList.css';
-import {fetchPosts, likePost} from '../../services/postService.js';
+import { likePost} from '../../services/postService.js';
 import { useAuth } from '../../context/AuthContext.jsx';
 import usePosts from "../../hooks/usePosts.jsx";
 

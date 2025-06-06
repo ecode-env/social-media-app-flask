@@ -66,6 +66,7 @@ const PostDetailPage = () => {
     }
   };
 
+
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     

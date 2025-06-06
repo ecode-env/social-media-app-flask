@@ -32,7 +32,7 @@ def create_comment(post_id):
 def get_comments(post_id):
     page = request.args.get('page', 1, type=int)
     per_page = request.args.get('limit', 10, type=int)
-    current_id=get_jwt_identity()
+    current_id = get_jwt_identity()
 
 
     pagination = Comment.query.filter_by(post_id=post_id)\

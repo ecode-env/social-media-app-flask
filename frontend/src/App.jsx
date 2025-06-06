@@ -32,6 +32,7 @@ const App = () => {
                         <Route path="notifications" element={<NotificationsPage />} />
                         <Route path="messages" element={<MessagesPage />} />
                         <Route path="profile" element={<ProfilePage />} />
+                        <Route path="profile/edit" element={<EditProfilePage />} />
                         <Route path="create-post" element={<CreatePostPage />} />
                     </Route>
                 </Routes>

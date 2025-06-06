@@ -77,7 +77,7 @@ def register():
         # Password validation
     if not is_valid_password(password):
         return jsonify({
-            'error': 'Password must be at least 8 characters long, with uppercase, '
+            'message': 'Password must be at least 6 characters long, with uppercase, '
                      'lowercase, number, and special character'
         }), 400
 

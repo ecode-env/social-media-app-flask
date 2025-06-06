@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Heart } from 'lucide-react';
-import Button from '../components/common/Button.jsx';
+import { Heart, Send } from 'lucide-react';
+import Button from '../components/common/Button';
 import './PostDetailPage.css';
 import { fetchPostById, addComment, likePost } from '../services/postService.js';
 import { getCurrentUser } from '../services/authService.js';

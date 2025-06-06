@@ -55,7 +55,11 @@ const PostDetailPage = () => {
 
     try {
       const updatedPost = await likePost(id);
-      setPost(prev => ({ ...prev, like_count: updatedPost.like_count }));
+      // sync with backend response
+      setPost(prev => ({
+        ...prev,
+        like_count: updatedPost.like_count,
+      }));
     } catch (err) {
       console.error("Error liking post:", err);
     }

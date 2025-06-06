@@ -158,10 +158,10 @@ const PostDetailPage = () => {
           {isLoggedIn ? (
               <form className="comment-form" onSubmit={handleCommentSubmit}>
             <textarea
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              placeholder="Add a comment..."
-              rows={3}
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                placeholder="Add a comment..."
+                rows={3}
             />
             <Button 
               type="submit" 

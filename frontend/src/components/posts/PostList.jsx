@@ -22,6 +22,7 @@ const PostList = () => {
             navigate('/login');
             return;
         }
+
         try {
             const updatedPost = await likePost(postId);
             setPosts(posts.map(post =>

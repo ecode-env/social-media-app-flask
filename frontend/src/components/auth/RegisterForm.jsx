@@ -81,7 +81,7 @@ const RegisterForm = () => {
     } catch (error) {
       setErrors({
         ...errors, 
-        form: error.message || 'Registration failed. Please try again.' 
+        form: error.message || 'Registration failed. Please try again.'
       });
     } finally {
       setIsLoading(false);

@@ -39,8 +39,8 @@ def get_comments(post_id):
     if not post:
         return jsonify({"message": "Post not found"}), 404
 
-    pagination = Comment.query.filter_by(post_id=post_id)\
-        .order_by(Comment.created_at.desc())\
+    pagination = Comment.query.filter_by(post_id=post_id) \
+        .order_by(Comment.created_at.desc()) \
         .paginate(page=page, per_page=per_page, error_out=False)
 
     comments = [comment.serialize(current_id if current_id else None) for comment in pagination.items]

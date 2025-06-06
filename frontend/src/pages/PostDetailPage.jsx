@@ -83,8 +83,7 @@ const PostDetailPage = () => {
 
       setComments([...comments, newComment]);
       setComment('');
-      
-      // Update post comment count
+
       setPost(prev => ({ ...prev, comment_count: prev.comment_count + 1 }));
     } catch (err) {
       console.error("Error adding comment:", err);

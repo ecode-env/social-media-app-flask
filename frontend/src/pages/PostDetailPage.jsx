@@ -13,10 +13,10 @@ const PostDetailPage = () => {
   const [error, setError] = useState(null);
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
-  const {isAuthenticated} =  useAuth();
-  
-  const isLoggedIn = isAuthenticated();
-  const currentUser = getCurrentUser();
+  const { isAuthenticated, getCurrentUser, user } = useAuth();
+
+  const isLoggedIn = isAuthenticated;
+  const currentUser = getCurrentUser;
 
   useEffect(() => {
     const loadPost = async () => {

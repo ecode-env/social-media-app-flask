@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Heart, Send } from 'lucide-react';
 import Button from '../components/common/Button';
 import './PostDetailPage.css';
-import { fetchPostById, addComment, likePost } from '../services/postService.js';
-import { getCurrentUser } from '../services/authService.js';
+import { fetchPostById, addComment, likePost } from '../services/postService';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const PostDetailPage = () => {

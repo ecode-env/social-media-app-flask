@@ -163,46 +163,47 @@ const PostDetailPage = () => {
                 placeholder="Add a comment..."
                 rows={3}
             />
-            <Button 
-              type="submit" 
-              variant="primary"
-              disabled={!comment.trim()}
-            >
-              Post Comment
-            </Button>
-          </form>
-        ) : (
-          <div className="login-prompt">
-            <p>Please <a href="/login">login</a> to add a comment</p>
-          </div>
-        )}
-        
-        <div className="comments-list">
-          {comments.length === 0 ? (
-            <p className="no-comments">No comments yet</p>
+                <Button
+                    type="submit"
+                    variant="primary"
+                    disabled={!comment.trim()}
+                >
+                  <Send size={16} />
+                  <span className='gap-btn'>Post Comment</span>
+                </Button>
+              </form>
           ) : (
-            comments.map((comment, index) => (
-              <div key={comment.id || index} className="comment">
-                <div className="comment-header">
-                  <img 
-                    src={comment.profile_picture} 
-                    alt={comment.fullName || comment.author}
-                    className="comment-avatar"
-                  />
-                  <div className="comment-meta">
-                    <span className="comment-author">{comment.fullName || comment.author}</span>
-                    <time className="comment-date">
-                      {new Date(comment.created_at).toLocaleDateString()}
-                    </time>
-                  </div>
-                </div>
-                <p className="comment-content">{comment.content}</p>
+              <div className="login-prompt">
+                <p>Please <a href="/login">login</a> to add a comment</p>
               </div>
-            ))
           )}
-        </div>
-      </section>
-    </div>
+
+          <div className="comments-list">
+            {comments.length === 0 ? (
+                <p className="no-comments">No comments yet</p>
+            ) : (
+                comments.map((comment, index) => (
+                    <div key={comment.id || index} className="comment">
+                      <div className="comment-header">
+                        <img
+                            src={comment.profile_picture}
+                            alt={comment.fullName || comment.author}
+                            className="comment-avatar"
+                        />
+                        <div className="comment-meta">
+                          <span className="comment-author">{comment.fullName || comment.author}</span>
+                          <time className="comment-date">
+                            {new Date(comment.created_at).toLocaleDateString()}
+                          </time>
+                        </div>
+                      </div>
+                      <p className="comment-content">{comment.content}</p>
+                    </div>
+                ))
+            )}
+          </div>
+        </section>
+      </div>
   );
 };
 

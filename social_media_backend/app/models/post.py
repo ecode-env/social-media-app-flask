@@ -30,7 +30,7 @@ class Post(db.Model):
     comments = db.relationship('Comment', back_populates='post', cascade='all, delete-orphan')
     likes = db.relationship('Like', back_populates='post', cascade='all, delete-orphan')
 
-    def to_json(self):
+    def to_json(self , current_user_id=None):
         liked_user_ids = [like.user_id for like in self.likes]
         return {
             "id":             self.id,

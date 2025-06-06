@@ -110,7 +110,10 @@
 
 /* Comments section */
 .comments-section {
-  margin-top: var(--spacing-4);
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-3);
 }
 
 .comments-section h2 {

@@ -25,9 +25,21 @@ const PostList = () => {
 
         try {
             const updatedPost = await likePost(postId);
-            setPosts(posts.map(post =>
-                post.id === postId ? { ...post, like_count: updatedPost.like_count } : post
-            ));
+            setPosts(posts.map(post => {
+                if (post.id === postId) {
+                    const alreadyLiked = post.is_liked.includes(user.id);
+                    const newIsLiked = alreadyLiked
+                        ? post.is_liked.filter(id => id !== user.id) // remove like
+                        : [...post.is_liked, user.id]; // add like
+
+                    return {
+                        ...post,
+                        like_count: updatedPost.like_count,
+                        is_liked: newIsLiked
+                    };
+                }
+                return post;
+            }));
         } catch (err) {
             console.error("Error liking post:", err);
         }

@@ -12,6 +12,7 @@ const PostList = () => {
     const navigate = useNavigate();
     const {user} = useAuth()
     const {posts, setPosts,loading, error} = usePosts()
+    const [isLiked, setLiked] = useState(false);
 
 
     const handleLike = async (postId, e) => {

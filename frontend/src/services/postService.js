@@ -124,21 +124,8 @@ export const fetchPosts = async () => {
 // Fetch a post by ID
 export const fetchPostById = async (id) => {
   try {
-    // In a real app, this would be an API call
-    // const response = await api.get(`/posts/${id}`);
-    // return response.data;
-    
-    // Mock implementation
-    const post = mockPosts.find(post => post.id === parseInt(id));
-    
-    if (!post) {
-      throw new Error('Post not found');
-    }
-    
-    return Promise.resolve({
-      ...post,
-      comments: mockComments.filter(comment => comment.post_id === parseInt(id))
-    });
+    const response = await api.get(`/posts/${id}`);
+    return response.data;
   } catch (error) {
     throw error;
   }

@@ -71,7 +71,7 @@ const PostDetailPage = () => {
     e.preventDefault();
 
     if (!comment.trim() || !isLoggedIn) return;
-    
+
     try {
       const newComment = await addComment(id, { 
         user_id: currentUser.id,

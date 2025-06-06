@@ -241,20 +241,8 @@ export const addComment = async (postId, comment) => {
 export const likePost = async (postId) => {
   try {
     // In a real app, this would be an API call
-    // const response = await api.post(`/posts/${postId}/like`);
-    // return response.data;
-    
-    // Mock implementation
-    const post = mockPosts.find(post => post.id === parseInt(postId));
-    
-    if (!post) {
-      throw new Error('Post not found');
-    }
-    
-    // Update like count
-    post.like_count += 1;
-    
-    return Promise.resolve(post);
+    const response = await api.post(`/posts/${postId}/like`);
+    return response.data;
   } catch (error) {
     throw error;
   }

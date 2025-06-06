@@ -103,53 +103,60 @@ const PostDetailPage = () => {
   }
 
   return (
-    <div className="post-detail">
-      <article className="post">
-        <div className="post-header">
-          <img 
-            src={post.profile_picture} 
-            alt={post.fullName}
-            className="author-avatar"
-          />
-          <div className="post-meta">
-            <h4 className="author-name">{post.fullName}</h4>
-            <time className="post-date">
-              {new Date(post.created_at).toLocaleDateString()}
-            </time>
+      <div className="post-detail">
+        <article className="post">
+          <div className="post-header">
+            <img
+                src={post.profile_picture}
+                alt={post.fullName}
+                className="author-avatar"
+            />
+            <div className="post-meta">
+              <h4 className="author-name">{post.fullName}</h4>
+              <time className="post-date">
+                {new Date(post.created_at).toLocaleDateString()}
+              </time>
+            </div>
           </div>
-        </div>
-        
-        <h1 className="post-title">{post.title}</h1>
-        
-        {post.media_url && (
-          <img 
-            src={post.media_url} 
-            alt={post.title}
-            className="post-image"
-          />
-        )}
-        
-        <div className="post-content">
-          <p>{post.content}</p>
-        </div>
-        
-        <div className="post-actions">
-          <button 
-            className="like-button"
-            onClick={handleLike}
-            disabled={!isLoggedIn}
-          >
-            <Heart size={20} />
-            <span>{post.like_count} likes</span>
-          </button>
-        </div>
-      </article>
-      
-      <section className="comments-section">
-        <h2>Comments ({comments.length})</h2>
-        
-        {isLoggedIn ? (
-          <form className="comment-form" onSubmit={handleCommentSubmit}>
+
+          {post.title && (
+              <h1 className="post-title">{post.title}</h1>
+          )}
+
+          {post.media_url && (
+              <div className="post-image-container">
+                <img
+                    src={post.media_url}
+                    alt={post.title}
+                    className="post-image"
+                />
+              </div>
+          )}
+
+          {post.content && (
+              <div className="post-content">
+                <p>{post.content}</p>
+              </div>
+          )}
+
+          <div className="post-actions">
+            <button
+                className={`like-button ${post.is_liked?.includes(user.id) ? 'liked' : ''}`}
+                onClick={handleLike}
+                disabled={!isLoggedIn}
+            >
+              <Heart size={20} />
+              <span>{post.like_count} likes</span>
+            </button>
+
+          </div>
+        </article>
+
+        <section className="comments-section">
+          <h2>Comments ({comments.length})</h2>
+
+          {isLoggedIn ? (
+              <form className="comment-form" onSubmit={handleCommentSubmit}>
             <textarea
               value={comment}
               onChange={(e) => setComment(e.target.value)}

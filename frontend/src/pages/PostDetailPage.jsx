@@ -69,7 +69,7 @@ const PostDetailPage = () => {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!comment.trim() || !isLoggedIn) return;
     
     try {

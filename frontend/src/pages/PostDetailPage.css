@@ -71,6 +71,11 @@
 .post-content {
   padding: var(--spacing-3);
   line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.post-content p {
+  margin-bottom: var(--spacing-3);
 }
 
 .post-actions {

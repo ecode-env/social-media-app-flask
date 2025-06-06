@@ -118,6 +118,7 @@
 
 .comments-section h2 {
   margin-bottom: var(--spacing-3);
+  font-size: 1.5rem;
 }
 
 .comment-form {

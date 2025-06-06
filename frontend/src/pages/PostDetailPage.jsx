@@ -35,6 +35,24 @@ const PostDetailPage = () => {
   }, [id]);
 
   const handleLike = async () => {
+    if (!isLoggedIn) return;
+
+    // Optimistic update
+    const alreadyLiked = post.is_liked?.includes(currentUser.id);
+    const newIsLiked = alreadyLiked
+        ? post.is_liked.filter(id => id !== currentUser.id)
+        : [...(post.is_liked || []), currentUser.id];
+
+    const newLikeCount = alreadyLiked
+        ? post.like_count - 1
+        : post.like_count + 1;
+
+    setPost(prev => ({
+      ...prev,
+      like_count: newLikeCount,
+      is_liked: newIsLiked,
+    }));
+
     try {
       const updatedPost = await likePost(id);
       setPost(prev => ({ ...prev, like_count: updatedPost.like_count }));

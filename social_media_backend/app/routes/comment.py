@@ -3,6 +3,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from ..models.comment import Comment
 from ..models.CommentLike import CommentLike
 from ..extensions import db
+from ..models.post import Post
 
 comments_bp = Blueprint('comments', __name__)
 

@@ -244,6 +244,6 @@ export const likePost = async (postId) => {
     const response = await api.post(`/posts/${postId}/like`);
     return response.data;
   } catch (error) {
-    throw error;
+    throw new error;
   }
 };

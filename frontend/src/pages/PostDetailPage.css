@@ -1,5 +1,8 @@
 .post-detail {
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-3);
 }
 
 .post {

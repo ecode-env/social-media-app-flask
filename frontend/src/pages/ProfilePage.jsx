@@ -1,5 +1,7 @@
 import React from 'react';
-import PostList from '../components/posts/PostList.jsx';
+import { Link } from 'react-router-dom';
+import { Pencil } from 'lucide-react';
+import PostList from '../components/posts/PostList';
 import './ProfilePage.css';
 
 const ProfilePage = () => {

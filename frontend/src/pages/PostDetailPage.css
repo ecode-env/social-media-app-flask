@@ -95,7 +95,7 @@
   cursor: pointer;
   padding: 8px 12px;
   border-radius: var(--radius-sm);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .like-button:hover:not(:disabled) {

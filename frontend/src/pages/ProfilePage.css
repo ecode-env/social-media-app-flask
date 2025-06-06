@@ -6,7 +6,7 @@
 .profile-header {
   display: flex;
   gap: var(--spacing-4);
-  margin-bottom: var(--spacing-4);
+  /*margin-bottom: var(--spacing-4);*/
   padding: var(--spacing-4);
   background-color: var(--color-background);
   border: 1px solid var(--color-border);

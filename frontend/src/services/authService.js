@@ -25,34 +25,10 @@ const mockUsers = [
 // Login function
 export const login = async (email, password) => {
   try {
-    // In a real app, this would be an API call
-    // const response = await api.post('/auth/login', { email, password });
-    // return response.data;
-    
-    // Mock implementation for local development
-    const user = mockUsers.find(user => 
-      user.email === email && user.password === password
-    );
-    
-    if (!user) {
-      throw new Error('Invalid credentials');
-    }
-    
-    const { password: _, ...userWithoutPassword } = user;
-    
-    // Create a mock token
-    const token = `mock-jwt-token-${user.id}`;
-    
-    // Store user data and token in localStorage
-    localStorage.setItem('user', JSON.stringify(userWithoutPassword));
-    localStorage.setItem('token', token);
-    
-    return {
-      user: userWithoutPassword,
-      token
-    };
-  } catch (error) {
-    throw error;
+    const response = await api.post('auth/login', {email, password});
+    return response.data;
+  } catch (e) {
+    throw e;
   }
 };
 

@@ -77,10 +77,32 @@ const PostDetailPage = () => {
     const trimmedComment = comment.trim();
     const tempId = `temp-${Date.now()}`;
 
-      setComments([...comments, newComment]);
-      setComment('');
+    const optimisticComment = {
+      id: tempId,
+      content: trimmedComment,
+      user: {
+        id: user.id,
+        username: user.username,
+      },
+      created_at: new Date().toISOString(),
+    };
+    setCommentLength(prev => prev + 1);
+    setComments(prev => [...prev, optimisticComment]);
+    setComment('');
+    setPost(prev => ({ ...prev, comment_count: prev.comment_count + 1 }));
 
-      setPost(prev => ({ ...prev, comment_count: prev.comment_count + 1 }));
+    // Step 2: Send to server in background
+    try {
+      const realComment = await addComment(id, {
+        user_id: user.id,
+        content: trimmedComment,
+        post_id: id,
+      });
+
+      // Step 3: Replace temp comment with real one
+      setComments(prev =>
+          prev.map(c => (c.id === tempId ? realComment : c))
+      );
     } catch (err) {
       console.error("Error adding comment:", err);
     }

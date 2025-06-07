@@ -18,7 +18,6 @@ const PostDetailPage = () => {
   const [commentLength, setCommentLength] = useState(0)
   const { isAuthenticated, user } = useAuth();
   const isLoggedIn = isAuthenticated;
-  const currentUser = getCurrentUser;
 
   useEffect(() => {
     const loadPost = async () => {

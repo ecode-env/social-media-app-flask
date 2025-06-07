@@ -8,7 +8,7 @@ import usePosts from "../../hooks/usePosts.jsx";
 import { addComment } from "../../services/commentService.js";
 import Avatar from '../../assets/images/Avatar.png'
 
-const PostList = () => {
+const PostList = ({ filterByUser = false, userId = null }) => {
     const [activeCommentPostId, setActiveCommentPostId] = useState(null);
     const [commentText, setCommentText] = useState('');
     const [commentError, setCommentError] = useState('')

@@ -74,14 +74,8 @@ const PostDetailPage = () => {
 
     if (!comment.trim() || !isLoggedIn) return;
 
-    try {
-      const newComment = await addComment(id, {
-        user_id: currentUser.id,
-        content: comment,
-        author: currentUser.username,
-        fullName: `${currentUser.f_name} ${currentUser.l_name}`,
-        profile_picture: currentUser.profile_picture_url
-      });
+    const trimmedComment = comment.trim();
+    const tempId = `temp-${Date.now()}`;
 
       setComments([...comments, newComment]);
       setComment('');

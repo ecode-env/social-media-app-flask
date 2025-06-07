@@ -31,7 +31,7 @@ const App = () => {
                         <Route path="posts/:id" element={<PostDetailPage />} />
                         <Route path="notifications" element={<NotificationsPage />} />
                         <Route path="messages" element={<MessagesPage />} />
-                        <Route path="profile" element={<ProfilePage />} />
+                        <Route path="user/:username" element={<ProfilePage />} />
                         <Route path="profile/edit" element={<EditProfilePage />} />
                         <Route path="create-post" element={<CreatePostPage />} />
                     </Route>

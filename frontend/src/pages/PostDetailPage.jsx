@@ -175,7 +175,7 @@ const PostDetailPage = () => {
         </article>
 
         <section className="comments-section">
-          <h2>Comments ({comments.length})</h2>
+          <h2>Comments ({commentLength})</h2>
 
           {isLoggedIn ? (
               <form className="comment-form" onSubmit={handleCommentSubmit}>

@@ -3,6 +3,9 @@ import {Link, useParams} from 'react-router-dom';
 import { Pencil } from 'lucide-react';
 import PostList from '../components/posts/PostList';
 import './ProfilePage.css';
+import { useProfile } from "../hooks/useProfile.jsx";
+import Avatar from '../assets/images/Avatar.png';
+
 
 const ProfilePage = () => {
   const profile = {

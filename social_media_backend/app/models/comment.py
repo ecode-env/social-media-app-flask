@@ -25,6 +25,8 @@ class Comment(db.Model):
             'content': self.content,
             'user_id': self.user_id,
             'post_id': self.post_id,
+            'fullName': f"{self.user.f_name} {self.user.l_name}",
+            'username': self.user.username,
             'created_at': self.created_at.isoformat(),
             'likes_count': self.likes.count(),
             'is_liked_by_user': self.likes.filter_by(user_id=current_user_id).first() is not None if current_user_id else False

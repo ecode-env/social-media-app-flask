@@ -27,7 +27,6 @@
   overflow: hidden;
   max-width: 600px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  max-width: 600px;
 }
 
 .post-card:hover {

@@ -9,7 +9,6 @@ const usePosts = ({ filterByUser = false, userId = null }) => {
     const [error, setError] = useState(null);
     const { user } = useAuth();
 
-
     useEffect(() => {
         const loadPosts = async () => {
             try {

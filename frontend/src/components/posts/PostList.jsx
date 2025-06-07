@@ -13,7 +13,7 @@ const PostList = () => {
     const [commentText, setCommentText] = useState('');
     const [commentError, setCommentError] = useState('')
     const navigate = useNavigate();
-    const {user} = useAuth()
+    const { user } = useAuth()
     const {posts, setPosts,loading, error} = usePosts()
     const [isLiked, setLiked] = useState(false);
 

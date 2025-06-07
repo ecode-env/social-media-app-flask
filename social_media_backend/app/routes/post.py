@@ -144,7 +144,6 @@ def like_post(post_id):
             return jsonify({"error": "Failed to like post"}), 500
 
 # Delete post
-
 @posts_bp.route('/<int:post_id>/delete-post', methods=['DELETE'])
 @jwt_required()
 def delete_post(post_id):

@@ -125,6 +125,9 @@ const PostList = () => {
 
     return (
         <div className="post-list">
+
+            { commentError && <div className="error">Error: {error}</div> }
+
             {posts.length === 0 ? (
                 <div className="no-posts">No posts available</div>
             ) : (

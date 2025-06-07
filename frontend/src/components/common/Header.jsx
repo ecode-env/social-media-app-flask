@@ -49,9 +49,10 @@ const Header = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/profile" className={({ isActive }) => isActive ? 'active' : ''}>
-                <UserCircle size={20} />
-              </NavLink>
+              {user &&
+                  <NavLink to={`/user/${user?.username}`} className={({ isActive }) => isActive ? 'active' : ''}>
+                       <UserCircle size={20} />
+                  </NavLink>}
             </li>
           </ul>
         </nav>

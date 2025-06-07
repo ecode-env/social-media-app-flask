@@ -129,7 +129,7 @@ const PostDetailPage = () => {
         <article className="post">
           <div className="post-header">
             <img
-                src={post.profile_picture}
+                src={post.profile_picture || Avatar}
                 alt={post.fullName}
                 className="author-avatar"
             />

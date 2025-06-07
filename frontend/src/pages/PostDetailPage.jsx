@@ -14,8 +14,8 @@ const PostDetailPage = () => {
   const [error, setError] = useState(null);
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState([]);
-  const { isAuthenticated, getCurrentUser, user } = useAuth();
-
+  const [commentLength, setCommentLength] = useState(0)
+  const { isAuthenticated, user } = useAuth();
   const isLoggedIn = isAuthenticated;
   const currentUser = getCurrentUser;
 

@@ -28,7 +28,7 @@ const ProfilePage = () => {
             <span>Edit Profile</span>
           </Link>
 
-          <img src={profile.avatar} alt={profile.fullName} className="profile-avatar" />
+          <img src={profile.user.profile_picture_url && Avatar} alt={profile.fullName} className="profile-avatar" />
           <div className="profile-info">
             <h1>{profile.fullName}</h1>
             <p className="username">@{profile.username}</p>

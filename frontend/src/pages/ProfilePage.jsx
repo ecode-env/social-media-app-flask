@@ -31,8 +31,8 @@ const ProfilePage = () => {
           <img src={profile.user.profile_picture_url && Avatar} alt={profile.fullName} className="profile-avatar" />
           <div className="profile-info">
             <h1>{profile.fullName}</h1>
-            <p className="username">@{profile.username}</p>
-            <p className="bio">{profile.bio}</p>
+            <p className="username">@{profile.user.username}</p>
+            <p className="bio">{profile.user.bio}</p>
             <div className="profile-stats">
               <div className="stat">
                 <span className="stat-value">{profile.followers}</span>

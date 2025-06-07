@@ -6,6 +6,7 @@ import './PostDetailPage.css';
 import { fetchPostById, likePost } from '../services/postService';
 import { addComment } from '../services/commentService.js'
 import { useAuth } from '../context/AuthContext.jsx';
+import Avatar from '../assets/images/Avatar.png';
 
 const PostDetailPage = () => {
   const { id } = useParams();

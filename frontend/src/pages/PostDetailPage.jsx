@@ -105,6 +105,10 @@ const PostDetailPage = () => {
       );
     } catch (err) {
       console.error("Error adding comment:", err);
+
+      // Optionally: remove the optimistic comment on error
+      setComments(prev => prev.filter(c => c.id !== tempId));
+      setPost(prev => ({ ...prev, comment_count: prev.comment_count - 1 }));
     }
   };
 

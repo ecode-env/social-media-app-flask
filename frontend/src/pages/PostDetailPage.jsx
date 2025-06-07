@@ -42,8 +42,8 @@ const PostDetailPage = () => {
     // Optimistic update
     const alreadyLiked = post.is_liked?.includes(user.id);
     const newIsLiked = alreadyLiked
-        ? post.is_liked.filter(id => id !== currentUser.id)
-        : [...(post.is_liked || []), currentUser.id];
+        ? post.is_liked.filter(id => id !== user.id)
+        : [...(post.is_liked || []), user.id];
 
     const newLikeCount = alreadyLiked
         ? post.like_count - 1

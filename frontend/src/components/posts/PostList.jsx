@@ -14,7 +14,7 @@ const PostList = ({ filterByUser = false, userId = null }) => {
     const [commentError, setCommentError] = useState('')
     const navigate = useNavigate();
     const { user } = useAuth()
-    const {posts, setPosts,loading, error} = usePosts()
+    const {posts, setPosts,loading, error} = usePosts({ filterByUser, userId })
 
 
     const handleLike = async (postId, e) => {

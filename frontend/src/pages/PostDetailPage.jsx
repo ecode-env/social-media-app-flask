@@ -208,7 +208,7 @@ const PostDetailPage = () => {
                     <div key={comment.id || index} className="comment">
                       <div className="comment-header">
                         <img
-                            src={comment.profile_picture}
+                            src={comment.profile_picture || Avatar}
                             alt={comment.fullName || comment.author}
                             className="comment-avatar"
                         />

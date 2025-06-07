@@ -217,7 +217,7 @@ const PostList = () => {
                                   placeholder="Write a comment..."
                               />
                                 <button
-                                    onClick={() => handleSend(post.id)}
+                                    onClick={(e) => handleCommentSubmit(post.id, e)}
                                     className="comment-send-button"
                                 >
                                     <SendHorizontal size={18}/>

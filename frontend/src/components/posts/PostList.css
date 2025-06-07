@@ -247,3 +247,15 @@
 .like-button.liked {
   color: red;
 }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .post-image {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-image {
+    max-height: 300px;
+  }
+}

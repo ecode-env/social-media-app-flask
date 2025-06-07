@@ -48,7 +48,7 @@ const ProfilePage = () => {
 
         <div className="profile-posts">
           <h2>Posts</h2>
-          <PostList />
+          <PostList filterByUser={true} userId={profile.user.id} />
         </div>
       </div>
   );

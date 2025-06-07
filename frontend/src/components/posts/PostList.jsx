@@ -86,6 +86,32 @@ const PostList = () => {
 
         setCommentText('');
         setActiveCommentPostId(null);
+
+        // Step 2: Send it to the server in the background
+        try {
+            const savedComment = await addComment(postId, {
+                user_id: user.id,
+                content: trimmedText,
+                post_id: postId,
+            });
+
+            // Step 3 (optional): Replace the temp comment with the saved one
+            setPosts(prevPosts =>
+                prevPosts.map(post =>
+                    post.id === postId
+                        ? {
+                            ...post,
+                            comments: post.comments.map(c =>
+                                c.id === tempId ? savedComment : c
+                            ),
+                        }
+                        : post
+                )
+            );
+        } catch (err) {
+            setCommentError('Failed to post comment.');
+            console.error('Comment submission error:', err);
+        }
     };
 
 

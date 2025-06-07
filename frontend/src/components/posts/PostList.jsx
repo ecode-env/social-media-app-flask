@@ -11,6 +11,7 @@ import Avatar from '../../assets/images/Avatar.png'
 const PostList = () => {
     const [activeCommentPostId, setActiveCommentPostId] = useState(null);
     const [commentText, setCommentText] = useState('');
+    const [commentError, setCommentError] = useState('')
     const navigate = useNavigate();
     const {user} = useAuth()
     const {posts, setPosts,loading, error} = usePosts()

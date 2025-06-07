@@ -11,8 +11,13 @@ const usePosts = ({ filterByUser = false, userId = null }) => {
     useEffect(() => {
         const loadPosts = async () => {
             try {
-                const getPosts = await fetchPosts();
-                setPosts(getPosts);
+                const data = await fetchPosts();
+
+                const filteredPosts = filterByUser
+                    ? data.filter(post => post.user_id === (userId || user?.id))
+                    : data;
+
+                setPosts(filteredPosts);
             } catch (e) {
                 setError(e.message);
             } finally {

@@ -8,14 +8,17 @@ import Avatar from '../assets/images/Avatar.png';
 
 
 const ProfilePage = () => {
-  const profile = {
-    username: 'johndoe',
-    fullName: 'John Doe',
-    avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
-    bio: 'Software developer passionate about web technologies',
-    followers: 1234,
-    following: 567
-  };
+  const { username } = useParams();
+  const { profile, loading, error } = useProfile(username)
+
+  if (loading) {
+    return <div className="loading">Loading post...</div>;
+  }
+
+  if (error) {
+    console.error(error.message);
+    return <div className="error">Error: {error.message}</div>;
+  }
 
   return (
       <div className="profile-page">

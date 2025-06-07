@@ -26,7 +26,7 @@ const usePosts = ({ filterByUser = false, userId = null }) => {
         };
 
         loadPosts();
-    }, []);
+    }, [filterByUser, userId, user]);
 
     return { loading, posts,setPosts ,error };
 };

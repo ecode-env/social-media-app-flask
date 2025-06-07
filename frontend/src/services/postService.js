@@ -95,37 +95,6 @@ export const deletePost = async (id) => {
   }
 };
 
-// Add a comment to a post
-export const addComment = async (postId, comment) => {
-  try {
-    // In a real app, this would be an API call
-    // const response = await api.post(`/posts/${postId}/comments`, comment);
-    // return response.data;
-    
-    // Mock implementation
-    const post = mockPosts.find(post => post.id === parseInt(postId));
-    
-    if (!post) {
-      throw new Error('Post not found');
-    }
-    
-    const newComment = {
-      id: mockComments.length + 1,
-      post_id: parseInt(postId),
-      ...comment,
-      created_at: new Date().toISOString()
-    };
-    
-    mockComments.push(newComment);
-    
-    // Update comment count
-    post.comment_count += 1;
-    
-    return Promise.resolve(newComment);
-  } catch (error) {
-    throw error;
-  }
-};
 
 // Like a post
 export const likePost = async (postId) => {

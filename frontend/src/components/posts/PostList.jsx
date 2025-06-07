@@ -53,7 +53,9 @@ const PostList = () => {
         setCommentText('');
     };
 
-    const handleSend = (postId) => {
+    const handleCommentSubmit = async (postId, e) => {
+        e.preventDefault();
+
         if (!user) {
             navigate('/login');
             return;

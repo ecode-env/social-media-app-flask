@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchPosts } from "../services/postService.js";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const usePosts = () => {
     const [posts, setPosts] = useState([]);

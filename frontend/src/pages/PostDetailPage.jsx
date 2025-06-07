@@ -25,6 +25,7 @@ const PostDetailPage = () => {
         const data = await fetchPostById(id);
         setPost(data);
         setComments(data.comments || []);
+        setCommentLength(data.comment_count || 0)
         setLoading(false);
       } catch (err) {
         setError(err.message);

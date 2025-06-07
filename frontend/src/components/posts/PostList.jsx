@@ -5,6 +5,8 @@ import './PostList.css';
 import { likePost} from '../../services/postService.js';
 import { useAuth } from '../../context/AuthContext.jsx';
 import usePosts from "../../hooks/usePosts.jsx";
+import { addComment } from "../../services/commentService.js";
+import Avatar from '../../assets/images/Avatar.png'
 
 const PostList = () => {
     const [activeCommentPostId, setActiveCommentPostId] = useState(null);

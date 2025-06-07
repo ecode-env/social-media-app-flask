@@ -35,7 +35,7 @@ const ProfilePage = () => {
             <p className="bio">{profile.user.bio}</p>
             <div className="profile-stats">
               <div className="stat">
-                <span className="stat-value">{profile.followers}</span>
+                <span className="stat-value">{profile.user.followers_count}</span>
                 <span className="stat-label">Followers</span>
               </div>
               <div className="stat">

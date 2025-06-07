@@ -60,6 +60,30 @@ const PostList = () => {
             navigate('/login');
             return;
         }
+
+        const trimmedText = commentText.trim();
+        if (!trimmedText) return;
+
+        // Step 1: Optimistically add the comment immediately
+        const tempId = `temp-${Date.now()}`;
+        const newComment = {
+            id: tempId, // temporary id
+            user: { username: user.username }, // assuming your post.comments expects user object
+            content: trimmedText,
+        };
+
+        setPosts(prevPosts =>
+            prevPosts.map(post =>
+                post.id === postId
+                    ? {
+                        ...post,
+                        comments: [...(post.comments || []), newComment],
+                        comment_count: (post.comment_count || 0) + 1,
+                    }
+                    : post
+            )
+        );
+
         setCommentText('');
         setActiveCommentPostId(null);
     };

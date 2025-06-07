@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchPosts } from "../services/postService.js";
 import { useAuth } from "../context/AuthContext.jsx";
 
+
 const usePosts = ({ filterByUser = false, userId = null }) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -40,7 +40,7 @@ const PostDetailPage = () => {
     if (!isLoggedIn) return;
 
     // Optimistic update
-    const alreadyLiked = post.is_liked?.includes(currentUser.id);
+    const alreadyLiked = post.is_liked?.includes(user.id);
     const newIsLiked = alreadyLiked
         ? post.is_liked.filter(id => id !== currentUser.id)
         : [...(post.is_liked || []), currentUser.id];

@@ -60,6 +60,7 @@
   border-color: var(--color-primary);
 }
 
+/* Profile avatar */
 .profile-avatar {
   width: 150px;
   height: 150px;

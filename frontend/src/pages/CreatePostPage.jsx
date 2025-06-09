@@ -58,63 +58,66 @@ const CreatePostPage = () => {
   };
 
   return (
-    <div className="create-post-page">
-      <h1>Create Post</h1>
-      
-      <form className="create-post-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Enter post title"
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="content">Content</label>
-          <textarea
-            id="content"
-            name="content"
-            value={formData.content}
-            onChange={handleChange}
-            placeholder="What's on your mind?"
-            rows={5}
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="media_url">
-            <Image size={20} className="icon" />
-            Add Image URL
-          </label>
-          <input
-            type="url"
-            id="media_url"
-            name="media_url"
-            value={formData.media_url}
-            onChange={handleChange}
-            placeholder="Enter image URL"
-          />
-        </div>
-        
-        <div className="form-actions">
-          <Button
-            type="submit"
-            variant="primary"
-            fullWidth
-            disabled={isLoading}
-          >
-            {isLoading ? 'Creating...' : 'Create Post'}
-          </Button>
-        </div>
-      </form>
-    </div>
+      <div className="create-post-page">
+        <h1>Create Post</h1>
+
+        <form className="create-post-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="title">
+              <Type size={20} className="icon" />
+              Title
+            </label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Enter post title"
+                required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="content">
+              <FileText size={20} className="icon" />
+              Content
+            </label>
+            <textarea
+                id="content"
+                name="content"
+                value={formData.content}
+                onChange={handleChange}
+                placeholder="What's on your mind?"
+                rows={5}
+                required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>
+              Add Image
+            </label>
+            <FileUpload
+                onUpload={handleImageUpload}
+                onRemove={handleImageRemove}
+                currentImage={formData.media_url}
+                disabled={isLoading}
+            />
+          </div>
+
+          <div className="form-actions">
+            <Button
+                type="submit"
+                variant="primary"
+                fullWidth
+                disabled={isLoading}
+            >
+              {isLoading ? 'Creating...' : 'Create Post'}
+            </Button>
+          </div>
+        </form>
+      </div>
   );
 };
 

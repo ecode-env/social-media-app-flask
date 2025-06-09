@@ -24,8 +24,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   position: relative;
-  max-width: 600px;
-  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .edit-profile-button {

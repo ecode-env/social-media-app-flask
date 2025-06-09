@@ -4,17 +4,7 @@
   gap: var(--spacing-3);
   align-items:  center;
 }
-/*.post-card {*/
-/*  width: 100%;*/
-/*  box-sizing: border-box;*/
-/*  background-color: var(--color-background);*/
-/*  border-radius: var(--radius-md);*/
-/*  border: 1px solid var(--color-border);*/
-/*  overflow: hidden;*/
-/*  transition: transform var(--transition-fast), box-shadow var(--transition-fast);*/
-/*  max-width: 600px;*/
-/*  height: 100%;*/
-/*}*/
+
 .post-card {
   background-color: var(--color-background);
   border-radius: var(--radius-md);

@@ -17,6 +17,16 @@ const CreatePostPage = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  const hasRedirected = useRef(false);
+
+  useEffect(() => {
+    if (!isAuthenticated && !hasRedirected.current) {
+      hasRedirected.current = true;
+      notifyError('Please log in!');
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

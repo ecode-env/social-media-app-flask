@@ -143,9 +143,7 @@
 }
 
 .profile-posts h2 {
-  margin-bottom: var(--spacing-3);
-  width: 100%;
-  text-align: left;
-  padding-left: 75px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--color-text);
 }

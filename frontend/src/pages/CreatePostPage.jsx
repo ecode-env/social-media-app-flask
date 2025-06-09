@@ -4,7 +4,10 @@ import { Type, FileText } from 'lucide-react';
 import Button from '../components/common/Button';
 import FileUpload from '../components/common/FileUpload';
 import './CreatePostPage.css';
-import { createPost } from '../services/postService.js';
+import { createPost } from '../services/postService';
+import { useAuth } from '../context/AuthContext.jsx';
+import {notifySuccess,  notifyError } from '../utils/toast.js';
+
 
 const CreatePostPage = () => {
   const [formData, setFormData] = useState({

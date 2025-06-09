@@ -34,7 +34,8 @@ const CreatePostPage = () => {
 
     try {
       await createPost(formData);
-      navigate('/profile');
+      notifySuccess('Created new post');
+      navigate('/');
     } catch (error) {
       console.error('Error creating post:', error);
     } finally {

@@ -18,7 +18,7 @@ export const uploadToCloudinary = async (file) => {
 
 
   try {
-    const response = await api.post(
+    const response = await Axios.post(
         `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         formData,
         {

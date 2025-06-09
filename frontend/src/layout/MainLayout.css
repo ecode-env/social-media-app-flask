@@ -111,7 +111,7 @@
   font-size: 1.5rem;
 }
 /* Media query for responsive layout */
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   .layout-container {
     flex-direction: column;
   }

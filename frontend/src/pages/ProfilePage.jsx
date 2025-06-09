@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
           <img src={profile.user.profile_picture_url || Avatar} alt={`${profile?.user?.f_name} ${profile?.user?.l_name}`} className="profile-avatar" />
           <div className="profile-info">
-            <h1>{profile.fullName}</h1>
+            <h1>{`${profile?.user?.f_name} ${profile?.user?.l_name}`}</h1>
             <p className="username">@{profile.user.username}</p>
             <p className="bio">{profile.user.bio}</p>
             <div className="profile-stats">

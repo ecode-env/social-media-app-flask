@@ -5,10 +5,11 @@ import './Header.css';
 import { useTheme } from '../../hooks/useTheme.jsx';
 import {useAuth} from "../../context/AuthContext.jsx";
 import Button from "./Button.jsx";
+import {notifySuccess} from '../../utils/toast.js'
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
-  const { user,setUser } = useAuth();
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleRegister = () => navigate('/register');
@@ -16,6 +17,8 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    notifySuccess('User logged out!');
+    navigate('/login');
     setUser(null)
   };
 

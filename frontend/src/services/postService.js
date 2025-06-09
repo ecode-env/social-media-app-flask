@@ -24,24 +24,10 @@ export const fetchPostById = async (id) => {
 // Create a new post
 export const createPost = async (postData) => {
   try {
-    // In a real app, this would be an API call
-    // const response = await api.post('/posts', postData);
-    // return response.data;
-    
-    // Mock implementation
-    const newPost = {
-      id: mockPosts.length + 1,
-      ...postData,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      comment_count: 0,
-      like_count: 0,
-      is_flagged: false
-    };
-    
-    mockPosts.push(newPost);
-    
-    return Promise.resolve(newPost);
+    const response = await api.post('/posts/create-post', postData);
+
+    return response.data;
+
   } catch (error) {
     throw error;
   }

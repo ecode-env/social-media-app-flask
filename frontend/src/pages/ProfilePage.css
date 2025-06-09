@@ -1,5 +1,13 @@
 /* Container for the full profile page */
 .profile-page {
+  padding: var(--spacing-4);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Loading and error messages */
+.loading, .error {
+  text-align: center;
   padding: var(--spacing-3);
   width: 100%;
 }

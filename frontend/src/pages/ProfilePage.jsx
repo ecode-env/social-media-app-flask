@@ -17,6 +17,7 @@ const ProfilePage = () => {
     return <div className="loading">Loading post...</div>;
   }
 
+
   if (error) {
     console.error(error.message);
     return <div className="error">Error: {error.message}</div>;

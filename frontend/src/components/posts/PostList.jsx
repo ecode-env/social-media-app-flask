@@ -136,7 +136,7 @@ const PostList = ({ filterByUser = false, userId = null }) => {
                         <div className="post-header">
                             <img
                                 src={post.profile_picture || Avatar}
-                                alt={post.fullName}
+                                alt={post.fullName || 'Deleted Account'}
                                 className="author-avatar"
                             />
                             <div className="post-meta">

@@ -25,10 +25,13 @@ const ProfilePage = () => {
   return (
       <div className="profile-page">
         <div className="profile-header">
-          <Link to="/profile/edit" className="edit-profile-button">
-            <Pencil size={16} />
-            <span>Edit Profile</span>
-          </Link>
+          {
+            user?.username === username &&
+              <Link to="/profile/edit" className="edit-profile-button">
+                <Pencil size={16} />
+                <span>Edit Profile</span>
+              </Link>
+          }
 
           <img src={profile.user.profile_picture_url && Avatar} alt={profile.fullName} className="profile-avatar" />
           <div className="profile-info">

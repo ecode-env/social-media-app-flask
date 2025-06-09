@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 import { Pencil } from 'lucide-react';
 import PostList from '../components/posts/PostList';
+import { useAuth } from '../context/AuthContext.jsx';
 import './ProfilePage.css';
 import { useProfile } from "../hooks/useProfile.jsx";
 import Avatar from '../assets/images/Avatar.png';

@@ -50,11 +50,8 @@ const LoginForm = () => {
     setIsLoading(true);
     
     try {
-      const result = await login(formData.email, formData.password);
-      console.log('Login successful:', result);
-      
-      // Redirect to home page after successful login
-      navigate('/');
+      const { user } = await login(formData.email, formData.password);
+      navigate('/home');
     } catch (error) {
       console.error('Login error:', error);
       setErrors({ 

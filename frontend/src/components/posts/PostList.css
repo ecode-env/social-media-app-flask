@@ -207,6 +207,7 @@
   display: block;
   border: none;
 }
+
 .like-button.liked {
   color: red;
 }

@@ -85,6 +85,9 @@
 .profile-info h1 {
   margin: 0;
   margin-bottom: var(--spacing-1);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--color-text);
 }
 
 .username {

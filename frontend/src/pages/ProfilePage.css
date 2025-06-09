@@ -93,6 +93,7 @@
 .username {
   color: var(--color-text-muted);
   margin-bottom: var(--spacing-2);
+  font-size: 0.95rem;
 }
 
 .bio {

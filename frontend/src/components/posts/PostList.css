@@ -235,6 +235,15 @@
 }
 
 @media (max-width: 480px) {
+  .post-list{
+    width: 100%;
+  }
+  .post-card {
+    max-width: 80%;
+    border-radius: 0;
+    margin: 0 auto;
+  }
+
   .post-image {
     max-height: 300px;
   }

@@ -72,6 +72,14 @@
 /* Profile info section */
 .profile-info {
   flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .profile-info {
+    text-align: left;
+  }
+
 }
 
 .profile-info h1 {

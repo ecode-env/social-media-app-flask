@@ -48,6 +48,15 @@ const CreatePostPage = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleImageUpload = (imageUrl) => {
+
+    setFormData(prev => ({ ...prev, media_url: imageUrl }));
+  };
+
+  const handleImageRemove = () => {
+    setFormData(prev => ({ ...prev, media_url: '' }));
+  };
+
   return (
     <div className="create-post-page">
       <h1>Create Post</h1>

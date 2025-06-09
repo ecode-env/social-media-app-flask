@@ -107,6 +107,17 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .profile-stats {
+    justify-content: flex-start;
+  }
+
+  .edit-profile-button span {
+    background-color: #93c5fd;
+  }
 }
 
 .stat {

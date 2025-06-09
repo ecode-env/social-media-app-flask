@@ -144,7 +144,9 @@
   text-decoration: none;
 }
 
-.loading, .error, .no-posts {
+.loading,
+.error,
+.no-posts {
   padding: var(--spacing-3);
   text-align: center;
   color: var(--color-text-muted);

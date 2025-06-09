@@ -58,16 +58,6 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-/*.post-image {*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  width: 100%;*/
-/*  height: auto;*/
-/*  object-fit: cover;*/
-/*  object-position: center;*/
-/*}*/
-
 .post-image {
   width: 100%;
   height: auto;

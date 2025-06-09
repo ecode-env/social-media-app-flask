@@ -220,6 +220,15 @@
 }
 
 @media (max-width: 768px) {
+  .post-list{
+    width: 100%;
+  }
+  .post-card {
+    max-width: 500px;
+    margin: 0 auto;
+
+  }
+
   .post-image {
     max-height: 400px;
   }

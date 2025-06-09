@@ -11,6 +11,7 @@ import Avatar from '../assets/images/Avatar.png';
 const ProfilePage = () => {
   const { username } = useParams();
   const { profile, loading, error } = useProfile(username)
+  const { user } = useAuth();
 
   if (loading) {
     return <div className="loading">Loading post...</div>;

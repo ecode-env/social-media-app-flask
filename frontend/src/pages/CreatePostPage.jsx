@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Image } from 'lucide-react';
-import Button from '../components/common/Button.jsx';
+import { Type, FileText } from 'lucide-react';
+import Button from '../components/common/Button';
+import FileUpload from '../components/common/FileUpload';
 import './CreatePostPage.css';
 import { createPost } from '../services/postService.js';
 

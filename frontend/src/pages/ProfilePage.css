@@ -16,6 +16,8 @@
 /* Profile header container */
 .profile-header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--spacing-4);
   /*margin-bottom: var(--spacing-4);*/
   padding: var(--spacing-4);

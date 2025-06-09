@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 export const uploadToCloudinary = async (file) => {
   const formData = new FormData();
 

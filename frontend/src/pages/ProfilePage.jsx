@@ -13,7 +13,7 @@ const ProfilePage = () => {
   const { profile, loading, error } = useProfile(username)
   const { user } = useAuth();
 
-  if (loading) {
+  if (loading || !username) {
     return <div className="loading">Loading post...</div>;
   }
 

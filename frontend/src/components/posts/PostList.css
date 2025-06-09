@@ -211,7 +211,14 @@
 .like-button.liked {
   color: red;
 }
-/* Responsive adjustments */
+
+/* Responsive adjustments for post-card and images */
+@media (max-width: 1024px) {
+  .post-card {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   .post-image {
     max-height: 400px;

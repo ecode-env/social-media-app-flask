@@ -51,6 +51,7 @@
   align-items: center;
   gap: var(--spacing-1);
   transition: all var(--transition-fast);
+  z-index: 10;
 }
 
 .edit-profile-button:hover {

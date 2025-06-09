@@ -11,7 +11,7 @@ import NotificationsPage from './pages/NotificationsPage.jsx';
 import MessagesPage from './pages/MessagesPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import CreatePostPage from './pages/CreatePostPage.jsx';
-import EditProfilePage from './pages/EditProfilePage';
+import EditProfilePage from './pages/EditProfilePage.jsx';
 import { useTheme } from './hooks/useTheme.jsx';
 
 const App = () => {

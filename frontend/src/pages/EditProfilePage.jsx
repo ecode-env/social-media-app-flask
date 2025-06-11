@@ -58,6 +58,9 @@ const EditProfilePage = () => {
             navigate(`/user/${formData.username}`);
         } catch (error) {
             console.error('Error updating profile:', error);
+            notifyError(error.response?.data?.message || "Failed to update profile.");
+        } finally {
+            setSubmitting(false);
         }
     };
 

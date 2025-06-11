@@ -80,8 +80,10 @@ const RegisterForm = () => {
       const { confirmPassword, ...registrationData } = formData;
       console.log('Calling register function with:', registrationData);
       const result = await register(registrationData);
-
-      navigate('/');
+      console.log('Registration response:', result);
+      setUser(result.user);
+      console.log('Navigating to /home');
+      navigate('/home', { replace: true });
     } catch (error) {
       setErrors({
         ...errors, 

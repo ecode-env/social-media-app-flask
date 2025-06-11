@@ -180,8 +180,20 @@ const MessagesPage = () => {
               </div>
             </div>
         ) : (
-            <div className="no-conversation">
-              <p>Select a conversation to start messaging</p>
+            // Empty state when no conversation selected
+            <div className={`empty-state ${isMobile ? 'mobile' : ''}`}>
+              <div className="empty-content">
+                <div className="empty-icon">
+                  <PencilLine size={48} />
+                </div>
+                <h3>Select a conversation</h3>
+                <p>Start a new conversation or select an existing one</p>
+                {!isMobile && (
+                    <button className="new-chat-button">
+                      Start New Chat
+                    </button>
+                )}
+              </div>
             </div>
         )}
       </div>

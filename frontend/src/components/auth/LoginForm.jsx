@@ -70,7 +70,7 @@ const LoginForm = () => {
 
   return (
       <div className="login-form-container">
-        <form className="login-form" onSubmit={handleSubmit} action="javascript:void(0)">
+        <form className="login-form" onSubmit={handleSubmit} >
           <h2>Login to Your Account</h2>
 
           {errors.form && <div className="form-error">{errors.form}</div>}

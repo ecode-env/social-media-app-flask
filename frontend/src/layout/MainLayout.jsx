@@ -3,7 +3,8 @@ import { Outlet } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/common/Header.jsx';
 import Button from "../components/common/Button.jsx";
-import { useAuth } from '../context/AuthContext.jsx'
+import { useAuth } from '../context/AuthContext.jsx';
+import './MainLayout.css';
 
 const MainLayout = () => {
   const navigate = useNavigate();

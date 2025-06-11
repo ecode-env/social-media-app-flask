@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from './context/AuthContext.jsx';
 import MainLayout from './layout/MainLayout.jsx';
+// import ProtectedRoute from './components/ProtectedRoute.jsx';
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
@@ -25,22 +27,25 @@ const App = () => {
                     v7_relativeSplatPath: true,
                 }}
             >
-                <Routes>
-                    <Route path="/" element={<MainLayout />}>
-                        <Route index element={<HomePage />} />
-                        <Route path='/home' element={<HomePage />} />
-                        <Route path="login" element={<LoginPage />} />
-                        <Route path="register" element={<RegisterPage />} />
-                        <Route path="posts/:id" element={<PostDetailPage />} />
-                        <Route path="notifications" element={<NotificationsPage />} />
-                        <Route path="messages" element={<MessagesPage />} />
-                        <Route path="user/:username" element={<ProfilePage />} />
-                        <Route path="profile/edit" element={<EditProfilePage />} />
-                        <Route path="create-post" element={<CreatePostPage />} />
-                    </Route>
-                </Routes>
+                <AuthProvider>
+                    <Routes>
+                        <Route path="/" element={<MainLayout />}>
+                            <Route index element={<HomePage />} />
+                            <Route path="/home" element={<HomePage />} />
+                            <Route path="login" element={<LoginPage />} />
+                            <Route path="register" element={<RegisterPage />} />
+                            <Route path="posts/:id" element={<PostDetailPage />} />
+                            {/*<Route element={<ProtectedRoute />}>*/}
+                                <Route path="notifications" element={<NotificationsPage />} />
+                                <Route path="messages" element={<MessagesPage />} />
+                                <Route path="user/:username" element={<ProfilePage />} />
+                                <Route path="profile/edit" element={<EditProfilePage />} />
+                                <Route path="create-post" element={<CreatePostPage />} />
+                            {/*</Route>*/}
+                        </Route>
+                    </Routes>
+                </AuthProvider>
             </Router>
-
             <ToastContainer position="top-right" autoClose={3000} />
         </div>
     );

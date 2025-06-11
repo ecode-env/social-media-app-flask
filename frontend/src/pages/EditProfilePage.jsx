@@ -87,7 +87,7 @@ const EditProfilePage = () => {
                     <FileUpload
                         onUpload={handleAvatarUpload}
                         onRemove={handleAvatarRemove}
-                        currentImage={formData.avatar}
+                        currentImage={formData.profile_picture_url}
                     />
                 </div>
 

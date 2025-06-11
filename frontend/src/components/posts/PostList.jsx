@@ -131,6 +131,7 @@ const PostList = ({ filterByUser = false, userId = null }) => {
             {posts.length === 0 ? (
                 <div className="no-posts">No posts available</div>
             ) : (
+
                 posts.map(post => (
                     <article key={post.id} className="post-card">
                         <div className="post-header">

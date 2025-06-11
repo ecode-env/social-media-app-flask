@@ -51,7 +51,6 @@ const LoginForm = () => {
       return;
     }
 
-    console.log('Starting login process with:', formData);
     setIsLoading(true);
 
     try {

@@ -147,21 +147,15 @@ const MessagesPage = () => {
                     </div>
                 ))}
 
-        {selectedUser ? (
-            <div className="conversation">
-              <div className="conversation-header">
-                <img src={selectedUser.avatar} alt={selectedUser.user} className="conversation-avatar" />
-                <h3 className="conversation-name">{selectedUser.user}</h3>
-              </div>
-
-              <div className="conversation-messages">
-                {selectedUser.conversation.map(message => (
-                    <div
-                        key={message.id}
-                        className={`chat-message ${message.sent ? 'sent' : 'received'}`}
-                    >
-                      <p>{message.text}</p>
-                      <small className="message-time">{message.time}</small>
+                {isTyping && (
+                    <div className="message them typing-indicator">
+                      <div className="message-content">
+                        <div className="typing">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                      </div>
                     </div>
                 ))}
               </div>

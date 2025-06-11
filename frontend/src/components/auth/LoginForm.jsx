@@ -54,7 +54,7 @@ const LoginForm = () => {
 
     console.log('Starting login process with:', formData);
     setIsLoading(true);
-    
+
     try {
       const { user } = await login(formData.email, formData.password);
       navigate('/home');

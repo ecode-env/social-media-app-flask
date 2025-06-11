@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/common/Button';
+import FileUpload from '../components/common/FileUpload';
 import './EditProfilePage.css';
 
 const EditProfilePage = () => {
@@ -29,69 +30,76 @@ const EditProfilePage = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleAvatarUpload = (imageUrl) => {
+        setFormData(prev => ({ ...prev, avatar: imageUrl }));
+    };
+
+    const handleAvatarRemove = () => {
+        setFormData(prev => ({ ...prev, avatar: '' }));
+    };
+
     return (
         <div className="edit-profile-page">
             <h1>Edit Profile</h1>
 
             <form className="edit-profile-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="avatar">Profile Picture URL</label>
-                    <input
-                        type="url"
-                        id="avatar"
-                        name="avatar"
-                        value={formData.avatar}
-                        onChange={handleChange}
-                        placeholder="Enter profile picture URL"
+                <div className="profile-picture-section">
+                    <label>Profile Picture</label>
+                    <FileUpload
+                        onUpload={handleAvatarUpload}
+                        onRemove={handleAvatarRemove}
+                        currentImage={formData.avatar}
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="fullName">Full Name</label>
-                    <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        placeholder="Enter your full name"
-                    />
-                </div>
+                <div className="form-section">
+                    <div className="form-group">
+                        <label htmlFor="fullName">Full Name</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            placeholder="Enter your full name"
+                        />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        placeholder="Enter your username"
-                    />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                            placeholder="Enter your username"
+                        />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
-                    />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Enter your email"
+                        />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor="bio">Bio</label>
-                    <textarea
-                        id="bio"
-                        name="bio"
-                        value={formData.bio}
-                        onChange={handleChange}
-                        placeholder="Tell us about yourself"
-                        rows={4}
-                    />
+                    <div className="form-group">
+                        <label htmlFor="bio">Bio</label>
+                        <textarea
+                            id="bio"
+                            name="bio"
+                            value={formData.bio}
+                            onChange={handleChange}
+                            placeholder="Tell us about yourself"
+                            rows={4}
+                        />
+                    </div>
                 </div>
 
                 <div className="form-actions">

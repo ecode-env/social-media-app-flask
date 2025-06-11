@@ -78,7 +78,6 @@ const RegisterForm = () => {
     try {
       const { confirmPassword, ...registrationData } = formData;
       const result = await register(registrationData);
-      console.log('Registration response:', result);
       setUser(result.user);
       console.log('Navigating to /home');
       navigate('/home', { replace: true });

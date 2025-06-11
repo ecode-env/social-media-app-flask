@@ -168,12 +168,7 @@ const MessagesPage = () => {
                 onChange={(e) => setMessageInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type a message..."
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    handleSendMessage(e);
-                  }
-                }}
+                rows="1"
             />
                 <button type="submit" className="send-button" disabled={!newMessage.trim()}>
                   <Send size={20} />

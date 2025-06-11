@@ -21,8 +21,7 @@ export const register = async (userData) => {
     localStorage.setItem('token', access_token);
     return { user, access_token };
   } catch (error) {
-    const message =
-        error.response?.data?.message || error.message || 'Registration failed';
+    const message = error.response?.data?.message || error.message || 'Registration failed';
     throw new Error(message);
   }
 };

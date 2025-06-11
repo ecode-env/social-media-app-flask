@@ -7,13 +7,11 @@ import { useAuth } from '../context/AuthContext.jsx';
 import './MainLayout.css';
 
 const MainLayout = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const handleRegister = () => navigate('/register');
-  const handleLogin = () => navigate('/login');
-  const hideSidebar = ['/login', '/register','/messages'].includes(location.pathname);
-  const { user } = useAuth();
-  const currentUser = user;
+    const navigate = useNavigate();
+    const { user } = useAuth();
+
+    const handleRegister = () => navigate('/register');
+    const handleLogin = () => navigate('/login');
 
   return (
       <div className="layout">

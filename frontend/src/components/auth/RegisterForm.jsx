@@ -78,7 +78,7 @@ const RegisterForm = () => {
 
     try {
       const { confirmPassword, ...registrationData } = formData;
-      
+      console.log('Calling register function with:', registrationData);
       const result = await register(registrationData);
 
       navigate('/');

@@ -56,8 +56,13 @@ const LoginForm = () => {
     setIsLoading(true);
 
     try {
-      const { user } = await login(formData.email, formData.password);
-      navigate('/home');
+      console.log('Calling login function');
+      const response = await login(formData.email, formData.password);
+      console.log('Login response:', response);
+      setUser(response.user);
+      console.log('Navigating to /home');
+      navigate('/home', { replace: true });
+      console.log('Navigation called');
     } catch (error) {
       console.error('Login error:', error);
       setErrors({ 

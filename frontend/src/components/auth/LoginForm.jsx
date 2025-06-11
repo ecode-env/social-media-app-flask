@@ -45,9 +45,14 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) return;
-    
+    console.log('Form submitted, preventing default');
+
+    if (!validateForm()) {
+      console.log('Validation failed:', errors);
+      return;
+    }
+
+    console.log('Starting login process with:', formData);
     setIsLoading(true);
     
     try {

@@ -19,6 +19,9 @@ const getInitialFormData = (profile) => ({
 
 const EditProfilePage = () => {
     const navigate = useNavigate();
+    const { user } = useAuth();
+    const { profile, loading, error } = useProfile(user?.username);
+
     const [formData, setFormData] = useState({
         fullName: 'John Doe',
         username: 'johndoe',

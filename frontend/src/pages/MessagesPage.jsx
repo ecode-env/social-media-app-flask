@@ -3,8 +3,13 @@ import { Send, LucideCircleEllipsis, ChevronLeft, Check, CheckCheck, PencilLine 
 import './MessagesPage.css';
 
 const MessagesPage = () => {
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [newMessage, setNewMessage] = useState('');
+  // Mock data
+  const conversations = [
+    { id: 1, name: 'Alex Johnson', lastMessage: 'See you tomorrow!', time: '10:30 AM', unread: 2 },
+    { id: 2, name: 'Marketing Team', lastMessage: 'New campaign approved', time: 'Yesterday', unread: 0 },
+    { id: 3, name: 'Sarah Miller', lastMessage: 'Thanks for your help!', time: 'Wed', unread: 5 },
+    { id: 4, name: 'David Wilson', lastMessage: 'Meeting notes attached', time: 'Tue', unread: 0 },
+  ];
 
   const messages = [
     {

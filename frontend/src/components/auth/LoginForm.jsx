@@ -45,7 +45,6 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted, preventing default');
 
     if (!validateForm()) {
       console.log('Validation failed:', errors);

@@ -161,13 +161,16 @@ const PostList = ({ filterByUser = false, userId = null }) => {
                                 <h3 className="post-title">{post.title}</h3>
                             </Link>
                             <p className="post-excerpt">
-                                {post.content.length > 150
-                                    ? `${post.content.substring(0, 150)}... `
-                                    : post.content
-                                }
-                                <Link to={`/posts/${post.id}`} className="read-more">
-                                    Read more
-                                </Link>
+                                {post.content.length > 150 ? (
+                                    <>
+                                        {post.content.substring(0, 150)}...
+                                        <Link to={`/posts/${post.id}`} className="read-more">
+                                            Read more
+                                        </Link>
+                                    </>
+                                ) : (
+                                    post.content
+                                )}
                             </p>
                         </div>
 

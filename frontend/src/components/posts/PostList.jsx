@@ -140,12 +140,21 @@ const PostList = ({ filterByUser = false, userId = null }) => {
                                 alt={post.fullName || 'Deleted Account'}
                                 className="author-avatar"
                             />
-                            <div className="post-meta">
-                                <h4 className="author-name">{post.fullName || 'Deleted Account'}</h4>
-                                <time className="post-date">
-                                    {new Date(post.created_at).toLocaleDateString()}
-                                </time>
-                            </div>
+                            {post.author ? (
+                                <Link to={post.author ? `/user/${post.author}` : '#'} className="post-meta">
+                                    <h4 className="author-name">
+                                        {post.fullName || 'Deleted Account'}
+                                    </h4>
+                                    <span className="author-username">@{post.author || "Unknown"}</span>
+                                    <time className="post-date">
+                                        {new Date(post.created_at).toLocaleDateString()}
+                                    </time>
+                                </Link>
+                            ) :
+                                <h4 className="author-name">
+                                    {post.fullName || 'Deleted Account'}
+                                </h4>
+                            }
                         </div>
                         <div className="post-content">
                             <Link to={`/posts/${post.id}`} className="post-title-link">

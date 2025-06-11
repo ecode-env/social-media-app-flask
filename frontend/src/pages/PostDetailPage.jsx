@@ -134,7 +134,7 @@ const PostDetailPage = () => {
                 className="author-avatar"
             />
             <div className="post-meta">
-              <h4 className="author-name">{post.fullName}</h4>
+              <Link to={post.author ? `/user/${post.author}` : '#'} className="author-name">{post.fullName}</Link>
               <time className="post-date">
                 {new Date(post.created_at).toLocaleDateString()}
               </time>

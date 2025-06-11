@@ -70,6 +70,7 @@ const LoginForm = () => {
         form: error.message || 'Invalid email or password. Please try again.'
       });
     } finally {
+      console.log('Setting isLoading to false');
       setIsLoading(false);
     }
   };

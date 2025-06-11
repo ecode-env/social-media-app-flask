@@ -85,6 +85,7 @@ const RegisterForm = () => {
       console.log('Navigating to /home');
       navigate('/home', { replace: true });
     } catch (error) {
+      console.error('Registration error:', error.message, error);
       setErrors({
         ...errors, 
         form: error.message || 'Registration failed. Please try again.'

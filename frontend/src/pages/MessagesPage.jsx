@@ -74,10 +74,7 @@ const MessagesPage = () => {
     }
   };
 
-    // Update the messages array
-    messages.splice(0, messages.length, ...updatedMessages);
-    setNewMessage('');
-  };
+  const isMobile = windowWidth < 768;
 
   return (
       <div className="messages-page">

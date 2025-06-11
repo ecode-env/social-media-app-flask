@@ -177,7 +177,7 @@ const MessagesPage = () => {
                 >
                   <Send size={20} />
                 </button>
-              </form>
+              </div>
             </div>
         ) : (
             <div className="no-conversation">

@@ -43,7 +43,7 @@ const RegisterForm = () => {
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
     }
-    
+
     if (!formData.f_name.trim()) {
       newErrors.f_name = 'First name is required';
     }

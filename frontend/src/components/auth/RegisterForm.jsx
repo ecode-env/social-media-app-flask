@@ -6,6 +6,7 @@ import Button from '../common/Button.jsx';
 import { register } from '../../services/authService.js';
 
 const RegisterForm = () => {
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',

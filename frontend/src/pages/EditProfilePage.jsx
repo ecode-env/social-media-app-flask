@@ -158,8 +158,8 @@ const EditProfilePage = () => {
                     <Button type="button" variant="ghost" onClick={() => navigate('/profile')}>
                         Cancel
                     </Button>
-                    <Button type="submit" variant="primary">
-                        Save Changes
+                    <Button type="submit" variant="primary" disabled={submitting}>
+                        {submitting ? "Saving..." : "Save Changes"}
                     </Button>
                 </div>
             </form>

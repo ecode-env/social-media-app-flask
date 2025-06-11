@@ -4,7 +4,9 @@ import { useAuth } from '../context/AuthContext.jsx';
 import './HomePage.css';
 
 const HomePage = () => {
-  return (
+    const { user } = useAuth();
+
+    return (
     <div className="home-page">
       <section className="posts-section">
         <h2>Recent Posts</h2>

@@ -214,6 +214,21 @@
   color: red;
 }
 
+.author-username {
+  color: #555;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  display: inline-block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s;
+}
+
+.author-username:hover {
+  color: #ddd;
+  cursor: pointer;
+}
+
 /* Responsive adjustments for post-card and images */
 @media (max-width: 1024px) {
   .post-card {

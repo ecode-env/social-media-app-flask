@@ -61,27 +61,18 @@ const MessagesPage = () => {
     setMessageInput('');
     setIsTyping(true);
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!newMessage.trim()) return;
+    // Simulate typing indicator and reply
+    setTimeout(() => {
+      setIsTyping(false);
+    }, 2000);
+  };
 
-    const updatedMessages = messages.map(msg => {
-      if (msg.id === selectedUser.id) {
-        return {
-          ...msg,
-          conversation: [
-            ...msg.conversation,
-            {
-              id: msg.conversation.length + 1,
-              text: newMessage,
-              sent: true,
-              time: 'Just now'
-            }
-          ]
-        };
-      }
-      return msg;
-    });
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
 
     // Update the messages array
     messages.splice(0, messages.length, ...updatedMessages);

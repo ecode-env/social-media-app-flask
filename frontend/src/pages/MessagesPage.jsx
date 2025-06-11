@@ -170,7 +170,11 @@ const MessagesPage = () => {
                 placeholder="Type a message..."
                 rows="1"
             />
-                <button type="submit" className="send-button" disabled={!newMessage.trim()}>
+                <button
+                    className="send-button"
+                    onClick={handleSendMessage}
+                    disabled={messageInput.trim() === ''}
+                >
                   <Send size={20} />
                 </button>
               </form>

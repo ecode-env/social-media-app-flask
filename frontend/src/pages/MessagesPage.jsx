@@ -157,7 +157,9 @@ const MessagesPage = () => {
                         </div>
                       </div>
                     </div>
-                ))}
+                )}
+
+                <div ref={messagesEndRef} />
               </div>
 
               <form className="message-input" onSubmit={handleSendMessage}>

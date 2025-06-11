@@ -164,8 +164,9 @@ const MessagesPage = () => {
 
               <div className="message-input-container">
             <textarea
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
+                value={messageInput}
+                onChange={(e) => setMessageInput(e.target.value)}
+                onKeyPress={handleKeyPress}
                 placeholder="Type a message..."
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {

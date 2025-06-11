@@ -6,9 +6,10 @@ export const login = async (email, password) => {
     const { user, access_token } = response.data;
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', access_token);
-    return  response.data;
-  } catch (e) {
-    throw e;
+    return response.data;
+  } catch (error) {
+    const message = error.response?.data?.message || error.message || 'Login failed';
+    throw new Error(message);
   }
 };
 

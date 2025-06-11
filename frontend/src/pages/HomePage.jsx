@@ -9,8 +9,15 @@ const HomePage = () => {
     return (
     <div className="home-page">
       <section className="posts-section">
-        <h2>Recent Posts</h2>
-        <PostList />
+          {user ? (
+              <>
+                  <p>Hello, @{user.username}!</p>
+              </>
+          ) : (
+              <p>Please log in to view your profile.</p>
+          )}
+          <h2>Recent Posts</h2>
+          <PostList />
       </section>
     </div>
   );

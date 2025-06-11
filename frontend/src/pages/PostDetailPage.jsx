@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import { Heart, Send } from 'lucide-react';
 import Button from '../components/common/Button';
 import './PostDetailPage.css';

@@ -77,56 +77,56 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login to Your Account</h2>
-        
-        {errors.form && <div className="form-error">{errors.form}</div>}
-        
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            className={errors.email ? 'error' : ''}
-          />
-          {errors.email && <div className="error-message">{errors.email}</div>}
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter your password"
-            className={errors.password ? 'error' : ''}
-          />
-          {errors.password && <div className="error-message">{errors.password}</div>}
-        </div>
-        
-        <div className="form-actions">
-          <Button 
-            type="submit" 
-            variant="primary"
-            fullWidth
-            disabled={isLoading}
-          >
-            {isLoading ? 'Logging in...' : 'Login'}
-          </Button>
-        </div>
-        
-        <div className="form-footer">
-          <p>Don't have an account? <a href="/register">Register</a></p>
-        </div>
-      </form>
-    </div>
+      <div className="login-form-container">
+        <form className="login-form" onSubmit={handleSubmit} action="javascript:void(0)">
+          <h2>Login to Your Account</h2>
+
+          {errors.form && <div className="form-error">{errors.form}</div>}
+
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className={errors.email ? 'error' : ''}
+            />
+            {errors.email && <div className="error-message">{errors.email}</div>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                className={errors.password ? 'error' : ''}
+            />
+            {errors.password && <div className="error-message">{errors.password}</div>}
+          </div>
+
+          <div className="form-actions">
+            <Button
+                type="submit"
+                variant="primary"
+                fullWidth
+                disabled={isLoading}
+            >
+              {isLoading ? 'Logging in...' : 'Login'}
+            </Button>
+          </div>
+
+          <div className="form-footer">
+            <p>Don't have an account? <Link to="/register">Register</Link></p>
+          </div>
+        </form>
+      </div>
   );
 };
 

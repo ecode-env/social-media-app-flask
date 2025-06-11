@@ -17,8 +17,6 @@ export const register = async (userData) => {
   try {
     const response = await api.post('/auth/register', userData);
     const { user, access_token } = response.data;
-
-    // Store user data and token in localStorage
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', access_token);
 

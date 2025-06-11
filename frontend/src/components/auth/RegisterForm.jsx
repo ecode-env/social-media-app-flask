@@ -87,7 +87,6 @@ const RegisterForm = () => {
         form: error.message || 'Registration failed. Please try again.'
       });
     } finally {
-      console.log('Setting isLoading to false');
       setIsLoading(false);
     }
   };

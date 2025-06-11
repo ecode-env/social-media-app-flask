@@ -19,7 +19,6 @@ export const register = async (userData) => {
     const { user, access_token } = response.data;
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', access_token);
-
     return { user, access_token };
   } catch (error) {
     const message =

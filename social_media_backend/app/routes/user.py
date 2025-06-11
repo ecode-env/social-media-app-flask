@@ -1,4 +1,5 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify,request
+from ..extensions import db
 from ..models.like import Like
 from ..models.post import Post
 from ..models.user import User
@@ -62,3 +63,43 @@ def get_user_profile(username):
         "following": following,
         "liked_post_ids": liked_post_ids,
     })
+
+
+       # Edit profile
+@users_bp.route('/<username>', methods=['PUT'])
+@jwt_required()
+def update_user(username):
+    print(f"PUT /{username} called")
+    print("Request Headers:", dict(request.headers))
+    print("Request JSON:", request.get_json())
+    current_user = User.query.filter_by(username=username).first_or_404()
+    data = request.get_json()
+
+
+
+
+    new_username = data.get('username')
+    if new_username and new_username != current_user.username:
+        # Check if new username already exists
+        if User.query.filter_by(username=new_username).first():
+            return jsonify({'message': 'Username already taken'}), 409
+
+        current_user.username = new_username
+
+    # Update other fields as needed
+    current_user.email = data.get('email', current_user.email)
+    current_user.f_name = data.get('f_name', current_user.f_name)
+    current_user.l_name = data.get('l_name', current_user.l_name)
+    current_user.bio = data.get('bio', current_user.bio)
+    current_user.profile_picture_url = data.get('profile_picture_url', current_user.profile_picture_url)
+
+    db.session.commit()
+
+    return jsonify({
+        'message': 'User updated successfully',
+        'user': {
+            'username': current_user.username,
+            'email': current_user.email,
+            'full_name': f'{current_user.f_name} {current_user.l_name}',
+        }
+    }), 200

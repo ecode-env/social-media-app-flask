@@ -79,7 +79,6 @@ const RegisterForm = () => {
       const { confirmPassword, ...registrationData } = formData;
       const result = await register(registrationData);
       setUser(result.user);
-      console.log('Navigating to /home');
       navigate('/home', { replace: true });
     } catch (error) {
       console.error('Registration error:', error.message, error);

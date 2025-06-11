@@ -98,11 +98,11 @@ const MessagesPage = () => {
                     className={`conversation ${selectedConversation === conv.id ? 'active' : ''}`}
                     onClick={() => setSelectedConversation(conv.id)}
                 >
-                  <img src={message.avatar} alt={message.user} className="message-avatar" />
-                  <div className="message-content">
-                    <div className="message-header">
-                      <strong>{message.user}</strong>
-                      <span className="message-time">{message.time}</span>
+                  <div className="avatar"></div>
+                  <div className="conversation-info">
+                    <div className="conversation-header">
+                      <h3>{conv.name}</h3>
+                      <span className="time">{conv.time}</span>
                     </div>
                     <p className="message-text">{message.lastMessage}</p>
                   </div>

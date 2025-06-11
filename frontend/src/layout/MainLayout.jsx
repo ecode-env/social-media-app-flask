@@ -2,8 +2,6 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/common/Header.jsx';
-import { Bell, MessageSquare, UserCircle, PlusSquare, Home, LogIn } from 'lucide-react';
-import './MainLayout.css';
 import Button from "../components/common/Button.jsx";
 import { useAuth } from '../context/AuthContext.jsx'
 

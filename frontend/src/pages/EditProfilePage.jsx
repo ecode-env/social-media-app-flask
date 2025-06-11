@@ -23,11 +23,12 @@ const EditProfilePage = () => {
     const { profile, loading, error } = useProfile(user?.username);
 
     const [formData, setFormData] = useState({
-        fullName: 'John Doe',
-        username: 'johndoe',
-        bio: 'Software developer passionate about web technologies',
-        email: 'john@example.com',
-        avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg'
+        f_name: '',
+        l_name: '',
+        username: '',
+        bio: '',
+        email: '',
+        profile_picture_url: ''
     });
 
     const handleSubmit = async (e) => {

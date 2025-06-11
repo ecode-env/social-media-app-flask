@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.jsx';
 import './RegisterForm.css';
 import Button from '../common/Button.jsx';
 import { register } from '../../services/authService.js';

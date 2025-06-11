@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { editProfile, fetchProfile } from "../services/profileService";
 
 const useProfile = (username) => {
-    const [profile, setProfile] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [ profile, setProfile ] = useState(null);
+    const [ loading, setLoading] = useState(true);
+    const [ error, setError] = useState(null);
 
     useEffect(() => {
         if (!username) {

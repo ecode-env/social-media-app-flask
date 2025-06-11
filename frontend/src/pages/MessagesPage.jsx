@@ -11,33 +11,55 @@ const MessagesPage = () => {
     { id: 4, name: 'David Wilson', lastMessage: 'Meeting notes attached', time: 'Tue', unread: 0 },
   ];
 
-  const messages = [
-    {
-      id: 1,
-      user: 'John Doe',
-      avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg',
-      lastMessage: 'Hey, how are you?',
-      time: '2 hours ago',
-      conversation: [
-        { id: 1, text: 'Hey, how are you?', sent: false, time: '2 hours ago' },
-        { id: 2, text: 'I\'m good, thanks! How about you?', sent: true, time: '2 hours ago' },
-        { id: 3, text: 'Great! Did you see the new project requirements?', sent: false, time: '1 hour ago' },
-        { id: 4, text: 'Yes, I\'m working on them now', sent: true, time: '1 hour ago' }
-      ]
-    },
-    {
-      id: 2,
-      user: 'Jane Smith',
-      avatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg',
-      lastMessage: 'The project looks great!',
-      time: '5 hours ago',
-      conversation: [
-        { id: 1, text: 'Hi, I reviewed your latest changes', sent: false, time: '5 hours ago' },
-        { id: 2, text: 'The project looks great!', sent: false, time: '5 hours ago' },
-        { id: 3, text: 'Thank you! I spent a lot of time on it', sent: true, time: '4 hours ago' }
-      ]
-    }
-  ];
+  const messages = {
+    1: [
+      { id: 1, text: 'Hey there! How are you doing?', sender: 'them', time: '10:15 AM', status: 'read' },
+      { id: 2, text: "I'm good! Just working on the project", sender: 'me', time: '10:18 AM', status: 'read' },
+      { id: 3, text: 'Want to grab lunch tomorrow?', sender: 'them', time: '10:20 AM', status: 'read' },
+      { id: 4, text: 'Sure, 12:30 at the usual place?', sender: 'me', time: '10:22 AM', status: 'delivered' },
+      { id: 5, text: 'Perfect! See you tomorrow!', sender: 'them', time: '10:30 AM', status: 'read' },
+    ],
+    2: [
+      { id: 1, text: 'The new campaign has been approved', sender: 'them', time: '3:45 PM', status: 'read' },
+      { id: 2, text: "Great news! I'll start implementation", sender: 'me', time: '4:20 PM', status: 'read' },
+    ],
+  };
+
+  const [selectedConversation, setSelectedConversation] = useState(null);
+  const [messageInput, setMessageInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      // Auto-close conversation list on mobile when screen is large
+      if (window.innerWidth >= 768 && selectedConversation) {
+        setSelectedConversation(null);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [selectedConversation]);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    scrollToBottom();
+  }, [selectedConversation, messages]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSendMessage = () => {
+    if (messageInput.trim() === '') return;
+
+    // In a real app, this would send to a backend
+    setMessageInput('');
+    setIsTyping(true);
 
   const handleSendMessage = (e) => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 /* Container for the full profile page */
 .profile-page {
   padding: var(--spacing-4);
-  max-width: 800px;
+  max-width: 670px;
   margin: 0 auto;
 }
 

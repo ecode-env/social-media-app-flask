@@ -3,6 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/common/Button';
 import FileUpload from '../components/common/FileUpload';
 import './EditProfilePage.css';
+import { useProfile } from "../hooks/useProfile.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
+import { notifySuccess, notifyError } from "../utils/toast.js";
+import { editProfile } from "../services/profileService.js";
+
+const getInitialFormData = (profile) => ({
+    f_name: profile?.user?.f_name || '',
+    l_name: profile?.user?.l_name || '',
+    username: profile?.user?.username || '',
+    bio: profile?.user?.bio || '',
+    email: profile?.user?.email || '',
+    profile_picture_url: profile?.user?.profile_picture_url || ''
+});
 
 const EditProfilePage = () => {
     const navigate = useNavigate();

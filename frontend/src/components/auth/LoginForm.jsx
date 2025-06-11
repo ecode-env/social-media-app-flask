@@ -65,7 +65,6 @@ const LoginForm = () => {
       });
     } finally {
       setIsLoading(false);
-      console.log('Form submission completed');
     }
   };
 

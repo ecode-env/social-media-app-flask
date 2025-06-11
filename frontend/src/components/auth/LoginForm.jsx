@@ -56,7 +56,6 @@ const LoginForm = () => {
     try {
       const response = await login(formData.email, formData.password);
       setUser(response.user);
-      console.log('Navigating to /home');
       navigate('/home', { replace: true });
       console.log('Navigation called');
     } catch (error) {

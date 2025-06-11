@@ -52,9 +52,10 @@ const EditProfilePage = () => {
         }
 
         try {
-            // Here you would typically make an API call to update the profile
-            console.log('Profile updated:', formData);
-            navigate('/profile');
+            setSubmitting(true);
+            const res = await editProfile(user?.username,formData);
+            notifySuccess(res.message || 'Profile updated!');
+            navigate(`/user/${formData.username}`);
         } catch (error) {
             console.error('Error updating profile:', error);
         }

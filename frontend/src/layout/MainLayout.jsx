@@ -12,7 +12,7 @@ const MainLayout = () => {
   const location = useLocation();
   const handleRegister = () => navigate('/register');
   const handleLogin = () => navigate('/login');
-  const hideSidebar = ['/login', '/register'].includes(location.pathname);
+  const hideSidebar = ['/login', '/register','/messages'].includes(location.pathname);
   const { user } = useAuth();
   const currentUser = user;
 

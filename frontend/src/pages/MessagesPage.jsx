@@ -162,7 +162,7 @@ const MessagesPage = () => {
                 <div ref={messagesEndRef} />
               </div>
 
-              <form className="message-input" onSubmit={handleSendMessage}>
+              <div className="message-input-container">
             <textarea
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}

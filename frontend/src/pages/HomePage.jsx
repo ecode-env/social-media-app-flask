@@ -1,5 +1,6 @@
 import React from 'react';
 import PostList from '../components/posts/PostList.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import './HomePage.css';
 
 const HomePage = () => {

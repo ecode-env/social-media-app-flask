@@ -1,65 +1,177 @@
 .edit-profile-page {
     max-width: 600px;
     margin: 0 auto;
-    padding: var(--spacing-3);
-}
-
-.edit-profile-page h1 {
-    margin-bottom: var(--spacing-4);
-}
-
-.edit-profile-form {
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
     padding: var(--spacing-4);
 }
 
+.edit-profile-page h1 {
+    margin-bottom: var(--spacing-5);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-align: center;
+}
+
+.edit-profile-form {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: var(--spacing-5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-section {
+    margin-bottom: var(--spacing-4);
+}
+
+.form-section:last-of-type {
+    margin-bottom: var(--spacing-5);
+}
+
 .form-group {
-    margin-bottom: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
 }
 
 .form-group label {
     display: block;
-    margin-bottom: var(--spacing-1);
-    font-weight: 500;
+    margin-bottom: var(--spacing-2);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: var(--spacing-2);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background-color: var(--color-background);
+    padding: var(--spacing-3);
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-background-alt);
     color: var(--color-text);
     font-family: var(--font-family);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 100px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
+    background-color: var(--color-background);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+.profile-picture-section {
+    text-align: center;
+    margin-bottom: var(--spacing-5);
+    padding: var(--spacing-4);
+    background: var(--color-background-alt);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.profile-picture-section label {
+    margin-bottom: var(--spacing-3);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
 }
 
 .form-actions {
     display: flex;
-    gap: var(--spacing-2);
-    justify-content: flex-end;
-    margin-top: var(--spacing-4);
+    gap: var(--spacing-3);
+    justify-content: center;
+    margin-top: var(--spacing-5);
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--color-border);
 }
 
+.form-actions .button {
+    min-width: 140px;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.form-actions .button.primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+}
+
+.form-actions .button.primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
+}
+
+.form-actions .button.ghost {
+    background: transparent;
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.form-actions .button.ghost:hover:not(:disabled) {
+    background: var(--color-background-alt);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .edit-profile-page {
-        padding: var(--spacing-2);
+        padding: var(--spacing-3);
+    }
+
+    .edit-profile-form {
+        padding: var(--spacing-4);
+        border-radius: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .button {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-profile-page h1 {
+        font-size: 1.75rem;
     }
 
     .edit-profile-form {
         padding: var(--spacing-3);
     }
+
+    .profile-picture-section {
+        padding: var(--spacing-3);
+    }
+}
+
+/* Dark theme adjustments */
+.app.dark .edit-profile-form {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.app.dark .form-actions .button.primary {
+    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);
+}
+
+.app.dark .form-actions .button.primary:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(45, 212, 191, 0.5);
 }

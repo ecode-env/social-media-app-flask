@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, Link, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate} from 'react-router-dom';
 import { Moon, Sun, Bell, MessageSquare, UserCircle, PlusSquare,Home, LogOut } from 'lucide-react';
 import './Header.css';
 import { useTheme } from '../../hooks/useTheme.jsx';

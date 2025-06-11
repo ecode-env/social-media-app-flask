@@ -93,15 +93,30 @@ const EditProfilePage = () => {
 
                 <div className="form-section">
                     <div className="form-group">
-                        <label htmlFor="fullName">Full Name</label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            placeholder="Enter your full name"
-                        />
+                        <div className='form-group-name'>
+                            <label htmlFor="f_name">First Name</label>
+                            <input
+                                type="text"
+                                id="f_name"
+                                name="f_name"
+                                value={formData.f_name}
+                                onChange={handleChange}
+                                placeholder="Enter your first name"
+                                required
+                            />
+                        </div>
+                        <div className='form-group-name'>
+                            <label htmlFor="l_name">Last Name</label>
+                            <input
+                                type="text"
+                                id="l_name"
+                                name="l_name"
+                                value={formData.l_name}
+                                onChange={handleChange}
+                                placeholder="Enter your last name"
+                                required
+                            />
+                        </div>
                     </div>
 
                     <div className="form-group">

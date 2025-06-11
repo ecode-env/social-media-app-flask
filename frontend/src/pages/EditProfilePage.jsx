@@ -70,7 +70,7 @@ const EditProfilePage = () => {
     };
 
     const handleAvatarUpload = (imageUrl) => {
-        setFormData(prev => ({ ...prev, avatar: imageUrl }));
+        setFormData(prev => ({ ...prev, profile_picture_url: imageUrl }));
     };
 
     const handleAvatarRemove = () => {

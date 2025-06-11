@@ -64,10 +64,10 @@ const LoginForm = () => {
       navigate('/home', { replace: true });
       console.log('Navigation called');
     } catch (error) {
-      console.error('Login error:', error);
-      setErrors({ 
-        ...errors, 
-        form: error.message || 'Invalid credentials. Please try again.' 
+      console.error('Login error:', error.message, error);
+      setErrors({
+        ...errors,
+        form: error.message || 'Invalid email or password. Please try again.'
       });
     } finally {
       setIsLoading(false);

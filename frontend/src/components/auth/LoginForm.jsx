@@ -55,7 +55,6 @@ const LoginForm = () => {
 
     try {
       const response = await login(formData.email, formData.password);
-      console.log('Login response:', response);
       setUser(response.user);
       console.log('Navigating to /home');
       navigate('/home', { replace: true });

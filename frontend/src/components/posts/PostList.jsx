@@ -172,6 +172,7 @@ const PostList = ({ filterByUser = false, userId = null }) => {
                                     post.content
                                 )}
                             </p>
+
                         </div>
 
                         {post.media_url && post.media_type === 'image' && (

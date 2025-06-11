@@ -13,7 +13,6 @@ export const login = async (email, password) => {
   }
 };
 
-// Register function
 export const register = async (userData) => {
   try {
     const response = await api.post('/auth/register', userData);

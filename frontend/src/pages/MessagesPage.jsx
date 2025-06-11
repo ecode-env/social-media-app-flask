@@ -104,12 +104,48 @@ const MessagesPage = () => {
                       <h3>{conv.name}</h3>
                       <span className="time">{conv.time}</span>
                     </div>
-                    <p className="message-text">{message.lastMessage}</p>
+                    <p className="last-message">{conv.lastMessage}</p>
                   </div>
+                  {conv.unread > 0 && <span className="unread-badge">{conv.unread}</span>}
                 </div>
             ))}
           </div>
         </div>
+
+        {/* Chat Area - Conditionally shown */}
+        {selectedConversation ? (
+            <div className="chat-area">
+              <div className="chat-header">
+                {isMobile && (
+                    <button className="back-button" onClick={() => setSelectedConversation(null)}>
+                      <ChevronLeft size={24} />
+                    </button>
+                )}
+                <div className="chat-info">
+                  <div className="avatar"></div>
+                  <h2>{conversations.find(c => c.id === selectedConversation)?.name}</h2>
+                </div>
+                <button className="icon-button">
+                  <LucideCircleEllipsis size={20} />
+                </button>
+              </div>
+
+              <div className="messages-container">
+                {messages[selectedConversation]?.map(msg => (
+                    <div key={msg.id} className={`message ${msg.sender}`}>
+                      <div className="message-content">
+                        <p>{msg.text}</p>
+                        <div className="message-meta">
+                          <span className="time">{msg.time}</span>
+                          {msg.sender === 'me' && (
+                              <span className="status-icon">
+                        {msg.status === 'read' ? <CheckCheck size={14} /> : <Check size={14} />}
+                      </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                ))}
 
         {selectedUser ? (
             <div className="conversation">

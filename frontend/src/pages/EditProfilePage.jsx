@@ -126,8 +126,7 @@ const EditProfilePage = () => {
                             id="username"
                             name="username"
                             value={formData.username}
-                            onChange={handleChange}
-                            placeholder="Enter your username"
+                            disabled
                         />
                     </div>
 

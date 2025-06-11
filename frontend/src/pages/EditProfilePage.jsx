@@ -31,6 +31,17 @@ const EditProfilePage = () => {
         profile_picture_url: ''
     });
 
+    const [submitting, setSubmitting] = useState(false);
+
+    useEffect(() => {
+        if (profile) {
+            setFormData(getInitialFormData(profile));
+        }
+    }, [profile]);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

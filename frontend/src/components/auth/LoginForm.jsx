@@ -72,6 +72,7 @@ const LoginForm = () => {
     } finally {
       console.log('Setting isLoading to false');
       setIsLoading(false);
+      console.log('Form submission completed');
     }
   };
 

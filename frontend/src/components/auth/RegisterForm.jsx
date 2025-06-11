@@ -67,7 +67,6 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Register form submitted');
 
     if (!validateForm()) {
       console.log('Validation failed:', errors);

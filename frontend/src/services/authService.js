@@ -1,6 +1,5 @@
 import api from './api.js';
 
-// Login function
 export const login = async (email, password) => {
   try {
     const response = await api.post('auth/login', {email, password});

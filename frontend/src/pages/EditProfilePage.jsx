@@ -44,6 +44,13 @@ const EditProfilePage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Simple client-side validation
+        if (!formData.f_name.trim() || !formData.l_name.trim() || !formData.email.trim()) {
+            notifyError("First name, last name, and email are required.");
+            return;
+        }
+
         try {
             // Here you would typically make an API call to update the profile
             console.log('Profile updated:', formData);

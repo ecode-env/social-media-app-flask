@@ -47,7 +47,7 @@ const RegisterForm = () => {
     if (!formData.f_name.trim()) {
       newErrors.f_name = 'First name is required';
     }
-    
+
     if (!formData.l_name.trim()) {
       newErrors.l_name = 'Last name is required';
     }

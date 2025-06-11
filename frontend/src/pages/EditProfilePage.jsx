@@ -74,7 +74,7 @@ const EditProfilePage = () => {
     };
 
     const handleAvatarRemove = () => {
-        setFormData(prev => ({ ...prev, avatar: '' }));
+        setFormData(prev => ({ ...prev, profile_picture_url: '' }));
     };
 
     return (

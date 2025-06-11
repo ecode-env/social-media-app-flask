@@ -75,7 +75,7 @@ const RegisterForm = () => {
     }
 
     setIsLoading(true);
-    
+
     try {
       // Prepare data for registration (exclude confirmPassword)
       const { confirmPassword, ...registrationData } = formData;

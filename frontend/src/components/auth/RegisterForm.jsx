@@ -14,6 +14,7 @@ const RegisterForm = () => {
     f_name: '',
     l_name: ''
   });
+
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();

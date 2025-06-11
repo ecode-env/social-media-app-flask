@@ -97,114 +97,114 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="register-form-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Create an Account</h2>
-        
-        {errors.form && <div className="form-error">{errors.form}</div>}
-        
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="f_name">First Name</label>
-            <input
-              type="text"
-              id="f_name"
-              name="f_name"
-              value={formData.f_name}
-              onChange={handleChange}
-              placeholder="First name"
-              className={errors.f_name ? 'error' : ''}
-            />
-            {errors.f_name && <div className="error-message">{errors.f_name}</div>}
+      <div className="register-form-container">
+        <form className="register-form" onSubmit={handleSubmit}>
+          <h2>Create an Account</h2>
+
+          {errors.form && <div className="form-error">{errors.form}</div>}
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="f_name">First Name</label>
+              <input
+                  type="text"
+                  id="f_name"
+                  name="f_name"
+                  value={formData.f_name}
+                  onChange={handleChange}
+                  placeholder="First name"
+                  className={errors.f_name ? 'error' : ''}
+              />
+              {errors.f_name && <div className="error-message">{errors.f_name}</div>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="l_name">Last Name</label>
+              <input
+                  type="text"
+                  id="l_name"
+                  name="l_name"
+                  value={formData.l_name}
+                  onChange={handleChange}
+                  placeholder="Last name"
+                  className={errors.l_name ? 'error' : ''}
+              />
+              {errors.l_name && <div className="error-message">{errors.l_name}</div>}
+            </div>
           </div>
-          
+
           <div className="form-group">
-            <label htmlFor="l_name">Last Name</label>
+            <label htmlFor="username">Username</label>
             <input
-              type="text"
-              id="l_name"
-              name="l_name"
-              value={formData.l_name}
-              onChange={handleChange}
-              placeholder="Last name"
-              className={errors.l_name ? 'error' : ''}
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Choose a username"
+                className={errors.username ? 'error' : ''}
             />
-            {errors.l_name && <div className="error-message">{errors.l_name}</div>}
+            {errors.username && <div className="error-message">{errors.username}</div>}
           </div>
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Choose a username"
-            className={errors.username ? 'error' : ''}
-          />
-          {errors.username && <div className="error-message">{errors.username}</div>}
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            className={errors.email ? 'error' : ''}
-          />
-          {errors.email && <div className="error-message">{errors.email}</div>}
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Create a password"
-            className={errors.password ? 'error' : ''}
-          />
-          {errors.password && <div className="error-message">{errors.password}</div>}
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm your password"
-            className={errors.confirmPassword ? 'error' : ''}
-          />
-          {errors.confirmPassword && <div className="error-message">{errors.confirmPassword}</div>}
-        </div>
-        
-        <div className="form-actions">
-          <Button 
-            type="submit" 
-            variant="primary"
-            fullWidth
-            disabled={isLoading}
-          >
-            {isLoading ? 'Creating Account...' : 'Register'}
-          </Button>
-        </div>
-        
-        <div className="form-footer">
-          <p>Already have an account? <a href="/login">Login</a></p>
-        </div>
-      </form>
-    </div>
+
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className={errors.email ? 'error' : ''}
+            />
+            {errors.email && <div className="error-message">{errors.email}</div>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Create a password"
+                className={errors.password ? 'error' : ''}
+            />
+            {errors.password && <div className="error-message">{errors.password}</div>}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirm your password"
+                className={errors.confirmPassword ? 'error' : ''}
+            />
+            {errors.confirmPassword && <div className="error-message">{errors.confirmPassword}</div>}
+          </div>
+
+          <div className="form-actions">
+            <Button
+                type="submit"
+                variant="primary"
+                fullWidth
+                disabled={isLoading}
+            >
+              {isLoading ? 'Creating Account...' : 'Register'}
+            </Button>
+          </div>
+
+          <div className="form-footer">
+            <p>Already have an account? <Link to="/login">Login</Link></p>
+          </div>
+        </form>
+      </div>
   );
 };
 

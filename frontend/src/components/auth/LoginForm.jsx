@@ -54,7 +54,6 @@ const LoginForm = () => {
     setIsLoading(true);
 
     try {
-      console.log('Calling login function');
       const response = await login(formData.email, formData.password);
       console.log('Login response:', response);
       setUser(response.user);

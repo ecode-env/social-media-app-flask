@@ -144,3 +144,8 @@
   margin-bottom: var(--spacing-2);
   color: var(--color-text);
 }
+@media (max-width: 640px) {
+  .edit-profile-button span {
+    display:  none;
+  }
+}

@@ -78,10 +78,21 @@ const MessagesPage = () => {
 
   return (
       <div className="messages-page">
-        <div className="messages-list-container">
-          <h2>Messages</h2>
-          <div className="messages-list">
-            {messages.map(message => (
+        {/* Conversation List - Always visible on desktop, conditionally on mobile */}
+        <div className={`conversation-list ${isMobile && selectedConversation ? 'hidden' : ''}`}>
+          <div className="list-header">
+            <h2>Messages</h2>
+            <button className="icon-button">
+              <PencilLine size={20} />
+            </button>
+          </div>
+
+          <div className="conversation-search">
+            <input type="text" placeholder="Search conversations..." />
+          </div>
+
+          <div className="conversations">
+            {conversations.map(conv => (
                 <div
                     key={message.id}
                     className={`message-item ${selectedUser?.id === message.id ? 'active' : ''}`}

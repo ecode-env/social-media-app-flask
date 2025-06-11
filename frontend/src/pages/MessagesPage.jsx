@@ -94,9 +94,9 @@ const MessagesPage = () => {
           <div className="conversations">
             {conversations.map(conv => (
                 <div
-                    key={message.id}
-                    className={`message-item ${selectedUser?.id === message.id ? 'active' : ''}`}
-                    onClick={() => setSelectedUser(message)}
+                    key={conv.id}
+                    className={`conversation ${selectedConversation === conv.id ? 'active' : ''}`}
+                    onClick={() => setSelectedConversation(conv.id)}
                 >
                   <img src={message.avatar} alt={message.user} className="message-avatar" />
                   <div className="message-content">

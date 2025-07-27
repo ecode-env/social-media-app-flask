@@ -12,7 +12,7 @@ file_name = "commit_spam.txt"
 # Get today's date in the right format
 today = datetime.now().strftime("%Y-%m-%d")
 
-for i in range(1, 71):  # 1 to 70
+for i in range(1, 50):  # 1 to 70
     with open(file_name, "a") as file:
         file.write(f"Commit number {i} on {today}\n")
 

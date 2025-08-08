@@ -1,3 +1,4 @@
 import subprocess
 
-subprocess.run(["sudo","apt", "update"])
+subprocess.run(["sudo", "-S", "apt", "update"], input="yeshuajob10\n", text=True)
+
